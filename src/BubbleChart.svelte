@@ -4,6 +4,8 @@
     export let data;
 
     let isHovered = false;
+    let imageLoaded = false;
+    let image;
     let x;
     let y;
     let text = "default";
@@ -11,6 +13,12 @@
     function mouseOver(event) {
         isHovered = true;
         text = event.detail.text;
+        if (event.detail.image !== "no image"){
+            imageLoaded = true
+            image = event.detail.image
+            console.log("image:", image)
+        }
+        console.log(event.detail.image)
 		x = event.detail.event.pageX + 5;
 		y = event.detail.event.pageY + 5;
     }
@@ -65,7 +73,16 @@
 </div>
 
 {#if isHovered}
-	<div style="top: {y}px; left: {x}px;" class="tooltip">Tooltip</div>
+	<div style="top: {y}px; left: {x}px;" class="tooltip">
+        Tooltip
+        {#await image}
+		<p>...waiting</p>
+    	{:then image}
+        <img src={image} alt="here"/>
+    	{:catch error}
+		<p>An error occurred!</p>
+	{/await}
+    </div>
 {/if}
 
 <style>
