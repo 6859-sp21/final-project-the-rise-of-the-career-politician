@@ -3,6 +3,27 @@
     import Bubble from './Bubble.svelte';
     export let data;
 
+    let isHovered = false;
+    let x;
+    let y;
+    let text = "default";
+
+    function mouseOver(event) {
+        isHovered = true;
+        text = event.detail.text;
+		x = event.detail.event.pageX + 5;
+		y = event.detail.event.pageY + 5;
+    }
+
+    function mouseMove(event) {
+        x = event.detail.event.pageX + 5;
+		y = event.detail.event.pageY + 5;
+	}
+
+    function mouseOut(){
+        isHovered = false;
+    }
+
     let n = 50;
     let year = 2019;
     let el;
@@ -33,7 +54,31 @@
 <div>
     <svg width={width} height={height}>
         {#each leaves as d}
-            <Bubble d={d}/>
+            <Bubble 
+                on:mouseover={mouseOver}
+                on:mouseout={mouseOut}
+                on:mousemove={mouseMove}
+                d={d}
+            />
         {/each}
     </svg>
 </div>
+
+{#if isHovered}
+	<div style="top: {y}px; left: {x}px;" class="tooltip">Tooltip</div>
+{/if}
+
+<style>
+    svg {
+        z-index: -1;
+    }
+
+    .tooltip {
+		border: 1px solid #ddd;
+		box-shadow: 1px 1px 1px #ddd;
+		background: white;
+		border-radius: 4px;
+		padding: 4px;
+		position: absolute;
+	}
+</style>
