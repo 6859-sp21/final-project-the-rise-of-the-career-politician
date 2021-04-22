@@ -6,6 +6,7 @@ import { dataset_dev } from "svelte/internal";
                         'Democrat': 'blue'}
 
     function handleClick() {
+        // Could add a tooltip here
         console.log('clicked')
     }
 
@@ -24,8 +25,10 @@ import { dataset_dev } from "svelte/internal";
     on:mouseover={handleHover}
     />
     <text 
-    x = {d.x - d.data.wikipedia.length*2.2} 
+    x = {d.x}
     y = {d.y}
+    text-anchor = "middle"
+    textLength = {1.7*d.r}
     class = 'bubble-text'>{d.data.wikipedia} ({d.data.time_sen_and_house})</text>
 </g>
 
