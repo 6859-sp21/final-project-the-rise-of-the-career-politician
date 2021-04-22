@@ -5,7 +5,7 @@
 	export let name;
 	let users = [];
 	let year = 2019;
-	let n = 20;
+	let n = 50;
 	let data = Promise.all([
 			d3.json('./data/all_congressmen.json'),
 			d3.json('./data/congress_by_year.json'),
