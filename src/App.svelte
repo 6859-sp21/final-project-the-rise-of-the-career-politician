@@ -17,9 +17,6 @@
 		});
 
 	function getLongestServing(data, year, n) {
-		console.log(data)
-		if (data.length == 0)
-			return []
 		return data.congresses[year]
 		 		.sort((x,y) => x['time_sen_and_house'] < y['time_sen_and_house'])
 		 		.slice(0, n)
