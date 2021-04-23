@@ -98,7 +98,17 @@
                 <path
                 stroke=currentColor
                 d={getPath3(b)}></path>
-            </g>
+
+                <g fill=currentColor fill-opacity=.2 stroke=none
+                transform={`translate(${x((b.x0 + b.x1) / 2)}, 0)`}>
+                    {#each b.outliers as o}
+                        <circle
+                        r=2 
+                        cx={(Math.random() - .5) * 4}
+                        cy={y(o.y)}/>
+                    {/each}
+                </g>
+            </g> 
         {/each}
     </svg>
 </div>
