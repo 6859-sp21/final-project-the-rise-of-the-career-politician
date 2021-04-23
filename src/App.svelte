@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import BubbleChart from './BubbleChart.svelte';
+	import Boxplot from './Boxplot.svelte';
 
 	export let name;
 	let data = Promise.all([
@@ -23,6 +24,15 @@
 	{:catch error}
 		<p>An error occurred!</p>
 	{/await}
+	
+	<h1>Boxplot Over Time</h1>
+	{#await data}
+		<p>...waiting</p>
+	{:then data}
+		<Boxplot data={data}/>	
+	{:catch error}
+		<p>An error occurred!</p>
+{/await}
 </main>
 
 <style>
