@@ -15,7 +15,7 @@
 </script>
 
 <main>
-	<h1>The Rise of the Career Politician</h1>
+	<h1>{name}</h1>
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
