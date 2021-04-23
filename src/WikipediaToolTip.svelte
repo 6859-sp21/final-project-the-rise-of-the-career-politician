@@ -1,9 +1,38 @@
+<script>
+	export let message;
+	export let x; 
+	export let y;
+	console.log(message);
+	let image = message.detail.image; 
+	let data = message.detail.data.data;
+	console.log(data);
+</script>
 
-	/* 
-	https://stackoverflow.com/questions/34393884/how-to-get-image-url-property-from-wikidata-item-by-api
+<div style="top: {y}px; left: {x}px;" class="tooltip">
+	{#await image}
+		<p>Loading image</p>
+	{:then image}
+		<img src={image} alt="here" width="100" height="100"/>
+		<h4>{data.official_full}</h4>
+		<ul>
+			<li>Age: {data.age}</li>
+			<li>Cumulative Time in Office: {data.time_sen_and_house}</li>
+			<li>Party: {data.party}</li>
+			<li>Position: {data.type === "sen" ? "Senator" : "Representative"}</li>
+			<li>State: {data.state}</li>
+		</ul>
+	{:catch error}
+		<p>An error occurred!</p>
+	{/await}
+</div>
 
-	1. query entity name https://www.wikidata.org/w/api.php?action=wbgetclaims&property=P18&entity=Q518823&format=json
-	2. take picture value and md5 hash it
-	3. image is at https://upload.wikimedia.org/wikipedia/commons/f/f7/Richard_bassett.jpg
-	f is first digit of md5, f7 are first two, end with name
-	*/
+<style>
+    .tooltip {
+		border: 1px solid #ddd;
+		box-shadow: 1px 1px 1px #ddd;
+		background: white;
+		border-radius: 4px;
+		padding: 4px;
+		position: absolute;
+	}
+</style>

@@ -1,24 +1,18 @@
 <script>
     import { onMount } from 'svelte';
     import Bubble from './Bubble.svelte';
+import WikipediaToolTip from './WikipediaToolTip.svelte';
     export let data;
 
     let isHovered = false;
-    let imageLoaded = false;
-    let image;
+    let message;
     let x;
     let y;
     let text = "default";
 
     function mouseOver(event) {
+        message = event;
         isHovered = true;
-        text = event.detail.text;
-        if (event.detail.image !== "no image"){
-            imageLoaded = true
-            image = event.detail.image
-            console.log("image:", image)
-        }
-        console.log(event.detail.image)
 		x = event.detail.event.pageX + 5;
 		y = event.detail.event.pageY + 5;
     }
@@ -73,29 +67,5 @@
 </div>
 
 {#if isHovered}
-	<div style="top: {y}px; left: {x}px;" class="tooltip">
-        Tooltip
-        {#await image}
-		<p>...waiting</p>
-    	{:then image}
-        <img src={image} alt="here"/>
-    	{:catch error}
-		<p>An error occurred!</p>
-	{/await}
-    </div>
+    <WikipediaToolTip bind:x bind:y bind:message/>
 {/if}
-
-<style>
-    svg {
-        z-index: -1;
-    }
-
-    .tooltip {
-		border: 1px solid #ddd;
-		box-shadow: 1px 1px 1px #ddd;
-		background: white;
-		border-radius: 4px;
-		padding: 4px;
-		position: absolute;
-	}
-</style>
