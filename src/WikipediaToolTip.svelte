@@ -4,10 +4,11 @@
 	export let message;
 	export let x; 
 	export let y;
-	console.log(message);
 	let image; 
 	let data = message.detail.data.data;
-	console.log(data);
+
+	let name = data.official_full;
+    if (name === undefined || name === "unknown") name = data.wikipedia;
 
 	function getWikiPhoto() {
 		// https://stackoverflow.com/questions/34393884/how-to-get-image-url-property-from-wikidata-item-by-api
@@ -36,7 +37,7 @@
 		<p>Loading image</p>
 	{:then image}
 		<img src={image} alt="here" width="100" height="100"/>
-		<h4>{data.official_full}</h4>
+		<h4>{name}</h4>
 		<ul>
 			<li>Age: {data.age}</li>
 			<li>Cumulative Time in Office: {data.time_sen_and_house}</li>

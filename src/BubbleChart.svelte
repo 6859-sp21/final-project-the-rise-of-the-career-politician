@@ -1,14 +1,13 @@
 <script>
     import { onMount } from 'svelte';
     import Bubble from './Bubble.svelte';
-import WikipediaToolTip from './WikipediaToolTip.svelte';
+    import WikipediaToolTip from './WikipediaToolTip.svelte';
     export let data;
 
     let isHovered = false;
     let message;
     let x;
     let y;
-    let text = "default";
 
     function mouseOver(event) {
         message = event;
@@ -28,13 +27,12 @@ import WikipediaToolTip from './WikipediaToolTip.svelte';
 
     let n = 50;
     let year = 2019;
-    let el;
+
     const width = 800;
     const height = 800;
 
     function getLongestServing(data, year, n) {
-        console.log('changed n ', n)
-		return data.congresses[year]
+        return data.congresses[year]
 		 		.sort((x,y) => x['time_sen_and_house'] < y['time_sen_and_house'])
 		 		.slice(0, n);
 	};
@@ -47,11 +45,10 @@ import WikipediaToolTip from './WikipediaToolTip.svelte';
     $: leaves = root.leaves();
 </script>
 
-<p>Year: {year}</p>
+<p>The year is: {year}</p>
 <input type=range bind:value={year} min=1790 max=2019>
 
-
-<input type=number bind:value={n} min=10 max=80>
+<input type=number bind:value={n} min=20 max=120>
 
 <div>
     <svg width={width} height={height}>
@@ -60,7 +57,7 @@ import WikipediaToolTip from './WikipediaToolTip.svelte';
                 on:mouseover={mouseOver}
                 on:mouseout={mouseOut}
                 on:mousemove={mouseMove}
-                d={d}
+                bind:d={d}
             />
         {/each}
     </svg>

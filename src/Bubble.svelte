@@ -1,8 +1,15 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import { onDestroy } from 'svelte';
     import { fade } from 'svelte/transition';
     export let d;
-
+    let name; 
+    $: {
+        name = d.data.official_full;
+        if (name === undefined || name === "unknown") 
+        name = d.data.wikipedia;
+    }
+    console.log('bubble for ', name);
     const colorDict = {'Republican': 'red',
                         'Democrat': 'blue'}
 
@@ -15,6 +22,8 @@
             data: d
         });
     };
+
+    onDestroy(d => console.log("Bubble being destroyed"));
 </script>
 <g
     on:mouseover={sendInfo}
@@ -33,10 +42,10 @@
     y = {d.y}
     text-anchor = "middle"
     textLength = {1.7*d.r}
-    class = 'bubble-text'>{d.data.official_full}</text>
+    class = 'bubble-text'>{name}</text>
     <text
     x = {d.x}
-    y = {d.y + .25*d.r}
+    y = {d.y + .35*d.r}
     text-anchor = "middle"
     class = 'bubble-text'
     >{d.data.time_sen_and_house} Years</text>
