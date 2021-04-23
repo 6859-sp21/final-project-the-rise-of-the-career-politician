@@ -1,5 +1,7 @@
 <script>
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
+
     import Bubble from './Bubble.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     export let data;
@@ -71,7 +73,7 @@
 <input type=number bind:value={n} min=20 max=120>
 
 <div>
-    <svg width={width} height={height}>
+    <svg width={width} height={height} transition:fade>
         {#each leaves as d}
             <Bubble 
                 on:mouseover={mouseOver}
