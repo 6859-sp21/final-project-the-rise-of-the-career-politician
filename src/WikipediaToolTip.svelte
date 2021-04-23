@@ -1,11 +1,34 @@
 <script>
+	import { md5 } from './md5.js';
+
 	export let message;
 	export let x; 
 	export let y;
 	console.log(message);
-	let image = message.detail.image; 
+	let image; 
 	let data = message.detail.data.data;
 	console.log(data);
+
+	function getWikiPhoto() {
+		// https://stackoverflow.com/questions/34393884/how-to-get-image-url-property-from-wikidata-item-by-api
+
+		console.log('running get wiki photo')
+		const url = `https://www.wikidata.org/w/api.php?action=wbgetclaims` + 
+            `&property=P18&entity=${data.wikidata}&format=json&origin=*`
+        let promise = fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				const pictureName = data.claims.P18[0].mainsnak.datavalue.value
+											.replaceAll(' ', '_');
+				const md5sum = md5(pictureName);
+				// console.log('picture name', pictureName, 'md5', md5sum)
+				const imageUrl = `https://upload.wikimedia.org/wikipedia/commons/${md5sum[0]}/${md5sum.slice(0,2)}/${pictureName}`
+				// console.log(imageUrl)
+				return imageUrl
+			})
+        return promise;
+    }
+	image = getWikiPhoto();
 </script>
 
 <div style="top: {y}px; left: {x}px;" class="tooltip">
@@ -22,7 +45,7 @@
 			<li>State: {data.state}</li>
 		</ul>
 	{:catch error}
-		<p>An error occurred!</p>
+		<p>An error occurred! {console.log(error)}</p>
 	{/await}
 </div>
 
