@@ -37,17 +37,17 @@
 		<p>Loading image</p>
 	{:then image}
 		<img src={image} alt="here" width="100" height="100"/>
-		<h4>{name}</h4>
-		<ul>
-			<li>Age: {data.age}</li>
-			<li>Cumulative Time in Office: {data.time_sen_and_house}</li>
-			<li>Party: {data.party}</li>
-			<li>Position: {data.type === "sen" ? "Senator" : "Representative"}</li>
-			<li>State: {data.state}</li>
-		</ul>
 	{:catch error}
-		<p>An error occurred! {console.log(error)}</p>
+		{console.log(error)}
 	{/await}
+	<h4>{name}</h4>
+	<ul>
+		<li>Age: {data.age}</li>
+		<li>Cumulative Time in Office: {data.time_sen_and_house}</li>
+		<li>Party: {data.party}</li>
+		<li>Position: {data.type === "sen" ? "Senator" : "Representative"}</li>
+		<li>State: {data.state}</li>
+	</ul>
 </div>
 
 <style>

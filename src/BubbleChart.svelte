@@ -27,7 +27,8 @@
 
     let n = 50;
     let year = 2019;
-
+    let running = false;
+    let interval;
     const width = 800;
     const height = 800;
 
@@ -43,9 +44,28 @@
                 .sum(d => d.time_sen_and_house));
 
     $: leaves = root.leaves();
+    
+    function toggleAnimation() {
+        running = !running;
+        if (running){
+            interval = window.setInterval( function() {
+                if (year === 2019)
+                    year = 1790
+                else 
+                    year = year + 1;
+                console.log(year)
+            } , 500);
+        }
+        else {
+            clearInterval(interval);
+        }
+    };
+
 </script>
 
 <p>The year is: {year}</p>
+
+<button on:click={toggleAnimation}>Play/Pause</button>
 <input type=range bind:value={year} min=1790 max=2019>
 
 <input type=number bind:value={n} min=20 max=120>
