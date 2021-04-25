@@ -27,6 +27,7 @@ def main():
     # Add ideological data to the mix
     remote_url = 'https://voteview.com/static/data/out/members/HSall_members.csv'
     temp_df = pd.read_csv(remote_url)
+    temp_df = temp_df.fillna(-99)
     for index, row in temp_df.iterrows():
         try:
             key = row['bioguide_id']
@@ -91,8 +92,9 @@ def main():
 
     drop_cols = ['url', 'address', 'phone', 'fax', 'contact_form', 'office', 
         'rss_url', 'how', 'caucus', 'party_affiliations', 'end-type', 'years']
+
     congress_by_year = (congress_by_year.drop(columns=drop_cols)
-                                        .fillna(-1)
+                                        .fillna(-99)
                         )
 
     def cast(df):
