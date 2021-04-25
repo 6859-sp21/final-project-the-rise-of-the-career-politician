@@ -36,8 +36,6 @@ def main():
         for col in cols_to_add:
             if key in all_congressmen:
                 all_congressmen[key][col] = row[col]
-            else:
-                print('key missing', row['bioname'])
 
     with open(os.path.join(DIRNAME, '../public/data/all_congressmen.json'), 'w') as fp:
         json.dump(all_congressmen, fp)
