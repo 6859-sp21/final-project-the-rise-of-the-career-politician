@@ -3,26 +3,23 @@
     import Outlier from './Outlier.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     export let data;
-    let year;
     let newData = new Array();
-    let n = 1;
     let bins;
     let outcomeVar = 'cumulative_time_sen_and_house';
-    for (let year = 1790; year <= 2010; year += 10) {
-        n += 1;
+    let years = new Array();
+    for (let year = 1790; year <= 2010; year += 10) 
+        years.push(year);
+    years.push(2019);
+    let n = years.length;
+
+    years.forEach(year => {
         data.congresses[year].forEach(d => {
             newData.push({x: year, 
                           y: d[outcomeVar],
                           data: d});            
         });
-    }
-    // Add 2019
-    data.congresses[2019].forEach(d => {
-            newData.push({x: 2019,
-                          y: d[outcomeVar],
-                          data: d});            
-        });
-    
+    });
+
     bins = d3.histogram()
     .thresholds(n)
     .value(d => d.x)(newData)
