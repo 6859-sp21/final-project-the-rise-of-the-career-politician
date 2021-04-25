@@ -11,18 +11,20 @@
 	let transform;
 	let g;
 
+    console.log(scale.ticks().map(x => `${x}`));
 	$: {
 		select(g).selectAll('*').remove();
 
 		let axis;
 		switch(position) {
 			case 'bottom':
-				axis = axisBottom(scale).tickSizeOuter(0);
+                axis = axisBottom(scale).tickSizeOuter(0).tickFormat(d3.format("d"));
 				transform = `translate(0, ${height - margin})`;
 				break;
 			case 'left':
 				axis = axisLeft(scale).tickSizeOuter(0);
 				transform = `translate(${margin}, 0)`;
+            
 		}
 
 		select(g).call(axis);
