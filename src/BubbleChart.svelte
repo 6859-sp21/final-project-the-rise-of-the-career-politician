@@ -30,20 +30,21 @@
     let n = 50;
     let year = 2019;
     let running = false;
+    let displayVar = 'cumulative_time_sen_and_house';
     let interval;
     const width = 800;
     const height = 800;
 
     function getLongestServing(data, year, n) {
         return data.congresses[year]
-		 		.sort((x,y) => x['time_sen_and_house'] < y['time_sen_and_house'])
+		 		.sort((x,y) => x[displayVar] < y[displayVar])
 		 		.slice(0, n);
 	};
 
     $: users = getLongestServing(data, year, n);
     $: root = d3.pack().size([width - 2, height - 2])
                 .padding(3)(d3.hierarchy({children: users})
-                .sum(d => d.time_sen_and_house));
+                .sum(d => d[displayVar]));
 
     $: leaves = root.leaves();
     
@@ -80,6 +81,7 @@
                 on:mouseout={mouseOut}
                 on:mousemove={mouseMove}
                 bind:d={d}
+                {displayVar}
             />
         {/each}
     </svg>

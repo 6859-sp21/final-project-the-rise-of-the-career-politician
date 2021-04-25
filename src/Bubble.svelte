@@ -3,6 +3,8 @@
     import { onDestroy } from 'svelte';
     import { fade } from 'svelte/transition';
     export let d;
+    export let displayVar;
+
     let name; 
     $: {
         name = d.data.official_full;
@@ -48,7 +50,7 @@
     y = {d.y + .35*d.r}
     text-anchor = "middle"
     class = 'bubble-text'
-    >{d.data.time_sen_and_house} Years</text>
+    >{d.data[displayVar]} Years</text>
 </g>
 
 <style>
