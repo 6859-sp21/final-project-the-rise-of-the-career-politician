@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import BubbleChart from './BubbleChart.svelte';
-	import Boxplot from './Boxplot.svelte';
+	import Boxplot2 from './Boxplot2.svelte';
 
 	export let name;
 	let data = Promise.all([
@@ -30,7 +30,7 @@
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
-		<Boxplot data={data}/>	
+		<Boxplot2 data={data}/>	
 	{:catch error}
 		<p>An error occurred!</p>
 		{console.log(error)}

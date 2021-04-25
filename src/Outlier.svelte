@@ -25,7 +25,7 @@
     onDestroy(d => console.log("Bubble being destroyed"));
 </script>
 <circle
-r=4 
+r=3
 cx={(Math.random() - .5) * 4}
 cy={y(d.y)}
 on:mouseover={sendInfo}
