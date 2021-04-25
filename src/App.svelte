@@ -23,6 +23,7 @@
 		<BubbleChart data={data}/>	
 	{:catch error}
 		<p>An error occurred!</p>
+		{console.log(error)}
 	{/await}
 	
 	<h1>Boxplot Over Time</h1>
@@ -32,6 +33,7 @@
 		<Boxplot data={data}/>	
 	{:catch error}
 		<p>An error occurred!</p>
+		{console.log(error)}
 {/await}
 </main>
 
