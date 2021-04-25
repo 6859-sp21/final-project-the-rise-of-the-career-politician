@@ -4,12 +4,13 @@
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     export let data;
     let outcomeVar = 'cumulative_time_sen_and_house';
+    let repType = 'both'
 
     let formattedOutcome = {
         'cumulative_time_sen_and_house': 'Years Served',
         'age': 'Age'
     }
-    function getBins(outcomeVar){
+    function getBins(outcomeVar, repType){
         let newData = new Array();
         let bins;
         let years = new Array();
@@ -23,6 +24,10 @@
                             data: d});            
             });
         });
+
+        if (repType !== 'both'){
+            newData = newData.filter(d => d.data.type === repType)
+        }
 
         if (outcomeVar === "age")
             newData = newData.filter(d => d.y > 20);
@@ -74,7 +79,7 @@
     let width = 600;
     let bins; let x; let y;
     $: {
-        let returnVal = getBins(outcomeVar);
+        let returnVal = getBins(outcomeVar, repType);
         bins = returnVal.bins;
         x = returnVal.x;
         y = returnVal.y;
@@ -137,6 +142,22 @@
         <input type=radio bind:group={outcomeVar} value={'age'}>
         Age
     </label>
+
+    <label>
+        <input type=radio bind:group={repType} value={'sen'}>
+        Senate
+    </label>
+    
+    <label>
+        <input type=radio bind:group={repType} value={'rep'}>
+        House
+    </label>
+
+    <label>
+        <input type=radio bind:group={repType} value={'both'}>
+        Both
+    </label>
+
     <svg width={width} height={height}>
         <Axis width={width} 
               height={height} 
