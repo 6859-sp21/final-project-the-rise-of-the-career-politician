@@ -12,8 +12,6 @@
 
 	function getWikiPhoto() {
 		// https://stackoverflow.com/questions/34393884/how-to-get-image-url-property-from-wikidata-item-by-api
-
-		console.log('running get wiki photo')
 		const url = `https://www.wikidata.org/w/api.php?action=wbgetclaims` + 
             `&property=P18&entity=${data.wikidata}&format=json&origin=*`
         let promise = fetch(url)

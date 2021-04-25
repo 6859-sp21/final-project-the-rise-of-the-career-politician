@@ -7,10 +7,14 @@
     let bins;
     let outcomeVar = 'cumulative_time_sen_and_house';
     let years = new Array();
-    for (let year = 1790; year <= 2010; year += 10) 
+    for (let year = 1790; year <= 2019; year += 10) 
         years.push(year);
+    
     years.push(2019);
-    let n = years.length;
+    console.log(data.congresses)
+    console.log(data.congresses[2019].filter(d => d.state == "WV"))
+    console.log(data.congresses[2019].find(d => d.official_full === "Robert Byrd"))
+
 
     years.forEach(year => {
         data.congresses[year].forEach(d => {
@@ -21,24 +25,27 @@
     });
 
     bins = d3.histogram()
-    .thresholds(n)
+    .thresholds(years)
     .value(d => d.x)(newData)
     .map(bin => {
-      bin.sort((a, b) => a.y - b.y);
-      const values = bin.map(d => d.y);
-      const min = values[0];
-      const max = values[values.length - 1];
-      const q1 = d3.quantile(values, 0.25);
-      const q2 = d3.quantile(values, 0.50);
-      const q3 = d3.quantile(values, 0.75);
-      const iqr = q3 - q1; // interquartile range
-      const r0 = Math.max(min, q1 - iqr * 1.5);
-      const r1 = Math.min(max, q3 + iqr * 1.5);
-      bin.quartiles = [q1, q2, q3];
-      bin.range = [r0, r1];
-      bin.outliers = bin.filter(v => v.y < r0 || v.y > r1); // TODO
-      return bin;
+        bin.sort((a, b) => a.y - b.y);
+        const values = bin.map(d => d.y);
+        const min = values[0];
+        const max = values[values.length - 1];
+        const q1 = d3.quantile(values, 0.25);
+        const q2 = d3.quantile(values, 0.50);
+        const q3 = d3.quantile(values, 0.75);
+        const iqr = q3 - q1; // interquartile range
+        const r0 = Math.max(min, q1 - iqr * 1.5);
+        const r1 = Math.min(max, q3 + iqr * 1.5);
+        bin.quartiles = [q1, q2, q3];
+        bin.range = [r0, r1];
+        bin.absRange = [min, max];
+        bin.outliers = bin.filter(v => v.y < r0 || v.y > r1); // TODO
+        return bin;
     })
+
+    console.log(bins)
 
     let margin = ({top: 20, right: 20, bottom: 60, left: 50})
     let height = 600;
@@ -48,7 +55,7 @@
         .rangeRound([margin.left, width - margin.right])
 
     let y = d3.scaleLinear()
-        .domain([d3.min(bins, d => d.range[0]), d3.max(bins, d => d.range[1])]).nice()
+        .domain([d3.min(bins, d => d.absRange[0]), d3.max(bins, d => d.absRange[1])]).nice()
         .range([height - margin.bottom, margin.top])
 
     function getPath(d){
