@@ -5,6 +5,10 @@
     export let data;
     let outcomeVar = 'cumulative_time_sen_and_house';
 
+    let formattedOutcome = {
+        'cumulative_time_sen_and_house': 'Years Served',
+        'age': 'Age'
+    }
     function getBins(outcomeVar){
         let newData = new Array();
         let bins;
@@ -20,6 +24,8 @@
             });
         });
 
+        if (outcomeVar === "age")
+            newData = newData.filter(d => d.y > 20);
         bins = d3.histogram()
         .thresholds(23)
         .value(d => d.x)(newData)
@@ -121,7 +127,7 @@
 
 </script>
 <div>
-    <h2>{outcomeVar} In Congress Over Time</h2>
+    <h2>{formattedOutcome[outcomeVar]} In Congress Over Time</h2>
     <label>
         <input type=radio bind:group={outcomeVar} value={'cumulative_time_sen_and_house'}>
         Time in Congress
@@ -143,7 +149,7 @@
         <text 
             text-anchor= "middle"
             transform = {`translate(${margin.left/3}, ${height/2}) rotate(270)`}
-            >Years in Congress</text>
+            >{formattedOutcome[outcomeVar]}</text>
             
         {#each bins as b}
             <g>
