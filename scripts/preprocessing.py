@@ -10,10 +10,10 @@ DIRNAME = os.path.dirname(__file__)
 
 
 def main():
-    legislators_currnet = 'https://theunitedstates.io/congress-legislators/legislators-current.json'
+    legislators_current = 'https://theunitedstates.io/congress-legislators/legislators-current.json'
     legislators_historical = 'https://theunitedstates.io/congress-legislators/legislators-historical.json'
 
-    with urllib.request.urlopen(legislators_currnet) as url:
+    with urllib.request.urlopen(legislators_current) as url:
         congress_data = json.loads(url.read().decode())
 
     with urllib.request.urlopen(legislators_historical) as url:
@@ -38,11 +38,6 @@ def main():
             if key in all_congressmen:
                 all_congressmen[key][col] = row[col]
 
-    with open(os.path.join(DIRNAME, '../public/data/all_congressmen.json'), 'w') as fp:
-        json.dump(all_congressmen, fp)
-
-    print('saved bio information on congressmen')
-
     # Make a dictionary of the form: {year: [terms]}
 
     all_terms = []
@@ -64,8 +59,8 @@ def main():
 
 
     time_list = []
-    for i in range(1790, 2020):
-        temp_df = get_congress(f'{i}-02-01')
+    for i in range(1790, 2022):
+        temp_df = get_congress(f'{i}-04-01')
         temp_df['year'] = temp_df.type.apply(lambda x: i)
         time_list.append(temp_df)
 
@@ -109,14 +104,27 @@ def main():
         return df
 
     year_dict = {}
-    for year in range(1790, 2020):
+    for year in range(1790, 2022):
         year_dict[year] = cast(congress_by_year.query(f'year == {year}')).to_dict(orient='records')
-
 
     with open(os.path.join(DIRNAME, '../public/data/congress_by_year.json'), 'w') as fp:
         json.dump(year_dict, fp)
 
     print('saved congressional information')
+
+    cols_to_dupl = ['min_age', 'max_age', 'time_sen_and_house']
+    for key in all_congressmen.keys():
+        try:
+            temp = congress_by_year[congress_by_year['id'] == key].iloc[0, :]
+            for col in cols_to_dupl:
+                all_congressmen[key][col] = str(temp[col])
+        except Exception as e:
+            print(all_congressmen[key]['wikipedia'], ' may not have served a full year')
+
+    with open(os.path.join(DIRNAME, '../public/data/all_congressmen.json'), 'w') as fp:
+        json.dump(all_congressmen, fp)
+    print('saved bio information on congressmen')
+
 
 if __name__ == "__main__":
     main()
