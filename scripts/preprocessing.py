@@ -20,10 +20,26 @@ def main():
         congress_data += json.loads(url.read().decode())
 
     # Make a list of all people and their biographical information
-
     all_congressmen = {}
     for item in congress_data:
         all_congressmen[item['id']['bioguide']] = {**item['bio'], **item['id'], **item['name']}
+
+    # Add ideological data to the mix
+    temp_df = pd.read_csv(
+                os.path.join(os.getcwd(),
+                './public/data/HSall_members.csv')
+              )
+    for index, row in temp_df.iterrows():
+        try:
+            key = row['bioguide_id']
+        except:
+            key = 0
+        cols_to_add = ['nominate_dim1', 'nominate_dim2', 'nokken_poole_dim1', 'nokken_poole_dim2']
+        for col in cols_to_add:
+            if key in all_congressmen:
+                all_congressmen[key][col] = row[col]
+            else:
+                print('key missing', row['bioname'])
 
     with open(os.path.join(DIRNAME, '../public/data/all_congressmen.json'), 'w') as fp:
         json.dump(all_congressmen, fp)
