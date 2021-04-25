@@ -25,10 +25,8 @@ def main():
         all_congressmen[item['id']['bioguide']] = {**item['bio'], **item['id'], **item['name']}
 
     # Add ideological data to the mix
-    temp_df = pd.read_csv(
-                os.path.join(os.getcwd(),
-                './public/data/HSall_members.csv')
-              )
+    remote_url = 'https://voteview.com/static/data/out/members/HSall_members.csv'
+    temp_df = pd.read_csv(remote_url)
     for index, row in temp_df.iterrows():
         try:
             key = row['bioguide_id']
@@ -87,6 +85,9 @@ def main():
         except Exception:
             return -1
     congress_by_year['age'] = congress_by_year.apply(compute_age, axis=1)
+    congress_by_year['min_age'] = congress_by_year.groupby(['id']).age.transform(lambda x: x.min())
+    congress_by_year['max_age'] = congress_by_year.groupby(['id']).age.transform(lambda x: x.max())
+
     congress_by_year['district'] = congress_by_year.apply(
         lambda x: 'sen' if x.type == 'sen' else int(x.district), axis=1)
 
