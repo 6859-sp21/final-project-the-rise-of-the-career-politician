@@ -13,6 +13,7 @@
 			const congresses = d[1]
 			return ({congressmen, congresses})
 		})
+	
 </script>
 
 <main>
@@ -26,11 +27,12 @@
 		{console.log(error)}
 	{/await}
 	
+
 	<h1>Boxplot Over Time</h1>
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
-		<Boxplot2 data={data}/>	
+		<Boxplot2 {data}/>	
 	{:catch error}
 		<p>An error occurred!</p>
 		{console.log(error)}

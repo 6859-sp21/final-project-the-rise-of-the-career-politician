@@ -11,7 +11,6 @@
 	let transform;
 	let g;
 
-    console.log(scale.ticks().map(x => `${x}`));
 	$: {
 		select(g).selectAll('*').remove();
 
