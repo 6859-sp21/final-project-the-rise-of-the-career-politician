@@ -1,19 +1,26 @@
 <script>
     import Axis from './Axis.svelte';
+    import Outlier from './Outlier.svelte';
+    import WikipediaToolTip from './WikipediaToolTip.svelte';
     export let data;
     let year;
     let newData = new Array();
     let n = 1;
     let bins;
+    let outcomeVar = 'cumulative_time_sen_and_house';
     for (let year = 1790; year <= 2010; year += 10) {
         n += 1;
         data.congresses[year].forEach(d => {
-            newData.push({x: year, y: d.time_sen_and_house});            
+            newData.push({x: year, 
+                          y: d[outcomeVar],
+                          data: d});            
         });
     }
     // Add 2019
     data.congresses[2019].forEach(d => {
-            newData.push({x: 2019, y: d.time_sen_and_house});            
+            newData.push({x: 2019,
+                          y: d[outcomeVar],
+                          data: d});            
         });
     
     bins = d3.histogram()
@@ -39,15 +46,13 @@
     let margin = ({top: 20, right: 20, bottom: 60, left: 50})
     let height = 600;
     let width = 600;
-    let x = d3.scaleLinear()
+    let x =  d3.scaleLinear()
         .domain([d3.min(bins, d => d.x0), d3.max(bins, d => d.x1)])
         .rangeRound([margin.left, width - margin.right])
 
     let y = d3.scaleLinear()
-    .domain([d3.min(bins, d => d.range[0]), d3.max(bins, d => d.range[1])]).nice()
-    .range([height - margin.bottom, margin.top])
-
-    console.log(bins)
+        .domain([d3.min(bins, d => d.range[0]), d3.max(bins, d => d.range[1])]).nice()
+        .range([height - margin.bottom, margin.top])
 
     function getPath(d){
         return `
@@ -69,6 +74,28 @@
         M${x(d.x0) + 1},${y(d.quartiles[1])}
         H${x(d.x1)}`;
     };
+
+    // Tool tip
+    let isHovered = false;
+    let message;
+    let xTool;
+    let yTool;
+
+    function mouseOver(event) {
+        message = event;
+        isHovered = true;
+		xTool = event.detail.event.pageX + 5;
+		yTool = event.detail.event.pageY + 5;
+    }
+
+    function mouseMove(event) {
+        xTool = event.detail.event.pageX + 5;
+		yTool = event.detail.event.pageY + 5;
+	}
+
+    function mouseOut(){
+        isHovered = false;
+    }
 
 </script>
 <div>
@@ -99,16 +126,21 @@
                 stroke=currentColor
                 d={getPath3(b)}></path>
 
-                <g fill=currentColor fill-opacity=.2 stroke=none
+                <g fill="#888" fill-opacity=.5 stroke=none
                 transform={`translate(${x((b.x0 + b.x1) / 2)}, 0)`}>
                     {#each b.outliers as o}
-                        <circle
-                        r=2 
-                        cx={(Math.random() - .5) * 4}
-                        cy={y(o.y)}/>
+                        <Outlier {y} d={o}
+                        on:mouseover={mouseOver}
+                        on:mouseout={mouseOut}
+                        on:mousemove={mouseMove}
+                        />
                     {/each}
                 </g>
             </g> 
         {/each}
     </svg>
 </div>
+
+{#if isHovered}
+    <WikipediaToolTip bind:x={xTool} bind:y={yTool} bind:message/>
+{/if}
