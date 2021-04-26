@@ -39,18 +39,18 @@
     r = {d.r}
     fill = {colorDict[d.data.party] ? colorDict[d.data.party] : 'green'}
     />
-    <text 
+    <!-- <text 
     x = {d.x}
     y = {d.y}
     text-anchor = "middle"
     textLength = {1.7*d.r}
-    class = 'bubble-text'>{name}</text>
+    class = 'bubble-text'>{name}</text> -->
     <text
     x = {d.x}
-    y = {d.y + .35*d.r}
+    y = {d.y+ .2*d.r}
     text-anchor = "middle"
     class = 'bubble-text'
-    >{d.data[displayVar]} Years</text>
+    >{d.data[displayVar]}</text>
 </g>
 
 <style>

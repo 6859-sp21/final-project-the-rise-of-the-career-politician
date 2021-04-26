@@ -1,6 +1,7 @@
 <script>
     import Axis from './Axis.svelte';
     import Outlier from './Outlier.svelte';
+	import { fade, draw, fly } from 'svelte/transition';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     export let data;
     let outcomeVar = 'cumulative_time_sen_and_house';
@@ -59,8 +60,9 @@
                     newOutliers.push(d);
                 }
             });
-
             bin.outliers = newOutliers;
+
+            bin.id = outcomeVar + '/' + repType + '/' + bin.x0;
             return bin;
         })
         let x =  d3.scaleLinear()
@@ -133,30 +135,34 @@
 </script>
 <div>
     <h2>{formattedOutcome[outcomeVar]} In Congress Over Time</h2>
-    <label>
-        <input type=radio bind:group={outcomeVar} value={'cumulative_time_sen_and_house'}>
-        Time in Congress
-    </label>
-    
-    <label>
-        <input type=radio bind:group={outcomeVar} value={'age'}>
-        Age
-    </label>
+    <form class="radio-inline">
+        <label>
+            <input type=radio bind:group={outcomeVar} value={'cumulative_time_sen_and_house'}>
+            Time in Congress
+        </label>
+        
+        <label>
+            <input type=radio bind:group={outcomeVar} value={'age'}>
+            Age
+        </label>    
+    </form>
 
-    <label>
-        <input type=radio bind:group={repType} value={'sen'}>
-        Senate
-    </label>
-    
-    <label>
-        <input type=radio bind:group={repType} value={'rep'}>
-        House
-    </label>
+    <form>
+        <label>
+            <input type=radio bind:group={repType} value={'both'}>
+            Both
+        </label>
 
-    <label>
-        <input type=radio bind:group={repType} value={'both'}>
-        Both
-    </label>
+        <label>
+            <input type=radio bind:group={repType} value={'sen'}>
+            Senate
+        </label>
+    
+        <label>
+            <input type=radio bind:group={repType} value={'rep'}>
+            House
+        </label>
+    </form>
 
     <svg width={width} height={height}>
         <Axis width={width} 
@@ -172,19 +178,24 @@
             transform = {`translate(${margin.left/3}, ${height/2}) rotate(270)`}
             >{formattedOutcome[outcomeVar]}</text>
             
-        {#each bins as b}
+        {#each bins as b (b.id)}
             <g>
                 <path
                 stroke=currentColor
-                d={getPath(b)}></path>
+                d={getPath(b)}
+                transition:fade="{{duration: 1000}}"
+                ></path>
                 <path
                 fill="#ddd"
+                transition:fade="{{duration: 1000}}"
                 d={getPath2(b)}></path>
                 <path
                 stroke=currentColor
+                transition:fade="{{duration: 1000}}"
                 d={getPath3(b)}></path>
 
                 <g fill="#888" fill-opacity=.5 stroke=none
+                transition:fade="{{duration: 1000}}"
                 transform={`translate(${x((b.x0 + b.x1) / 2)}, 0)`}>
                     {#each b.outliers as o}
                         <Outlier {y} d={o}
@@ -202,3 +213,9 @@
 {#if isHovered}
     <WikipediaToolTip bind:x={xTool} bind:y={yTool} bind:message/>
 {/if}
+
+<style>
+    label {
+        display: inline-block;
+    }
+</style>
