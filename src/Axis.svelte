@@ -17,6 +17,10 @@
 		let axis;
 		switch(position) {
 			case 'bottom':
+				axis = axisBottom(scale).tickSizeOuter(0);
+				transform = `translate(0, ${height - margin})`;
+				break;
+			case 'bottom-date':
                 axis = axisBottom(scale).tickSizeOuter(0).tickFormat(d3.format("d"));
 				transform = `translate(0, ${height - margin})`;
 				break;

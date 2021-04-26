@@ -167,7 +167,7 @@
     <svg width={width} height={height}>
         <Axis width={width} 
               height={height} 
-              margin={margin.bottom} scale={x} position='bottom' />
+              margin={margin.bottom} scale={x} position='bottom-date' />
         <text 
             text-anchor= "middle"
             x = {width/2}
