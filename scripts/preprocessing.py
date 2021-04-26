@@ -42,7 +42,8 @@ def main():
 
     all_terms = []
     for item in congress_data:
-        min_bio = ['bioguide', 'wikidata', 'wikipedia', 'birthday', 'official_full']
+        min_bio = ['bioguide', 'wikidata', 'wikipedia', 'birthday', 'official_full',
+                   'nominate_dim1', 'nominate_dim2']
         key = item['id']['bioguide'] 
         min_bio_dict = {x: all_congressmen[key].get(x, 'unknown') for x in min_bio}
         for term in item['terms']:
