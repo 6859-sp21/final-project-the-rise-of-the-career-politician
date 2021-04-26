@@ -40,8 +40,9 @@
 	{/await}
 	<h4>{name}</h4>
 	<ul>
+		<li>Year: {data.year}</li>
 		<li>Age: {data.age}</li>
-		<li>Cumulative Time in Office: {data.cumulative_time_sen_and_house}</li>
+		<li>Total Time Served: {data.cumulative_time_sen_and_house}</li>
 		<li>Party: {data.party}</li>
 		<li>Position: {data.type === "sen" ? "Senator" : "Representative"}</li>
 		<li>State: {data.state}</li>
