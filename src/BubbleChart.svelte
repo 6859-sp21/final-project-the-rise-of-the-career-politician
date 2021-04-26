@@ -28,22 +28,21 @@
     }
 
     let n = 50;
-    let year = 2019;
+    let year = 2021;
     let running = false;
     let displayVar = 'cumulative_time_sen_and_house';
     let interval;
-    const width = 800;
-    const height = 800;
+    const width = 600;
+    const height = 600;
 
     function getLongestServing(data, year, n) {
         return data.congresses[year]
-		 		.sort((x,y) => x[displayVar] < y[displayVar])
-		 		.slice(0, n);
+		 		.sort((x,y) => x[displayVar] < y[displayVar]);
 	};
 
     $: users = getLongestServing(data, year, n);
     $: root = d3.pack().size([width - 2, height - 2])
-                .padding(3)(d3.hierarchy({children: users})
+                .padding(1)(d3.hierarchy({children: users})
                 .sum(d => d[displayVar]));
 
     $: leaves = root.leaves();
@@ -68,10 +67,8 @@
 
 <p>The year is: {year}</p>
 
-<button on:click={toggleAnimation}>Play/Pause</button>
+<!-- <button on:click={toggleAnimation}>Play/Pause</button> -->
 <input type=range bind:value={year} min=1790 max=2019>
-
-<input type=number bind:value={n} min=20 max=120>
 
 <div>
     <svg width={width} height={height} transition:fade>
