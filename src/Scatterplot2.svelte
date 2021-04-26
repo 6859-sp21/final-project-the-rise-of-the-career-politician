@@ -1,5 +1,7 @@
 <script>
     import Axis from './Axis.svelte';
+    import Scat from './Scat.svelte';
+    import WikipediaToolTip from './WikipediaToolTip.svelte';
     import { onMount } from 'svelte';
     export let data;
     export let xVar;
@@ -10,14 +12,23 @@
     const height = 600;
     const margin = {top: 20, right: 30, bottom: 30, left: 40}
 
-    let congressmen = data.congresses[2020];    
-    console.log(congressmen)
+    let congressmen = data.congresses[2020]
+        .filter(d => d[xVar] != undefined)
+        .filter(d => d[yVar] != undefined)
+        .filter(d => ! isNaN(d[xVar]))
+        .filter(d => ! isNaN(d[yVar]))
+        .map(d => ({ ...d, 
+            x: Number(d[xVar]),
+            y: Number(d[yVar]) }))
+        .filter(d => d[colorVar] != undefined)
+        .filter(d => d.x !== -99 && d.y !== -99);
 
-    let x = d3.scaleLinear()
-        .domain(d3.extent(congressmen, d => d[xVar])).nice()
+    let xScale = d3.scaleLinear()
+        .domain(d3.extent(congressmen, d => d.x)).nice()
         .range([margin.left, width - margin.right])
-    let y = d3.scaleLinear()
-        .domain(d3.extent(congressmen, d => d[yVar])).nice()
+
+    let yScale = d3.scaleLinear()
+        .domain(d3.extent(congressmen, d => d.y)).nice()
         .range([height - margin.bottom, margin.top])
 
     let colorScale = d3.scaleLinear()
@@ -32,6 +43,28 @@
         {id: 'nominate_dim2', text: 'Hot Topics Dimension'}
     ];
 
+   // Tool tip
+    let isHovered = false;
+    let message;
+    let xTool;
+    let yTool;
+
+    function mouseOver(event) {
+        message = event;
+        console.log(message);
+        isHovered = true;
+		xTool = event.detail.event.pageX + 5;
+		yTool = event.detail.event.pageY + 5;
+    }
+
+    function mouseMove(event) {
+        xTool = event.detail.event.pageX + 5;
+		yTool = event.detail.event.pageY + 5;
+	}
+
+    function mouseOut(){
+        isHovered = false;
+    }
 </script>
 
 <div width=75% height=75%>
@@ -51,20 +84,25 @@
 
         <Axis width={width} 
               height={height} 
-              margin={margin.bottom} scale={x} position='bottom' />
+              margin={margin.bottom} scale={xScale} position='bottom' />
 
 
         <Axis width={width} 
             height={height} 
-            margin={margin.bottom} scale={y} position='left' />
+            margin={margin.bottom} scale={yScale} position='left' />
 
         <g>
             {#each congressmen as d}
-                <circle 
-                transform={`translate(${x(d[xVar])},${y(d[yVar])})`}
-                r=3
-                fill={colorScale(d[colorVar])}></circle>
+                <Scat {d} x={xScale(d.x)} y={yScale(d.y)}
+                on:mouseover={mouseOver}
+                on:mouseout={mouseOut}
+                on:mousemove={mouseMove}/>
             {/each}
         </g>
     </svg>
 </div>
+
+
+{#if isHovered}
+    <WikipediaToolTip bind:x={xTool} bind:y={yTool} bind:message/>
+{/if}
