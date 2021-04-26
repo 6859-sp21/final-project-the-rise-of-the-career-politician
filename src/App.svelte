@@ -35,7 +35,8 @@
 		{data} 
 		xVar={'nominate_dim1'}
 		yVar={'nominate_dim2'}
-		colorVar={'max_age'}/>
+		colorVar={'max_age'}
+		sizeVar={'cumulative_time_sen_and_house'}/>
 	
 	{:catch error}
 		<p>An error occurred!</p>

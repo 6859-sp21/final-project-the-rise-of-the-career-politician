@@ -7,6 +7,7 @@
     export let xVar;
     export let yVar;
     export let colorVar;
+    export let sizeVar;
 
     const width = 600;
     const height = 600;
@@ -33,7 +34,11 @@
 
     let colorScale = d3.scaleLinear()
         .domain(d3.extent(congressmen, d => d[colorVar])).nice()
-        .range(["green", "brown"])
+        .range(["white", "blue"])
+    
+    let sizeScale = d3.scaleLinear()
+        .domain(d3.extent(congressmen, d => d[sizeVar])).nice()
+        .range([2,8])
 
     let options = [
         {id: 'min_age', text: "Age when first joining Congress"},
@@ -93,7 +98,9 @@
 
         <g>
             {#each congressmen as d}
-                <Scat {d} x={xScale(d.x)} y={yScale(d.y)}
+                <Scat {d} x={xScale(d.x)} y={yScale(d.y)} 
+                color={colorScale(d[colorVar])}
+                r={sizeScale(d[sizeVar])}
                 on:mouseover={mouseOver}
                 on:mouseout={mouseOut}
                 on:mousemove={mouseMove}/>

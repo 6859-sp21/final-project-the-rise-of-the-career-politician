@@ -6,6 +6,7 @@
     export let x;
     export let y;
     export let color = "black";
+    export let r;
     
     // console.log(d, x, y)
 
@@ -23,7 +24,7 @@
 
 <circle
 transform={`translate(${x},${y})`}
-r=3
+r={r}
 fill={color}
 on:mouseover={sendInfo}
 on:mouseout={sendInfo}
