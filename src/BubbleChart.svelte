@@ -68,7 +68,7 @@
 <p>The year is: {year}</p>
 
 <!-- <button on:click={toggleAnimation}>Play/Pause</button> -->
-<input type=range bind:value={year} min=1790 max=2019>
+<input type=range bind:value={year} min=1790 max=2021>
 
 <div>
     <svg width={width} height={height} transition:fade>
