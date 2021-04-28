@@ -1,5 +1,6 @@
 <script>
     import Axis from './Axis.svelte';
+    import Legend from './Legend.svelte';
     import Scat from './Scat.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     import { onMount } from 'svelte';
@@ -9,10 +10,17 @@
     export let colorVar;
     export let sizeVar;
 
+    const formattedLabels = {
+        'nominate_dim1': 'Ideology Score (liberal-conservative)',
+        'min_age': 'Age on Entering Congress',
+        'max_age': 'Max Age in Congress',
+        'age': 'Current Age',
+        'cumulative_time_sen_and_house': 'Total Time in Congress',
+    }
+
     const width = 600;
     const height = 600;
-    const margin = {top: 20, right: 30, bottom: 30, left: 40}
-
+    const margin = ({top: 20, right: 20, bottom: 60, left: 50})
     let congressmen = data.congresses[2020]
         .filter(d => d[xVar] != undefined)
         .filter(d => d[yVar] != undefined)
@@ -91,10 +99,28 @@
               height={height} 
               margin={margin.bottom} scale={xScale} position='bottom' />
 
+        <text 
+        text-anchor= "middle"
+        x = {width/2}
+        y = {height - margin.bottom/3}
+        fill = white>{formattedLabels[xVar]}</text>
 
         <Axis width={width} 
             height={height} 
             margin={margin.bottom} scale={yScale} position='left' />
+
+        <Legend 
+            title={formattedLabels[sizeVar]}
+            scale={sizeScale}
+            values={[5,20,40]}
+            xCircle={width-100}
+            ycircle={margin.bottom}/>
+
+        <text 
+        text-anchor= "middle"
+        fill = white
+        transform = {`translate(${margin.left/3}, ${height/2}) rotate(270)`}
+        >{formattedLabels[yVar]}</text>
 
         <g>
             {#each congressmen as d}
@@ -106,6 +132,8 @@
                 on:mousemove={mouseMove}/>
             {/each}
         </g>
+
+
     </svg>
 </div>
 
