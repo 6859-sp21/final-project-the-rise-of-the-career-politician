@@ -4,6 +4,7 @@
     import Scat from './Scat.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     import { onMount } from 'svelte';
+    import ColorLegend from './ColorLegend.svelte';
     export let data;
     export let xVar;
     export let yVar;
@@ -18,9 +19,9 @@
         'cumulative_time_sen_and_house': 'Total Time in Congress',
     }
 
-    const width = 600;
-    const height = 600;
     const margin = ({top: 20, right: 20, bottom: 60, left: 50})
+    const width = 600 - margin.left - margin.right;
+    const height = 600 - margin.top - margin.bottom;
     let congressmen = data.congresses[2020]
         .filter(d => d[xVar] != undefined)
         .filter(d => d[yVar] != undefined)
@@ -107,7 +108,7 @@
 
         <Axis width={width} 
             height={height} 
-            margin={margin.bottom} scale={yScale} position='left' />
+            margin={margin.left} scale={yScale} position='left' />
 
         <Legend 
             title={formattedLabels[sizeVar]}
@@ -116,6 +117,11 @@
             xCircle={width-100}
             ycircle={margin.bottom}/>
 
+        <ColorLegend
+            width={10}
+            height={100}
+            scale={colorScale}
+        />
         <text 
         text-anchor= "middle"
         fill = white
