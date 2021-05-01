@@ -57,5 +57,6 @@
 		border-radius: 4px;
 		padding: 4px;
 		position: absolute;
+		color: black;
 	}
 </style>

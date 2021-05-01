@@ -28,6 +28,7 @@
 r=3
 cx={(Math.random() - .5) * 4}
 cy={y(d.y)}
+fill=white
 on:mouseover={sendInfo}
 on:mouseout={sendInfo}
 on:mousemove={sendInfo}
