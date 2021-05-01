@@ -36,48 +36,49 @@
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
-	<Scroller
-		{top}
-		{threshold}
-		{bottom}
-		bind:count
-		bind:index
-		bind:offset
-		bind:progress
-	>
-		<div slot="background">
-			<!-- <p>current section: <strong>{index + 1}/{count}</strong></p>
-			<progress value="{count ? (index + 1) / count : 0}"></progress>
-
-			<p>offset in current section</p>
-			<progress value={offset || 0}></progress>
-
-			<p>total progress</p>
-			<progress value={progress || 0}></progress> -->
-		</div>
-
-		<div slot="foreground" style="padding: 0 0 0 50%;">
-			<section>
+	<div>
+		<Scroller>
+			<div slot="background">
 				<h2>Congress Sized According to Years Spent in Congress</h2>
-				<BubbleChart data={data}/>			
-			</section>
-			<section>
-				<h2>Congress Over The Years</h2>
-				<Boxplot2 {data}/>	
-			</section>
-			<section>
-				<h2>Age versus Ideology</h2>
-				<Scatterplot2 
-				{data} 
-				xVar={'nominate_dim1'}
-				yVar={'nominate_dim2'}
-				colorVar={'max_age'}
-				sizeVar={'cumulative_time_sen_and_house'}/>
-			</section>
-			<section>section 4</section>
-			<section>section 5</section>
-		</div>
-	</Scroller>	
+				<BubbleChart data={data}/>				
+			</div>
+			
+			<div slot="foreground">
+				<section> If we look at the current Congress, much of the experience in terms of years in Congress, is concentrated in a few politicians. </section>
+					
+				<section> Dissatisfaction with the "career politician" was part of the populist appeal of then-candidate Donald Trump.</section>
+
+				<section> Politician's attempt to distance themselves from the "career politician" brand. </section>
+
+			</div>
+		</Scroller>
+		<section> 
+
+		</section>
+
+		<section>
+			<h2>Congress Over The Years</h2>
+			<Boxplot2 {data}/>	
+		</section>
+		<section>
+			<h2>Age versus Ideology</h2>
+			<Scatterplot2 
+			{data} 
+			xVar={'nominate_dim1'}
+			yVar={'nominate_dim2'}
+			colorVar={'max_age'}
+			sizeVar={'cumulative_time_sen_and_house'}/>
+		</section>
+		<section>
+			<Scatterplot2 
+			{data} 
+			xVar={'nominate_dim1'}
+			yVar={'min_age'}
+			colorVar={'max_age'}
+			sizeVar={'cumulative_time_sen_and_house'}/>
+		</section>
+		<section>section 5</section>
+	</div>
 	{:catch error}
 		<p>An error occurred!</p>
 		{console.log(error)}
@@ -92,6 +93,7 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
+		background-color: rgba(0,0,0,0.5);
 	}
 
 	h1 {
@@ -105,5 +107,14 @@
 		main {
 			max-width: none;
 		}
+	}
+
+	section {
+		height: 100%;
+		/* width: 80%; */
+		/* background-color: rgba(0,0,0,0.5); */
+		color: white;
+		padding: 1em;
+		margin: 0 0 2em 0;
 	}
 </style>
