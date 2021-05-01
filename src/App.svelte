@@ -42,7 +42,7 @@
 				<BubbleChart data={data}/>				
 			</div>
 			
-			<div slot="foreground">
+			<div slot="foreground" class="foreground">
 				<section class="story-part"> If we look at the current Congress, much of the experience in terms of years in Congress, is concentrated in a few politicians. </section>
 					
 				<section class="story-part"> Dissatisfaction with the "career politician" was part of the populist appeal of then-candidate Donald Trump.</section>
@@ -109,6 +109,12 @@
 
 	.spacer {
 		height: 50%;
+	}
+
+	.foreground{
+		pointer-events: none;
+		width: 30%;
+		z-index: -1;
 	}
 
 	.story-part {
