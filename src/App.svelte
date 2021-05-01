@@ -32,11 +32,10 @@
 	<h5>No Person shall be a Representative 
 		who shall not have attained to the Age of twenty five Years
 	- U.S. Constitution art. I, § 2, cl. 2</h5>
-
+	<div class="spacer"></div>
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
-	<div>
 		<Scroller>
 			<div slot="background">
 				<h2>Congress Sized According to Years Spent in Congress</h2>
@@ -44,18 +43,17 @@
 			</div>
 			
 			<div slot="foreground">
-				<section> If we look at the current Congress, much of the experience in terms of years in Congress, is concentrated in a few politicians. </section>
+				<section class="story-part"> If we look at the current Congress, much of the experience in terms of years in Congress, is concentrated in a few politicians. </section>
 					
-				<section> Dissatisfaction with the "career politician" was part of the populist appeal of then-candidate Donald Trump.</section>
+				<section class="story-part"> Dissatisfaction with the "career politician" was part of the populist appeal of then-candidate Donald Trump.</section>
 
-				<section> Politician's attempt to distance themselves from the "career politician" brand. </section>
+				<section class="story-part"> Politicians attempt to distance themselves from the "career politician" brand by refusing PAC money. </section>
 
+				<section class="story-part">But is there really a recent uptick in career politicians?</section>
 			</div>
 		</Scroller>
-		<section> 
 
-		</section>
-
+	<div>
 		<section>
 			<h2>Congress Over The Years</h2>
 			<Boxplot2 {data}/>	
@@ -109,12 +107,16 @@
 		}
 	}
 
-	section {
-		height: 100%;
-		/* width: 80%; */
-		/* background-color: rgba(0,0,0,0.5); */
+	.spacer {
+		height: 50%;
+	}
+
+	.story-part {
+		/* height: 600px; */		
+		width: 20%;
+		background-color: rgba(22, 117, 146, 0.5); 
 		color: white;
 		padding: 1em;
-		margin: 0 0 2em 0;
+		margin: 0 0 50em 0;
 	}
 </style>
