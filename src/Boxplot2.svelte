@@ -171,10 +171,12 @@
         <text 
             text-anchor= "middle"
             x = {width/2}
-            y = {height - margin.bottom/3}>Year</text>
+            y = {height - margin.bottom/3}
+            fill = white>Year</text>
         <Axis {width} {height} margin={margin.left} scale={y} position='left' />
         <text 
             text-anchor= "middle"
+            fill = white
             transform = {`translate(${margin.left/3}, ${height/2}) rotate(270)`}
             >{formattedOutcome[outcomeVar]}</text>
             
@@ -217,5 +219,9 @@
 <style>
     label {
         display: inline-block;
+    }
+
+    text {
+        color: white;
     }
 </style>
