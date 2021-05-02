@@ -119,13 +119,13 @@
     function mouseOver(event) {
         message = event;
         isHovered = true;
-		xTool = event.detail.event.pageX + 5;
-		yTool = event.detail.event.pageY + 5;
+		xTool = event.detail.event.clientX + 5;
+		yTool = event.detail.event.clientY + 5;
     }
 
     function mouseMove(event) {
-        xTool = event.detail.event.pageX + 5;
-		yTool = event.detail.event.pageY + 5;
+        xTool = event.detail.event.clientX + 5;
+		yTool = event.detail.event.clientY + 5;
 	}
 
     function mouseOut(){

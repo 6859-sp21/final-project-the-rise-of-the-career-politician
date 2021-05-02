@@ -62,8 +62,7 @@
 			</div>
 
 			<div slot="foreground">
-				<section class="story-part"> Let's take a look at the distribution of experience in Congress over the years... 
-				</section>
+				<section class="story-part"> Let's take a look at the distribution of experience in Congress over the years... </section>
 					
 				<section class="story-part"> Time spent in Congress was relatively flat up until WW2.</section>
 
@@ -76,26 +75,19 @@
 			</div>
 
 		</Scroller>
-	<div>
-		<section>
-			<h2>Age versus Ideology</h2>
-			<Scatterplot2 
-			{data} 
-			xVar={'nominate_dim1'}
-			yVar={'nominate_dim2'}
-			colorVar={'max_age'}
-			sizeVar={'cumulative_time_sen_and_house'}/>
-		</section>
-		<section>
-			<Scatterplot2 
-			{data} 
-			xVar={'nominate_dim1'}
-			yVar={'min_age'}
-			colorVar={'max_age'}
-			sizeVar={'cumulative_time_sen_and_house'}/>
-		</section>
-		<section>section 5</section>
-	</div>
+		<div class="spacer"></div>
+		<Scroller>
+			<div slot="background">
+				<h2>Age versus Ideology</h2>
+				<Scatterplot2 
+				{data} 
+				xVar={'nominate_dim1'}
+				yVar={'cumulative_time_sen_and_house'}
+				colorVar={'max_age'}
+				sizeVar={'cumulative_time_sen_and_house'}/>	
+			</div>
+
+		</Scroller>
 	{:catch error}
 		<p>An error occurred!</p>
 		{console.log(error)}

@@ -3,14 +3,16 @@
     export let width;
     export let height; 
     export let scale; 
+    export let xStart = 500;
+    export let yStart = 30;
     let el;
 
     let legendMargin = { top: 50, bottom: 20, left: 50, right: 20 };
 
     $: {
         let legendSvg = d3.select(el)
-            .attr('transform', 'translate(' + legendMargin.left + ',' +
-            legendMargin.top + ')');
+            .attr('transform', 'translate(' + (xStart-legendMargin.left) + ',' +
+            (yStart + legendMargin.top) + ')');
 
         updateColourScale(scale);
 
@@ -48,6 +50,9 @@
                 .attr('stop-color', d[1])
                 .attr('stop-opacity', 1);
         });
+
+        legendSvg.append('text')
+            .text('Age scale');
 
         legendSvg.append('rect')
             .attr('x1', 0)
