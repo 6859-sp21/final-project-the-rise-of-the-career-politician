@@ -65,7 +65,7 @@
 	}
 
 	.spacer {
-		height: 50%;
+		height: 25%;
 	}
 
 	:global(.story-part) {
