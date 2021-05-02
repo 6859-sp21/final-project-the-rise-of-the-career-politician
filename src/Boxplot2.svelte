@@ -3,14 +3,18 @@
     import Outlier from './Outlier.svelte';
 	import { fade, draw, fly } from 'svelte/transition';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
-    import { boxplotOutcomeVar } from './stores.js';
+    import { boxplotOutcomeVar, boxplotRepType} from './stores.js';
     export let data;
 
     let outcomeVar;
-    let repType = 'both'
+    let repType; 
 
     boxplotOutcomeVar.subscribe(value => {
         outcomeVar = value;
+    });
+
+    boxplotRepType.subscribe(value => {
+        repType = value;
     });
 
     let formattedOutcome = {

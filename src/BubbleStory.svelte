@@ -26,5 +26,7 @@
         <section class="story-part"> Politicians attempt to distance themselves from the "career politician" brand by refusing PAC money. </section>
 
         <section class="story-part">But is there really a recent uptick in career politicians?</section>
+
+        <section class="blank-story-part"></section>
     </div>
 </Scroller>

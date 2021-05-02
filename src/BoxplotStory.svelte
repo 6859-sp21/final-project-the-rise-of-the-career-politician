@@ -1,6 +1,6 @@
 <script>
   	import Boxplot2 from './Boxplot2.svelte';
-    import { boxplotOutcomeVar } from './stores.js';
+    import { boxplotOutcomeVar, boxplotRepType} from './stores.js';
     import Scroller from '@sveltejs/svelte-scroller';
     export let data;
     
@@ -24,7 +24,20 @@
 			case 3:
 				boxplotOutcomeVar.set('age');
 				break;
-		}
+            case 5:
+				boxplotOutcomeVar.set('age');
+                boxplotRepType.set('both');
+				break;
+            case 7:
+                boxplotOutcomeVar.set('cumulative_time_sen_and_house');
+                boxplotRepType.set('sen');
+                break;
+            case 9:
+                boxplotOutcomeVar.set('cumulative_time_sen_and_house');
+                boxplotRepType.set('rep');
+                break;
+
+        }
 	}
 </script>
 
@@ -48,14 +61,24 @@
 
             <section class="story-part">After WW2, members of Congress began to serve longer terms.</section>
 
-            <section class="story-part">How about average age in Congress?</section>
+            <!-- 3 --> <section class="story-part">How about average age in Congress?</section>
 
-            <section class="story-part">While age has gone up, this trend has largely tracked with life expectancy.</section>
+            <!-- 4 --> <section class="story-part">While age has gone up, this trend has largely tracked with life expectancy.</section>
 
-            <section class="story-part">Adjusted for life expectancy, Congress is actually younger than it once was.</section>
+            <!-- 5 --> <section class="story-part">Adjusted for life expectancy, Congress is actually younger than it once was.</section>
 
-            <section class="story-part">How do patterns vary by house and senate?</section>
+            <!-- 6 --> <section class="story-part">How do patterns vary by house and senate?</section>
 
+            <!-- 7 --> <section class="story-part">In the senate, the median time in Congress increased from 6 years to 12 following WW2.</section>
+
+            <!-- 8 --> <section class="story-part">While the median number of terms has only increased by 1 term, the interquartile range has increased considerably. 
+                25% of senators have served for 24 years. </section>
+
+            <!-- 9 --> <section class="story-part">The increases in time spent in the House have been more dramatic. 
+                John Dingell, the House member with the longest tenure every, spent 60 years as a representative from Michigan. He served 30 consecutive terms starting at 28 years old. </section>
+            
+            <!-- 10 --> <section class="blank-story-part"></section>
+            
         </div>
 
 </Scroller>

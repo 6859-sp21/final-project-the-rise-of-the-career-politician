@@ -76,4 +76,12 @@
 		padding: 1em;
 		margin: 0 0 50em 0;
 	}
+
+	:global(.blank-story-part) {
+		/* height: 600px; */		
+		width: 20%;
+		background-color: rgba(0, 0, 0, 0); 
+		padding: 1em;
+		margin: 0 0 50em 0;
+	}
 </style>
