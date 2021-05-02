@@ -3,9 +3,15 @@
     import Outlier from './Outlier.svelte';
 	import { fade, draw, fly } from 'svelte/transition';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
+    import { boxplotOutcomeVar } from './stores.js';
     export let data;
-    let outcomeVar = 'cumulative_time_sen_and_house';
+
+    let outcomeVar;
     let repType = 'both'
+
+    boxplotOutcomeVar.subscribe(value => {
+        outcomeVar = value;
+    });
 
     let formattedOutcome = {
         'cumulative_time_sen_and_house': 'Years Served',
