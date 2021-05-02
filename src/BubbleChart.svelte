@@ -12,16 +12,15 @@
     let y;
 
     function mouseOver(event) {
-        console.log('Mouse Over received')
         message = event;
         isHovered = true;
-		x = event.detail.event.pageX + 5;
-		y = event.detail.event.pageY + 5;
+        x = event.detail.event.clientX + 5;
+		y = event.detail.event.clientY + 5;
     }
 
     function mouseMove(event) {
-        x = event.detail.event.pageX + 5;
-		y = event.detail.event.pageY + 5;
+        x = event.detail.event.clientX + 5;
+		y = event.detail.event.clientY + 5;
 	}
 
     function mouseOut(){
@@ -88,9 +87,3 @@
 {#if isHovered}
     <WikipediaToolTip bind:x bind:y bind:message/>
 {/if}
-
-<style>
-    div {
-        z-index: 5;
-    }
-</style>

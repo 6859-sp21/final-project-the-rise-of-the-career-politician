@@ -11,7 +11,6 @@
         if (name === undefined || name === "unknown") 
         name = d.data.wikipedia;
     }
-    console.log('bubble for ', name);
     const colorDict = {'Republican': 'red',
                         'Democrat': 'blue'}
 
@@ -25,7 +24,6 @@
         });
     };
 
-    onDestroy(d => console.log("Bubble being destroyed"));
 </script>
 <g
     on:mouseover={sendInfo}

@@ -25,6 +25,7 @@
 	let top = 0.1;
 	let threshold = 0.5;
 	let bottom = 0.9;
+
 </script>
 
 <main>
@@ -36,7 +37,7 @@
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
-		<Scroller>
+		<Scroller {offset}>
 			<div slot="background">
 				<h2>Congress Sized According to Years Spent in Congress</h2>
 				<BubbleChart data={data}/>				
@@ -52,12 +53,30 @@
 				<section class="story-part">But is there really a recent uptick in career politicians?</section>
 			</div>
 		</Scroller>
+		<div class="spacer"></div>
 
+		<Scroller>
+			<div slot="background">
+				<h2>Congress Over The Years</h2>
+				<Boxplot2 {data}/>		
+			</div>
+
+			<div slot="foreground">
+				<section class="story-part"> Let's take a look at the distribution of experience in Congress over the years... 
+				</section>
+					
+				<section class="story-part"> Time spent in Congress was relatively flat up until WW2.</section>
+
+				<section class="story-part">After WW2, members of Congress began to serve longer terms.</section>
+
+				<section class="story-part">How about average age in Congress?</section>
+
+				<section class="story-part">While age has gone up, this trend has largely tracked with life expectancy.</section>
+
+			</div>
+
+		</Scroller>
 	<div>
-		<section>
-			<h2>Congress Over The Years</h2>
-			<Boxplot2 {data}/>	
-		</section>
 		<section>
 			<h2>Age versus Ideology</h2>
 			<Scatterplot2 
@@ -109,12 +128,6 @@
 
 	.spacer {
 		height: 50%;
-	}
-
-	.foreground{
-		pointer-events: none;
-		width: 30%;
-		z-index: -1;
 	}
 
 	.story-part {
