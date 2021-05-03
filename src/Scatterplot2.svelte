@@ -22,33 +22,40 @@
     const margin = ({top: 20, right: 20, bottom: 60, left: 50})
     const width = 600 - margin.left - margin.right;
     const height = 600 - margin.top - margin.bottom;
-    let congressmen = data.congresses[2020]
-        .filter(d => d[xVar] != undefined)
-        .filter(d => d[yVar] != undefined)
-        .filter(d => ! isNaN(d[xVar]))
-        .filter(d => ! isNaN(d[yVar]))
-        .map(d => ({ ...d, 
-            x: Number(d[xVar]),
-            y: Number(d[yVar]) }))
-        .filter(d => d[colorVar] != undefined)
-        .filter(d => d.x !== -99 && d.y !== -99);
 
-    let xScale = d3.scaleLinear()
-        .domain(d3.extent(congressmen, d => d.x)).nice()
-        .range([margin.left, width - margin.right])
+    let congressmen; 
+    let xScale;
+    let yScale;
+    let colorScale;
+    let sizeScale;
+    $: {
+        congressmen = data.congresses[2020]
+            .filter(d => d[xVar] != undefined)
+            .filter(d => d[yVar] != undefined)
+            .filter(d => ! isNaN(d[xVar]))
+            .filter(d => ! isNaN(d[yVar]))
+            .map(d => ({ ...d, 
+                x: Number(d[xVar]),
+                y: Number(d[yVar]) }))
+            .filter(d => d[colorVar] != undefined)
+            .filter(d => d.x !== -99 && d.y !== -99);
 
-    let yScale = d3.scaleLinear()
-        .domain(d3.extent(congressmen, d => d.y)).nice()
-        .range([height - margin.bottom, margin.top])
+        xScale = d3.scaleLinear()
+            .domain(d3.extent(congressmen, d => d.x)).nice()
+            .range([margin.left, width - margin.right])
 
-    let colorScale = d3.scaleLinear()
-        .domain(d3.extent(congressmen, d => d[colorVar])).nice()
-        .range(["white", "blue"])
-    
-    let sizeScale = d3.scaleLinear()
-        .domain(d3.extent(congressmen, d => d[sizeVar])).nice()
-        .range([2,8])
+        yScale = d3.scaleLinear()
+            .domain(d3.extent(congressmen, d => d.y)).nice()
+            .range([height - margin.bottom, margin.top])
 
+        colorScale = d3.scaleLinear()
+            .domain(d3.extent(congressmen, d => d[colorVar])).nice()
+            .range(["white", "blue"])
+        
+        sizeScale = d3.scaleLinear()
+            .domain(d3.extent(congressmen, d => d[sizeVar])).nice()
+            .range([2,8])
+        }
     let options = [
         {id: 'min_age', text: "Age when first joining Congress"},
         {id: 'cumulative_time_sen_and_house', text:'Total time spent in Congress'},
@@ -83,13 +90,12 @@
 
 <div width=75% height=75%>
     <!-- <form>
-        <select bind:value={xVar}>
-            {#each options as o}
-                <option value={o}>
-                    {o.text}
-                </option>
+        {#each options as o}
+            <label>
+                <input type=radio bind:group={xVar} value={o}>
+                {o.text}
+            </label>
             {/each}
-        </select>    
     </form> -->
 
     <svg viewBox={[0, 0, width, height]}
@@ -104,7 +110,7 @@
         text-anchor= "middle"
         x = {width/2}
         y = {height - margin.bottom/3}
-        fill = white>{formattedLabels[xVar]}</text>
+        fill = black>{formattedLabels[xVar]}</text>
 
         <Axis width={width} 
             height={height} 
@@ -124,7 +130,7 @@
         />
         <text 
         text-anchor= "middle"
-        fill = white
+        fill = black
         transform = {`translate(${margin.left/3}, ${height/2}) rotate(270)`}
         >{formattedLabels[yVar]}</text>
 

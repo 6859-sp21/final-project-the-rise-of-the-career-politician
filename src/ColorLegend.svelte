@@ -38,6 +38,7 @@
         // this creates an array of [pct, colour] pairs as stop
         // values for legend
         let ticks = scale.ticks()
+        ticks = [30,40,50,60,70,80,90]
         let pct = ticks
             .map(d => (d - ticks[0]) / (ticks[ticks.length-1] - ticks[0]) * 100)
             .map(d => Math.round(d) + '%');
@@ -52,6 +53,8 @@
         });
 
         legendSvg.append('text')
+            .attr('y', -10)
+            .attr('text-anchor', 'middle')
             .text('Age scale');
 
         legendSvg.append('rect')

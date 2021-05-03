@@ -23,7 +23,7 @@
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
-	<div class="space"></div>
+		<div class="spacer"></div>
 		<BubbleStory {data}/>	
 
 		<div class="spacer"></div>
@@ -50,7 +50,7 @@
 	}
 
 	h1 {
-		color: #ff3e00;
+		/* color: #ff3e00; */
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;

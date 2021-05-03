@@ -5109,7 +5109,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (203:20) {#each b.outliers as o}
+    // (205:20) {#each b.outliers as o}
     function create_each_block_1(ctx) {
     	let outlier;
     	let current;
@@ -5155,14 +5155,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(203:20) {#each b.outliers as o}",
+    		source: "(205:20) {#each b.outliers as o}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (193:8) {#each bins as b (b.id)}
+    // (195:8) {#each bins as b (b.id)}
     function create_each_block$2(key_1, ctx) {
     	let g1;
     	let box;
@@ -5211,8 +5211,8 @@ var app = (function () {
     			attr_dev(g0, "fill-opacity", ".5");
     			attr_dev(g0, "stroke", "none");
     			attr_dev(g0, "transform", g0_transform_value = `translate(${/*x*/ ctx[3]((/*b*/ ctx[37].x0 + /*b*/ ctx[37].x1) / 2)}, 0)`);
-    			add_location(g0, file$7, 199, 16, 5922);
-    			add_location(g1, file$7, 193, 12, 5736);
+    			add_location(g0, file$7, 201, 16, 5989);
+    			add_location(g1, file$7, 195, 12, 5803);
     			this.first = g1;
     		},
     		m: function mount(target, anchor) {
@@ -5305,14 +5305,14 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(193:8) {#each bins as b (b.id)}",
+    		source: "(195:8) {#each bins as b (b.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (216:0) {#if isHovered}
+    // (218:0) {#if isHovered}
     function create_if_block_1(ctx) {
     	let wikipediatooltip;
     	let updating_x;
@@ -5404,14 +5404,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(216:0) {#if isHovered}",
+    		source: "(218:0) {#if isHovered}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (220:0) {#if isHoveredBox}
+    // (222:0) {#if isHoveredBox}
     function create_if_block$1(ctx) {
     	let boxtooltip;
     	let updating_xToolBox;
@@ -5502,7 +5502,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(220:0) {#if isHoveredBox}",
+    		source: "(222:0) {#if isHoveredBox}",
     		ctx
     	});
 
@@ -5637,60 +5637,60 @@ var app = (function () {
     			t16 = space();
     			if (if_block1) if_block1.c();
     			if_block1_anchor = empty$2();
-    			add_location(h2, file$7, 146, 4, 4286);
+    			add_location(h2, file$7, 147, 4, 4352);
     			attr_dev(input0, "type", "radio");
     			input0.__value = "cumulative_time_sen_and_house";
     			input0.value = input0.__value;
     			/*$$binding_groups*/ ctx[25][0].push(input0);
-    			add_location(input0, file$7, 149, 12, 4408);
-    			attr_dev(label0, "class", "svelte-178ebnf");
-    			add_location(label0, file$7, 148, 8, 4388);
+    			add_location(input0, file$7, 150, 12, 4474);
+    			attr_dev(label0, "class", "svelte-16emyax");
+    			add_location(label0, file$7, 149, 8, 4454);
     			attr_dev(input1, "type", "radio");
     			input1.__value = "age";
     			input1.value = input1.__value;
     			/*$$binding_groups*/ ctx[25][0].push(input1);
-    			add_location(input1, file$7, 154, 12, 4574);
-    			attr_dev(label1, "class", "svelte-178ebnf");
-    			add_location(label1, file$7, 153, 8, 4554);
+    			add_location(input1, file$7, 155, 12, 4640);
+    			attr_dev(label1, "class", "svelte-16emyax");
+    			add_location(label1, file$7, 154, 8, 4620);
     			attr_dev(form0, "class", "radio-inline");
-    			add_location(form0, file$7, 147, 4, 4352);
+    			add_location(form0, file$7, 148, 4, 4418);
     			attr_dev(input2, "type", "radio");
     			input2.__value = "both";
     			input2.value = input2.__value;
     			/*$$binding_groups*/ ctx[25][1].push(input2);
-    			add_location(input2, file$7, 161, 12, 4720);
-    			attr_dev(label2, "class", "svelte-178ebnf");
-    			add_location(label2, file$7, 160, 8, 4700);
+    			add_location(input2, file$7, 163, 12, 4787);
+    			attr_dev(label2, "class", "svelte-16emyax");
+    			add_location(label2, file$7, 162, 8, 4767);
     			attr_dev(input3, "type", "radio");
     			input3.__value = "sen";
     			input3.value = input3.__value;
     			/*$$binding_groups*/ ctx[25][1].push(input3);
-    			add_location(input3, file$7, 166, 12, 4838);
-    			attr_dev(label3, "class", "svelte-178ebnf");
-    			add_location(label3, file$7, 165, 8, 4818);
+    			add_location(input3, file$7, 168, 12, 4905);
+    			attr_dev(label3, "class", "svelte-16emyax");
+    			add_location(label3, file$7, 167, 8, 4885);
     			attr_dev(input4, "type", "radio");
     			input4.__value = "rep";
     			input4.value = input4.__value;
     			/*$$binding_groups*/ ctx[25][1].push(input4);
-    			add_location(input4, file$7, 171, 12, 4961);
-    			attr_dev(label4, "class", "svelte-178ebnf");
-    			add_location(label4, file$7, 170, 8, 4941);
-    			add_location(form1, file$7, 159, 4, 4685);
+    			add_location(input4, file$7, 173, 12, 5028);
+    			attr_dev(label4, "class", "svelte-16emyax");
+    			add_location(label4, file$7, 172, 8, 5008);
+    			add_location(form1, file$7, 161, 4, 4752);
     			attr_dev(text0, "text-anchor", "middle");
     			attr_dev(text0, "x", /*width*/ ctx[16] / 2);
     			attr_dev(text0, "y", /*height*/ ctx[15] - /*margin*/ ctx[14].bottom / 3);
-    			attr_dev(text0, "fill", "white");
-    			attr_dev(text0, "class", "svelte-178ebnf");
-    			add_location(text0, file$7, 180, 8, 5244);
+    			attr_dev(text0, "fill", "black");
+    			attr_dev(text0, "class", "svelte-16emyax");
+    			add_location(text0, file$7, 182, 8, 5311);
     			attr_dev(text1, "text-anchor", "middle");
-    			attr_dev(text1, "fill", "white");
+    			attr_dev(text1, "fill", "black");
     			attr_dev(text1, "transform", `translate(${/*margin*/ ctx[14].left / 3}, ${/*height*/ ctx[15] / 2}) rotate(270)`);
-    			attr_dev(text1, "class", "svelte-178ebnf");
-    			add_location(text1, file$7, 186, 8, 5480);
+    			attr_dev(text1, "class", "svelte-16emyax");
+    			add_location(text1, file$7, 188, 8, 5547);
     			attr_dev(svg, "width", /*width*/ ctx[16]);
     			attr_dev(svg, "height", /*height*/ ctx[15]);
-    			add_location(svg, file$7, 176, 4, 5067);
-    			add_location(div, file$7, 145, 0, 4276);
+    			add_location(svg, file$7, 178, 4, 5134);
+    			add_location(div, file$7, 146, 0, 4342);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5922,7 +5922,8 @@ var app = (function () {
 
     	let formattedOutcome = {
     		"cumulative_time_sen_and_house": "Years Served",
-    		"age": "Age"
+    		"age": "Age",
+    		"nominate_dim1": "Ideology Score (liberal-conservative)"
     	};
 
     	function getBins(outcomeVar, repType) {
@@ -9841,13 +9842,14 @@ var app = (function () {
     			attr_dev(circle, "cy", circle_cy_value = /*yCircle*/ ctx[4] - /*scale*/ ctx[0](/*d*/ ctx[7]));
     			attr_dev(circle, "r", circle_r_value = /*scale*/ ctx[0](/*d*/ ctx[7]));
     			attr_dev(circle, "fill", "none");
-    			attr_dev(circle, "stroke", "white");
+    			attr_dev(circle, "stroke", "black");
     			add_location(circle, file$5, 27, 2, 554);
     			attr_dev(text_1, "x", text_1_x_value = /*xCircle*/ ctx[3] + /*scale*/ ctx[0](/*d*/ ctx[7]) + /*spacing*/ ctx[5] * /*i*/ ctx[9]);
     			attr_dev(text_1, "y", text_1_y_value = /*yCircle*/ ctx[4] + 10);
     			attr_dev(text_1, "text-anchor", "middle");
     			attr_dev(text_1, "font-size", "10");
-    			attr_dev(text_1, "stroke", "white");
+    			attr_dev(text_1, "fill", "none");
+    			attr_dev(text_1, "stroke", "black");
     			add_location(text_1, file$5, 35, 2, 697);
     		},
     		m: function mount(target, anchor) {
@@ -9924,7 +9926,7 @@ var app = (function () {
     			attr_dev(text_1, "text-anchor", "middle");
     			attr_dev(text_1, "font-size", "13");
     			attr_dev(text_1, "fill", "none");
-    			attr_dev(text_1, "stroke", "white");
+    			attr_dev(text_1, "stroke", "black");
     			add_location(text_1, file$5, 17, 1, 384);
     			attr_dev(g, "class", "legend");
     			add_location(g, file$5, 16, 0, 364);
@@ -10340,7 +10342,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			g = svg_element("g");
-    			add_location(g, file$3, 82, 0, 2407);
+    			add_location(g, file$3, 85, 0, 2517);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -10446,6 +10448,7 @@ var app = (function () {
     					// values for legend
     					let ticks = scale.ticks();
 
+    					ticks = [30, 40, 50, 60, 70, 80, 90];
     					let pct = ticks.map(d => (d - ticks[0]) / (ticks[ticks.length - 1] - ticks[0]) * 100).map(d => Math.round(d) + "%");
     					var colourPct = d3.zip(pct, ticks.map(d => scale(d)));
 
@@ -10453,7 +10456,7 @@ var app = (function () {
     						gradient.append("stop").attr("offset", d[0]).attr("stop-color", d[1]).attr("stop-opacity", 1);
     					});
 
-    					legendSvg.append("text").text("Age scale");
+    					legendSvg.append("text").attr("y", -10).attr("text-anchor", "middle").text("Age scale");
     					legendSvg.append("rect").attr("x1", 0).attr("y1", 0).attr("width", width).attr("height", height).style("fill", "url(#gradient)");
 
     					// // create a scale and axis for the legend
@@ -10556,7 +10559,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (132:12) {#each congressmen as d}
+    // (138:12) {#each congressmen as d}
     function create_each_block(ctx) {
     	let scat;
     	let current;
@@ -10564,10 +10567,10 @@ var app = (function () {
     	scat = new Scat({
     			props: {
     				d: /*d*/ ctx[25],
-    				x: /*xScale*/ ctx[13](/*d*/ ctx[25].x),
-    				y: /*yScale*/ ctx[14](/*d*/ ctx[25].y),
-    				color: /*colorScale*/ ctx[15](/*d*/ ctx[25][/*colorVar*/ ctx[2]]),
-    				r: /*sizeScale*/ ctx[16](/*d*/ ctx[25][/*sizeVar*/ ctx[3]])
+    				x: /*xScale*/ ctx[5](/*d*/ ctx[25].x),
+    				y: /*yScale*/ ctx[6](/*d*/ ctx[25].y),
+    				color: /*colorScale*/ ctx[7](/*d*/ ctx[25][/*colorVar*/ ctx[2]]),
+    				r: /*sizeScale*/ ctx[8](/*d*/ ctx[25][/*sizeVar*/ ctx[3]])
     			},
     			$$inline: true
     		});
@@ -10586,8 +10589,11 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const scat_changes = {};
-    			if (dirty & /*colorVar*/ 4) scat_changes.color = /*colorScale*/ ctx[15](/*d*/ ctx[25][/*colorVar*/ ctx[2]]);
-    			if (dirty & /*sizeVar*/ 8) scat_changes.r = /*sizeScale*/ ctx[16](/*d*/ ctx[25][/*sizeVar*/ ctx[3]]);
+    			if (dirty & /*congressmen*/ 16) scat_changes.d = /*d*/ ctx[25];
+    			if (dirty & /*xScale, congressmen*/ 48) scat_changes.x = /*xScale*/ ctx[5](/*d*/ ctx[25].x);
+    			if (dirty & /*yScale, congressmen*/ 80) scat_changes.y = /*yScale*/ ctx[6](/*d*/ ctx[25].y);
+    			if (dirty & /*colorScale, congressmen, colorVar*/ 148) scat_changes.color = /*colorScale*/ ctx[7](/*d*/ ctx[25][/*colorVar*/ ctx[2]]);
+    			if (dirty & /*sizeScale, congressmen, sizeVar*/ 280) scat_changes.r = /*sizeScale*/ ctx[8](/*d*/ ctx[25][/*sizeVar*/ ctx[3]]);
     			scat.$set(scat_changes);
     		},
     		i: function intro(local) {
@@ -10608,14 +10614,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(132:12) {#each congressmen as d}",
+    		source: "(138:12) {#each congressmen as d}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (147:0) {#if isHovered}
+    // (153:0) {#if isHovered}
     function create_if_block(ctx) {
     	let wikipediatooltip;
     	let updating_x;
@@ -10637,16 +10643,16 @@ var app = (function () {
 
     	let wikipediatooltip_props = {};
 
-    	if (/*xTool*/ ctx[6] !== void 0) {
-    		wikipediatooltip_props.x = /*xTool*/ ctx[6];
+    	if (/*xTool*/ ctx[11] !== void 0) {
+    		wikipediatooltip_props.x = /*xTool*/ ctx[11];
     	}
 
-    	if (/*yTool*/ ctx[7] !== void 0) {
-    		wikipediatooltip_props.y = /*yTool*/ ctx[7];
+    	if (/*yTool*/ ctx[12] !== void 0) {
+    		wikipediatooltip_props.y = /*yTool*/ ctx[12];
     	}
 
-    	if (/*message*/ ctx[5] !== void 0) {
-    		wikipediatooltip_props.message = /*message*/ ctx[5];
+    	if (/*message*/ ctx[10] !== void 0) {
+    		wikipediatooltip_props.message = /*message*/ ctx[10];
     	}
 
     	wikipediatooltip = new WikipediaToolTip({
@@ -10669,21 +10675,21 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const wikipediatooltip_changes = {};
 
-    			if (!updating_x && dirty & /*xTool*/ 64) {
+    			if (!updating_x && dirty & /*xTool*/ 2048) {
     				updating_x = true;
-    				wikipediatooltip_changes.x = /*xTool*/ ctx[6];
+    				wikipediatooltip_changes.x = /*xTool*/ ctx[11];
     				add_flush_callback(() => updating_x = false);
     			}
 
-    			if (!updating_y && dirty & /*yTool*/ 128) {
+    			if (!updating_y && dirty & /*yTool*/ 4096) {
     				updating_y = true;
-    				wikipediatooltip_changes.y = /*yTool*/ ctx[7];
+    				wikipediatooltip_changes.y = /*yTool*/ ctx[12];
     				add_flush_callback(() => updating_y = false);
     			}
 
-    			if (!updating_message && dirty & /*message*/ 32) {
+    			if (!updating_message && dirty & /*message*/ 1024) {
     				updating_message = true;
-    				wikipediatooltip_changes.message = /*message*/ ctx[5];
+    				wikipediatooltip_changes.message = /*message*/ ctx[10];
     				add_flush_callback(() => updating_message = false);
     			}
 
@@ -10707,7 +10713,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(147:0) {#if isHovered}",
+    		source: "(153:0) {#if isHovered}",
     		ctx
     	});
 
@@ -10719,13 +10725,13 @@ var app = (function () {
     	let svg;
     	let axis0;
     	let text0;
-    	let t0_value = /*formattedLabels*/ ctx[8][/*xVar*/ ctx[0]] + "";
+    	let t0_value = /*formattedLabels*/ ctx[13][/*xVar*/ ctx[0]] + "";
     	let t0;
     	let axis1;
     	let legend;
     	let colorlegend;
     	let text1;
-    	let t1_value = /*formattedLabels*/ ctx[8][/*yVar*/ ctx[1]] + "";
+    	let t1_value = /*formattedLabels*/ ctx[13][/*yVar*/ ctx[1]] + "";
     	let t1;
     	let g;
     	let t2;
@@ -10734,10 +10740,10 @@ var app = (function () {
 
     	axis0 = new Axis({
     			props: {
-    				width: /*width*/ ctx[10],
-    				height: /*height*/ ctx[11],
-    				margin: /*margin*/ ctx[9].bottom,
-    				scale: /*xScale*/ ctx[13],
+    				width: /*width*/ ctx[15],
+    				height: /*height*/ ctx[16],
+    				margin: /*margin*/ ctx[14].bottom,
+    				scale: /*xScale*/ ctx[5],
     				position: "bottom"
     			},
     			$$inline: true
@@ -10745,10 +10751,10 @@ var app = (function () {
 
     	axis1 = new Axis({
     			props: {
-    				width: /*width*/ ctx[10],
-    				height: /*height*/ ctx[11],
-    				margin: /*margin*/ ctx[9].left,
-    				scale: /*yScale*/ ctx[14],
+    				width: /*width*/ ctx[15],
+    				height: /*height*/ ctx[16],
+    				margin: /*margin*/ ctx[14].left,
+    				scale: /*yScale*/ ctx[6],
     				position: "left"
     			},
     			$$inline: true
@@ -10756,11 +10762,11 @@ var app = (function () {
 
     	legend = new Legend({
     			props: {
-    				title: /*formattedLabels*/ ctx[8][/*sizeVar*/ ctx[3]],
-    				scale: /*sizeScale*/ ctx[16],
+    				title: /*formattedLabels*/ ctx[13][/*sizeVar*/ ctx[3]],
+    				scale: /*sizeScale*/ ctx[8],
     				values: [5, 20, 40],
-    				xCircle: /*width*/ ctx[10] - 100,
-    				ycircle: /*margin*/ ctx[9].bottom
+    				xCircle: /*width*/ ctx[15] - 100,
+    				ycircle: /*margin*/ ctx[14].bottom
     			},
     			$$inline: true
     		});
@@ -10769,12 +10775,12 @@ var app = (function () {
     			props: {
     				width: 10,
     				height: 100,
-    				scale: /*colorScale*/ ctx[15]
+    				scale: /*colorScale*/ ctx[7]
     			},
     			$$inline: true
     		});
 
-    	let each_value = /*congressmen*/ ctx[12];
+    	let each_value = /*congressmen*/ ctx[4];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -10786,7 +10792,7 @@ var app = (function () {
     		each_blocks[i] = null;
     	});
 
-    	let if_block = /*isHovered*/ ctx[4] && create_if_block(ctx);
+    	let if_block = /*isHovered*/ ctx[9] && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
@@ -10810,22 +10816,22 @@ var app = (function () {
     			if (if_block) if_block.c();
     			if_block_anchor = empty$2();
     			attr_dev(text0, "text-anchor", "middle");
-    			attr_dev(text0, "x", /*width*/ ctx[10] / 2);
-    			attr_dev(text0, "y", /*height*/ ctx[11] - /*margin*/ ctx[9].bottom / 3);
-    			attr_dev(text0, "fill", "white");
-    			add_location(text0, file$2, 102, 8, 3157);
+    			attr_dev(text0, "x", /*width*/ ctx[15] / 2);
+    			attr_dev(text0, "y", /*height*/ ctx[16] - /*margin*/ ctx[14].bottom / 3);
+    			attr_dev(text0, "fill", "black");
+    			add_location(text0, file$2, 108, 8, 3319);
     			attr_dev(text1, "text-anchor", "middle");
-    			attr_dev(text1, "fill", "white");
-    			attr_dev(text1, "transform", `translate(${/*margin*/ ctx[9].left / 3}, ${/*height*/ ctx[11] / 2}) rotate(270)`);
-    			add_location(text1, file$2, 124, 8, 3747);
-    			add_location(g, file$2, 130, 8, 3931);
-    			attr_dev(svg, "viewBox", [0, 0, /*width*/ ctx[10], /*height*/ ctx[11]]);
-    			attr_dev(svg, "width", /*width*/ ctx[10]);
-    			attr_dev(svg, "height", /*height*/ ctx[11]);
-    			add_location(svg, file$2, 94, 4, 2930);
+    			attr_dev(text1, "fill", "black");
+    			attr_dev(text1, "transform", `translate(${/*margin*/ ctx[14].left / 3}, ${/*height*/ ctx[16] / 2}) rotate(270)`);
+    			add_location(text1, file$2, 130, 8, 3909);
+    			add_location(g, file$2, 136, 8, 4093);
+    			attr_dev(svg, "viewBox", [0, 0, /*width*/ ctx[15], /*height*/ ctx[16]]);
+    			attr_dev(svg, "width", /*width*/ ctx[15]);
+    			attr_dev(svg, "height", /*height*/ ctx[16]);
+    			add_location(svg, file$2, 100, 4, 3092);
     			attr_dev(div, "width", "75%");
     			attr_dev(div, "height", "75%");
-    			add_location(div, file$2, 83, 0, 2666);
+    			add_location(div, file$2, 90, 0, 2850);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -10853,14 +10859,24 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if ((!current || dirty & /*xVar*/ 1) && t0_value !== (t0_value = /*formattedLabels*/ ctx[8][/*xVar*/ ctx[0]] + "")) set_data_dev(t0, t0_value);
+    			const axis0_changes = {};
+    			if (dirty & /*xScale*/ 32) axis0_changes.scale = /*xScale*/ ctx[5];
+    			axis0.$set(axis0_changes);
+    			if ((!current || dirty & /*xVar*/ 1) && t0_value !== (t0_value = /*formattedLabels*/ ctx[13][/*xVar*/ ctx[0]] + "")) set_data_dev(t0, t0_value);
+    			const axis1_changes = {};
+    			if (dirty & /*yScale*/ 64) axis1_changes.scale = /*yScale*/ ctx[6];
+    			axis1.$set(axis1_changes);
     			const legend_changes = {};
-    			if (dirty & /*sizeVar*/ 8) legend_changes.title = /*formattedLabels*/ ctx[8][/*sizeVar*/ ctx[3]];
+    			if (dirty & /*sizeVar*/ 8) legend_changes.title = /*formattedLabels*/ ctx[13][/*sizeVar*/ ctx[3]];
+    			if (dirty & /*sizeScale*/ 256) legend_changes.scale = /*sizeScale*/ ctx[8];
     			legend.$set(legend_changes);
-    			if ((!current || dirty & /*yVar*/ 2) && t1_value !== (t1_value = /*formattedLabels*/ ctx[8][/*yVar*/ ctx[1]] + "")) set_data_dev(t1, t1_value);
+    			const colorlegend_changes = {};
+    			if (dirty & /*colorScale*/ 128) colorlegend_changes.scale = /*colorScale*/ ctx[7];
+    			colorlegend.$set(colorlegend_changes);
+    			if ((!current || dirty & /*yVar*/ 2) && t1_value !== (t1_value = /*formattedLabels*/ ctx[13][/*yVar*/ ctx[1]] + "")) set_data_dev(t1, t1_value);
 
-    			if (dirty & /*congressmen, xScale, yScale, colorScale, colorVar, sizeScale, sizeVar, mouseOver, mouseOut, mouseMove*/ 1044492) {
-    				each_value = /*congressmen*/ ctx[12];
+    			if (dirty & /*congressmen, xScale, yScale, colorScale, colorVar, sizeScale, sizeVar, mouseOver, mouseOut, mouseMove*/ 918012) {
+    				each_value = /*congressmen*/ ctx[4];
     				validate_each_argument(each_value);
     				let i;
 
@@ -10887,11 +10903,11 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (/*isHovered*/ ctx[4]) {
+    			if (/*isHovered*/ ctx[9]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty & /*isHovered*/ 16) {
+    					if (dirty & /*isHovered*/ 512) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -10982,17 +10998,11 @@ var app = (function () {
     	const margin = { top: 20, right: 20, bottom: 60, left: 50 };
     	const width = 600 - margin.left - margin.right;
     	const height = 600 - margin.top - margin.bottom;
-
-    	let congressmen = data.congresses[2020].filter(d => d[xVar] != undefined).filter(d => d[yVar] != undefined).filter(d => !isNaN(d[xVar])).filter(d => !isNaN(d[yVar])).map(d => ({
-    		...d,
-    		x: Number(d[xVar]),
-    		y: Number(d[yVar])
-    	})).filter(d => d[colorVar] != undefined).filter(d => d.x !== -99 && d.y !== -99);
-
-    	let xScale = d3.scaleLinear().domain(d3.extent(congressmen, d => d.x)).nice().range([margin.left, width - margin.right]);
-    	let yScale = d3.scaleLinear().domain(d3.extent(congressmen, d => d.y)).nice().range([height - margin.bottom, margin.top]);
-    	let colorScale = d3.scaleLinear().domain(d3.extent(congressmen, d => d[colorVar])).nice().range(["white", "blue"]);
-    	let sizeScale = d3.scaleLinear().domain(d3.extent(congressmen, d => d[sizeVar])).nice().range([2, 8]);
+    	let congressmen;
+    	let xScale;
+    	let yScale;
+    	let colorScale;
+    	let sizeScale;
 
     	let options = [
     		{
@@ -11023,19 +11033,19 @@ var app = (function () {
 
     	function mouseOver(event) {
     		console.log("mouse over happening", event);
-    		$$invalidate(5, message = event);
-    		$$invalidate(4, isHovered = true);
-    		$$invalidate(6, xTool = event.detail.event.clientX + 5);
-    		$$invalidate(7, yTool = event.detail.event.clientY + 5);
+    		$$invalidate(10, message = event);
+    		$$invalidate(9, isHovered = true);
+    		$$invalidate(11, xTool = event.detail.event.clientX + 5);
+    		$$invalidate(12, yTool = event.detail.event.clientY + 5);
     	}
 
     	function mouseMove(event) {
-    		$$invalidate(6, xTool = event.detail.event.clientX + 5);
-    		$$invalidate(7, yTool = event.detail.event.clientY + 5);
+    		$$invalidate(11, xTool = event.detail.event.clientX + 5);
+    		$$invalidate(12, yTool = event.detail.event.clientY + 5);
     	}
 
     	function mouseOut() {
-    		$$invalidate(4, isHovered = false);
+    		$$invalidate(9, isHovered = false);
     	}
 
     	const writable_props = ["data", "xVar", "yVar", "colorVar", "sizeVar"];
@@ -11046,17 +11056,17 @@ var app = (function () {
 
     	function wikipediatooltip_x_binding(value) {
     		xTool = value;
-    		$$invalidate(6, xTool);
+    		$$invalidate(11, xTool);
     	}
 
     	function wikipediatooltip_y_binding(value) {
     		yTool = value;
-    		$$invalidate(7, yTool);
+    		$$invalidate(12, yTool);
     	}
 
     	function wikipediatooltip_message_binding(value) {
     		message = value;
-    		$$invalidate(5, message);
+    		$$invalidate(10, message);
     	}
 
     	$$self.$$set = $$props => {
@@ -11104,27 +11114,49 @@ var app = (function () {
     		if ("yVar" in $$props) $$invalidate(1, yVar = $$props.yVar);
     		if ("colorVar" in $$props) $$invalidate(2, colorVar = $$props.colorVar);
     		if ("sizeVar" in $$props) $$invalidate(3, sizeVar = $$props.sizeVar);
-    		if ("congressmen" in $$props) $$invalidate(12, congressmen = $$props.congressmen);
-    		if ("xScale" in $$props) $$invalidate(13, xScale = $$props.xScale);
-    		if ("yScale" in $$props) $$invalidate(14, yScale = $$props.yScale);
-    		if ("colorScale" in $$props) $$invalidate(15, colorScale = $$props.colorScale);
-    		if ("sizeScale" in $$props) $$invalidate(16, sizeScale = $$props.sizeScale);
+    		if ("congressmen" in $$props) $$invalidate(4, congressmen = $$props.congressmen);
+    		if ("xScale" in $$props) $$invalidate(5, xScale = $$props.xScale);
+    		if ("yScale" in $$props) $$invalidate(6, yScale = $$props.yScale);
+    		if ("colorScale" in $$props) $$invalidate(7, colorScale = $$props.colorScale);
+    		if ("sizeScale" in $$props) $$invalidate(8, sizeScale = $$props.sizeScale);
     		if ("options" in $$props) options = $$props.options;
-    		if ("isHovered" in $$props) $$invalidate(4, isHovered = $$props.isHovered);
-    		if ("message" in $$props) $$invalidate(5, message = $$props.message);
-    		if ("xTool" in $$props) $$invalidate(6, xTool = $$props.xTool);
-    		if ("yTool" in $$props) $$invalidate(7, yTool = $$props.yTool);
+    		if ("isHovered" in $$props) $$invalidate(9, isHovered = $$props.isHovered);
+    		if ("message" in $$props) $$invalidate(10, message = $$props.message);
+    		if ("xTool" in $$props) $$invalidate(11, xTool = $$props.xTool);
+    		if ("yTool" in $$props) $$invalidate(12, yTool = $$props.yTool);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*data, xVar, yVar, colorVar, congressmen, sizeVar*/ 1048607) {
+    			{
+    				$$invalidate(4, congressmen = data.congresses[2020].filter(d => d[xVar] != undefined).filter(d => d[yVar] != undefined).filter(d => !isNaN(d[xVar])).filter(d => !isNaN(d[yVar])).map(d => ({
+    					...d,
+    					x: Number(d[xVar]),
+    					y: Number(d[yVar])
+    				})).filter(d => d[colorVar] != undefined).filter(d => d.x !== -99 && d.y !== -99));
+
+    				$$invalidate(5, xScale = d3.scaleLinear().domain(d3.extent(congressmen, d => d.x)).nice().range([margin.left, width - margin.right]));
+    				$$invalidate(6, yScale = d3.scaleLinear().domain(d3.extent(congressmen, d => d.y)).nice().range([height - margin.bottom, margin.top]));
+    				$$invalidate(7, colorScale = d3.scaleLinear().domain(d3.extent(congressmen, d => d[colorVar])).nice().range(["white", "blue"]));
+    				$$invalidate(8, sizeScale = d3.scaleLinear().domain(d3.extent(congressmen, d => d[sizeVar])).nice().range([2, 8]));
+    			}
+    		}
+    	};
+
     	return [
     		xVar,
     		yVar,
     		colorVar,
     		sizeVar,
+    		congressmen,
+    		xScale,
+    		yScale,
+    		colorScale,
+    		sizeScale,
     		isHovered,
     		message,
     		xTool,
@@ -11133,11 +11165,6 @@ var app = (function () {
     		margin,
     		width,
     		height,
-    		congressmen,
-    		xScale,
-    		yScale,
-    		colorScale,
-    		sizeScale,
     		mouseOver,
     		mouseMove,
     		mouseOut,
@@ -11509,7 +11536,7 @@ var app = (function () {
     			p.textContent = "An error occurred!";
     			t1 = space();
     			t2 = text(t2_value);
-    			add_location(p, file, 35, 2, 741);
+    			add_location(p, file, 35, 2, 743);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -11580,12 +11607,12 @@ var app = (function () {
     			div2 = element$2("div");
     			t4 = space();
     			create_component(scatterstory.$$.fragment);
-    			attr_dev(div0, "class", "space");
-    			add_location(div0, file, 25, 1, 561);
-    			attr_dev(div1, "class", "spacer svelte-qt46wg");
-    			add_location(div1, file, 28, 2, 615);
-    			attr_dev(div2, "class", "spacer svelte-qt46wg");
-    			add_location(div2, file, 31, 2, 670);
+    			attr_dev(div0, "class", "spacer svelte-1nz90ue");
+    			add_location(div0, file, 25, 2, 562);
+    			attr_dev(div1, "class", "spacer svelte-1nz90ue");
+    			add_location(div1, file, 28, 2, 617);
+    			attr_dev(div2, "class", "spacer svelte-1nz90ue");
+    			add_location(div2, file, 31, 2, 672);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -11706,11 +11733,11 @@ var app = (function () {
     			div = element$2("div");
     			t2 = space();
     			info.block.c();
-    			attr_dev(h1, "class", "svelte-qt46wg");
+    			attr_dev(h1, "class", "svelte-1nz90ue");
     			add_location(h1, file, 20, 1, 467);
-    			attr_dev(div, "class", "spacer svelte-qt46wg");
+    			attr_dev(div, "class", "spacer svelte-1nz90ue");
     			add_location(div, file, 21, 1, 484);
-    			attr_dev(main, "class", "svelte-qt46wg");
+    			attr_dev(main, "class", "svelte-1nz90ue");
     			add_location(main, file, 19, 0, 459);
     		},
     		l: function claim(nodes) {

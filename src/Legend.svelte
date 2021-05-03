@@ -21,7 +21,7 @@
 	text-anchor = "middle"
 	font-size = 13
 	fill = none
-	stroke = white
+	stroke = black
 	>{title}</text>
 
 	{#each values as d, i}
@@ -30,7 +30,7 @@
 		 cy = {yCircle - scale(d)} 
 		 r = {scale(d)}
 		 fill = "none"
-		 stroke = "white"
+		 stroke = "black"
 		/>
 
 		<text
@@ -38,7 +38,8 @@
 		y = {yCircle + 10} 
 		text-anchor = "middle"
 		font-size = 10
-		stroke = white
+		fill = none
+		stroke = black
 		>{d}</text>
 	{/each}
 </g>

@@ -21,7 +21,8 @@
 
     let formattedOutcome = {
         'cumulative_time_sen_and_house': 'Years Served',
-        'age': 'Age'
+        'age': 'Age',
+        'nominate_dim1': 'Ideology Score (liberal-conservative)'
     }
     function getBins(outcomeVar, repType){
         let newData = new Array();
@@ -155,6 +156,7 @@
             <input type=radio bind:group={outcomeVar} value={'age'}>
             Age
         </label>    
+
     </form>
 
     <form>
@@ -182,11 +184,11 @@
             text-anchor= "middle"
             x = {width/2}
             y = {height - margin.bottom/3}
-            fill = white>Year</text>
+            fill = black>Year</text>
         <Axis {width} {height} margin={margin.left} scale={y} position='left' />
         <text 
             text-anchor= "middle"
-            fill = white
+            fill = black
             transform = {`translate(${margin.left/3}, ${height/2}) rotate(270)`}
             >{formattedOutcome[outcomeVar]}</text>
             
@@ -228,6 +230,6 @@
     }
 
     text {
-        color: white;
+        color: black;
     }
 </style>
