@@ -2472,15 +2472,15 @@ var app = (function () {
     			t4 = space();
     			if (if_block) if_block.c();
     			if_block_anchor = empty$2();
-    			add_location(p, file$e, 67, 0, 1615);
+    			add_location(p, file$e, 67, 0, 1630);
     			attr_dev(input, "type", "range");
     			attr_dev(input, "min", "1790");
     			attr_dev(input, "max", "2021");
-    			add_location(input, file$e, 70, 0, 1707);
+    			add_location(input, file$e, 70, 0, 1722);
     			attr_dev(svg, "width", width);
     			attr_dev(svg, "height", height);
-    			add_location(svg, file$e, 73, 4, 1773);
-    			add_location(div, file$e, 72, 0, 1763);
+    			add_location(svg, file$e, 73, 4, 1788);
+    			add_location(div, file$e, 72, 0, 1778);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2664,7 +2664,7 @@ var app = (function () {
     	let interval;
 
     	function getLongestServing(data, year, n) {
-    		return data.congresses[year].sort((x, y) => x[displayVar] < y[displayVar]);
+    		return data.congresses[year].sort((x, y) => x[displayVar] < y[displayVar] ? 1 : -1);
     	}
 
     	
@@ -2774,7 +2774,7 @@ var app = (function () {
     		}
 
     		if ($$self.$$.dirty & /*users*/ 2048) {
-    			$$invalidate(12, root = d3.pack().size([width - 2, height - 2]).padding(1)(d3.hierarchy({ children: users }).sum(d => d[displayVar])));
+    			$$invalidate(12, root = d3.pack().size([width - 2, height - 2]).padding(1)(d3.hierarchy({ children: users }).sum(d => d[displayVar]).sort()));
     		}
 
     		if ($$self.$$.dirty & /*root*/ 4096) {
