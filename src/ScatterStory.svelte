@@ -25,18 +25,11 @@
     </div>
 
     <div slot="foreground">
-        <section class="story-part"> Let's take a look at the distribution of experience in Congress over the years... </section>
+        <section class="story-part"> How does experience in Congress correlate with outcomes like ideology? </section>
             
-        <section class="story-part"> Time spent in Congress was relatively flat up until WW2.</section>
+        <section class="story-part"> In general, the longest serving members of congress tend to be more moderate. There are some exceptions, \
+            such as Rep. Maxine Waters on the left and Rep. James Sensenbrenner on the right.
+        </section>
 
-        <section class="story-part">After WW2, members of Congress began to serve longer terms.</section>
-
-        <section class="story-part">How about average age in Congress?</section>
-
-        <section class="story-part">While age has gone up, this trend has largely tracked with life expectancy.</section>
-
-        <section class="story-part">Adjusted for life expectancy, Congress is actually younger than it once was.</section>
-
-        <section class="story-part">How do patterns vary by house and senate?</section>
     </div>
 </Scroller>

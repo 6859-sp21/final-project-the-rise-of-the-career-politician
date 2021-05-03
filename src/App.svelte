@@ -19,10 +19,6 @@
 
 <main>
 	<h1>{name}</h1>
-	<h2>Exploring how Congress has changed over time</h2>
-	<!-- <h5>No Person shall be a Representative 
-		who shall not have attained to the Age of twenty five Years
-	- U.S. Constitution art. I, § 2, cl. 2</h5> -->
 	<div class="spacer"></div>
 	{#await data}
 		<p>...waiting</p>

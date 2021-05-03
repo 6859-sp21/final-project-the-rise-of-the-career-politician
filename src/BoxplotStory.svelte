@@ -32,7 +32,7 @@
                 boxplotOutcomeVar.set('cumulative_time_sen_and_house');
                 boxplotRepType.set('sen');
                 break;
-            case 9:
+            case 8:
                 boxplotOutcomeVar.set('cumulative_time_sen_and_house');
                 boxplotRepType.set('rep');
                 break;
@@ -50,13 +50,13 @@
     bind:offset
     bind:progress>
         <div slot="background">
-            <h2>Congress Over The Years</h2>
             <Boxplot2 {data}/>		
         </div>
 
         <div slot="foreground">
             <section class="story-part"> Let's take a look at the distribution of experience in Congress over the years... 
-                The following chart shows boxplots of the distribution of years in Congress by decade. Hover over outliers to see the longest serving members.</section>
+                The following chart shows boxplots of the distribution of years in Congress by decade. Hover over outliers to see the longest serving members. 
+                Hover over each boxplot to see summary statistics.</section>
                 
             <section class="story-part"> Time spent in Congress was relatively flat up until WW2.</section>
 
@@ -70,15 +70,15 @@
 
             <!-- 6 --> <section class="story-part">How do patterns vary by house and senate?</section>
 
-            <!-- 7 --> <section class="story-part">In the senate, the median time in Congress increased from 6 years to 12 following WW2.</section>
-
-            <!-- 8 --> <section class="story-part">While the median number of terms has only increased by 1 term, the interquartile range has increased considerably. 
+            <!-- 7 --> <section class="story-part">In the senate, the median time in Congress increased from 6 years to 12 following WW2. 
+                
+                While the median number of terms has only increased by 1 term, the interquartile range has increased considerably. 
                 25% of senators have served for 24 years. </section>
 
-            <!-- 9 --> <section class="story-part">The increases in time spent in the House have been more dramatic. 
-                John Dingell, the House member with the longest tenure every, spent 60 years as a representative from Michigan. He served 30 consecutive terms starting at 28 years old. </section>
+            <!-- 8 --> <section class="story-part">The increases in time spent in the House have been more dramatic. The average House member serves 4 terms. 
+                John Dingell, the House member with the longest tenure ever, spent 60 years as a representative from Michigan! 30 consecutive terms. </section>
             
-            <!-- 10 --> <section class="blank-story-part"></section>
+            <!-- 9 --> <section class="blank-story-part"></section>
             
         </div>
 

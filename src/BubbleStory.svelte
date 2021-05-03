@@ -27,7 +27,7 @@
         <section class="story-part"> Dissatisfaction with the "career politician" is a theme among populists on both sides of the aisle.  
          </section>
 
-        <section class="story-part"> Are there more career politicians today than there were in the past. 
+        <section class="story-part"> Are there more career politicians today than there were in the past?
             This visualization explores age and years of service of members of Congress have changed over time.
         </section>
 

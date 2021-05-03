@@ -2,11 +2,12 @@
 	export let messageBox;
 	export let xToolBox; 
 	export let yToolBox;
+	export let label;
 	let data = messageBox.detail.data;
-    console.log(data);
 </script>
 
 <div style="top: {yToolBox}px; left: {xToolBox}px;" class="tooltip">
+	<h4>Summary of {label}</h4>
 	<h4>{data.x0} - {data.x1}</h4>
     <ul>
 		<li>Min: {data.absRange[0]}</li>

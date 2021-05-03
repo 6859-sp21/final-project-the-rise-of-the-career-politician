@@ -98,30 +98,6 @@
         x = returnVal.x;
         y = returnVal.y;
     }
-
-    // Boxplot drawing functions
-
-    function getPath(d){
-        return `
-        M${x((d.x0 + d.x1) / 2)},${y(d.range[1])}
-        V${y(d.range[0])}`;
-    };
-
-    function getPath2(d){
-       return `
-        M${x(d.x0) + 1},${y(d.quartiles[2])}
-        H${x(d.x1)}
-        V${y(d.quartiles[0])}
-        H${x(d.x0) + 1}
-        Z`;
-    };
-
-    function getPath3(d){
-        return `
-        M${x(d.x0) + 1},${y(d.quartiles[1])}
-        H${x(d.x1)}`;
-    };
-
     // Tool tip
     let isHovered = false;
     let message;
@@ -242,7 +218,8 @@
 {/if}
 
 {#if isHoveredBox}
-    <BoxTooltip bind:xToolBox={xToolBox} bind:yToolBox={yToolBox} bind:messageBox={messageBox}/>
+    <BoxTooltip bind:xToolBox={xToolBox} bind:yToolBox={yToolBox} bind:messageBox={messageBox}
+    label={formattedOutcome[outcomeVar]}/>
 {/if}
 
 <style>
