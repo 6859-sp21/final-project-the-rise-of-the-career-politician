@@ -19,13 +19,15 @@
 
 <main>
 	<h1>{name}</h1>
-	<h5>No Person shall be a Representative 
+	<h2>Exploring how Congress has changed over time</h2>
+	<!-- <h5>No Person shall be a Representative 
 		who shall not have attained to the Age of twenty five Years
-	- U.S. Constitution art. I, § 2, cl. 2</h5>
+	- U.S. Constitution art. I, § 2, cl. 2</h5> -->
 	<div class="spacer"></div>
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
+	<div class="space"></div>
 		<BubbleStory {data}/>	
 
 		<div class="spacer"></div>
@@ -70,9 +72,10 @@
 
 	:global(.story-part) {
 		/* height: 600px; */		
-		width: 20%;
+		width: 30%;
 		background-color: rgba(22, 117, 146, 0.5); 
 		color: white;
+		size: 4em;
 		padding: 1em;
 		margin: 0 0 50em 0;
 	}

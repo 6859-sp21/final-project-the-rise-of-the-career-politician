@@ -19,13 +19,17 @@
     </div>
     
     <div slot="foreground" class="foreground">
-        <section class="story-part"> If we look at the current Congress, much of the experience in terms of years in Congress, is concentrated in a few politicians. </section>
+        <section class="story-part">  Much of the experience is concentrated in a few long-serving politicians. 
+            In this chart, each circle represents a member of Congress. The area of the circle corresponds to the number of years spent in Congress. 
+            Hover over each circle to see who the circle represents. 
+             </section>
             
-        <section class="story-part"> Dissatisfaction with the "career politician" was part of the populist appeal of then-candidate Donald Trump.</section>
+        <section class="story-part"> Dissatisfaction with the "career politician" is a theme among populists on both sides of the aisle.  
+         </section>
 
-        <section class="story-part"> Politicians attempt to distance themselves from the "career politician" brand by refusing PAC money. </section>
-
-        <section class="story-part">But is there really a recent uptick in career politicians?</section>
+        <section class="story-part"> Are there more career politicians today than there were in the past. 
+            This visualization explores age and years of service of members of Congress have changed over time.
+        </section>
 
         <section class="blank-story-part"></section>
     </div>

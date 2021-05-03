@@ -55,7 +55,8 @@
         </div>
 
         <div slot="foreground">
-            <section class="story-part"> Let's take a look at the distribution of experience in Congress over the years... </section>
+            <section class="story-part"> Let's take a look at the distribution of experience in Congress over the years... 
+                The following chart shows boxplots of the distribution of years in Congress by decade. Hover over outliers to see the longest serving members.</section>
                 
             <section class="story-part"> Time spent in Congress was relatively flat up until WW2.</section>
 

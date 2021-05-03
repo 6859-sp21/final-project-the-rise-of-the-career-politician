@@ -3,7 +3,9 @@
     import Outlier from './Outlier.svelte';
 	import { fade, draw, fly } from 'svelte/transition';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
+    import Box from './Box.svelte';
     import { boxplotOutcomeVar, boxplotRepType} from './stores.js';
+    import BoxTooltip from './BoxTooltip.svelte';
     export let data;
 
     let outcomeVar;
@@ -142,6 +144,28 @@
         isHovered = false;
     }
 
+    //Boxplot tooltip
+    let isHoveredBox = false;
+    let messageBox;
+    let xToolBox;
+    let yToolBox;
+
+    function mouseOverBox(event) {
+        messageBox = event;
+        isHoveredBox = true; 
+        xToolBox = event.detail.event.clientX;
+        yToolBox = event.detail.event.clientY;
+    }
+
+    function mouseMoveBox(event) {
+        xToolBox = event.detail.event.clientX;
+		yToolBox = event.detail.event.clientY;
+	}
+
+    function mouseOutBox(){
+        isHoveredBox = false;
+    }
+
 </script>
 <div>
     <h2>{formattedOutcome[outcomeVar]} In Congress Over Time</h2>
@@ -192,19 +216,10 @@
             
         {#each bins as b (b.id)}
             <g>
-                <path
-                stroke=currentColor
-                d={getPath(b)}
-                transition:fade="{{duration: 1000}}"
-                ></path>
-                <path
-                fill="#ddd"
-                transition:fade="{{duration: 1000}}"
-                d={getPath2(b)}></path>
-                <path
-                stroke=currentColor
-                transition:fade="{{duration: 1000}}"
-                d={getPath3(b)}></path>
+                <Box {b} {x} {y}
+                on:mouseover={mouseOverBox}
+                on:mouseout={mouseOutBox}
+                on:mousemove={mouseMoveBox}/>
 
                 <g fill="#888" fill-opacity=.5 stroke=none
                 transition:fade="{{duration: 1000}}"
@@ -224,6 +239,10 @@
 
 {#if isHovered}
     <WikipediaToolTip bind:x={xTool} bind:y={yTool} bind:message/>
+{/if}
+
+{#if isHoveredBox}
+    <BoxTooltip bind:xToolBox={xToolBox} bind:yToolBox={yToolBox} bind:messageBox={messageBox}/>
 {/if}
 
 <style>
