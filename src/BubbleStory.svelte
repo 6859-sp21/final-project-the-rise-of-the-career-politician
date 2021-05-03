@@ -19,16 +19,14 @@
     </div>
     
     <div slot="foreground" class="foreground">
-        <section class="story-part">  Much of the experience is concentrated in a few long-serving politicians. 
-            In this chart, each circle represents a member of Congress. The area of the circle corresponds to the number of years spent in Congress. 
-            Hover over each circle to see who the circle represents. 
-             </section>
-            
-        <section class="story-part"> Dissatisfaction with the "career politician" is a theme among populists on both sides of the aisle.  
+        <section class="story-part"> In this chart, each circle represents a member of the current Congress. The area of the circle corresponds to the number of years spent in Congress (also shown in text). 
+            Democrats are in blue, Republicans in red, and independents in green. Try hovering over a circle to see who it represents. 
+        </section>
+       
+        <section class="story-part">  The majority of the 535 members of Congress have little experience. A few members, the "career politicians", have served over 25 years. 
          </section>
-
-        <section class="story-part"> Are there more career politicians today than there were in the past?
-            This visualization explores age and years of service of members of Congress have changed over time.
+        
+         <section class="story-part"> Try moving the slider to check out earlier Congresses. Do we really have more career politicians today than we had in the past? 
         </section>
 
         <section class="blank-story-part"></section>

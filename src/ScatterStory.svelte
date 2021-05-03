@@ -27,8 +27,10 @@
     <div slot="foreground">
         <section class="story-part"> How does experience in Congress correlate with outcomes like ideology? </section>
             
-        <section class="story-part"> In general, the longest serving members of congress tend to be more moderate. There are some exceptions, \
+        <section class="story-part"> In general, the longest serving members of congress tend to be more moderate. There are some exceptions,
             such as Rep. Maxine Waters on the left and Rep. James Sensenbrenner on the right.
         </section>
+
+        <section class="blank-story-part"></section>
     </div>
 </Scroller>

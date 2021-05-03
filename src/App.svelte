@@ -3,6 +3,7 @@
 	import BubbleStory from './BubbleStory.svelte';
 	import BoxplotStory from './BoxplotStory.svelte';
 	import ScatterStory from './ScatterStory.svelte';	
+	import IntroStory from './IntroStory.svelte';
 	export let name;
 
 	let data = Promise.all([
@@ -23,6 +24,8 @@
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
+		<IntroStory/> 
+
 		<div class="spacer"></div>
 		<BubbleStory {data}/>	
 
@@ -63,7 +66,7 @@
 	}
 
 	.spacer {
-		height: 25%;
+		height: 15%;
 	}
 
 	:global(.story-part) {
