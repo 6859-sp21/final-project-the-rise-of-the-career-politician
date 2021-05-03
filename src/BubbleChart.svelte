@@ -37,13 +37,13 @@
 
     function getLongestServing(data, year, n) {
         return data.congresses[year]
-		 		.sort((x,y) => x[displayVar] < y[displayVar]);
+		 		.sort((x,y) => x[displayVar] < y[displayVar] ? 1: -1);
 	};
 
     $: users = getLongestServing(data, year, n);
     $: root = d3.pack().size([width - 2, height - 2])
                 .padding(1)(d3.hierarchy({children: users})
-                .sum(d => d[displayVar]));
+                .sum(d => d[displayVar]).sort());
 
     $: leaves = root.leaves();
     
