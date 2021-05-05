@@ -29,6 +29,8 @@
 				}
 			}
 			const congresses = d[1]
+			congresses[2020] = congresses[2020].map(obj => ({...obj, ...d[2][obj.id]}))
+
 			return ({congressmen, congresses})
 		})
 	

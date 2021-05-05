@@ -10,6 +10,7 @@
     import ColorLegend from './ColorLegend.svelte';
     export let data;
 
+
     const formattedLabels = {
         'nominate_dim1': 'Ideology Score (liberal-conservative)',
         'nominate_dim2': 'Ideology Score ("hot topics" dimension)',
@@ -17,6 +18,15 @@
         'max_age': 'Max Age in Congress',
         'age': 'Current Age',
         'cumulative_time_sen_and_house': 'Total Time in Congress',
+        "cosponsored": '# of Bills Cosponsored',
+        "bills-introduced": '# of Bills Introduced',
+        // "bills-reported": '# of Bills Gone Out of Committee',
+        'bills-enacted-ti': '# of Bills that Became Law',
+        // "leadership": 'Leadership Score',
+        "missed-votes": "% of Votes Missed",
+        // "bills-with-committee-leaders": "# of Bills with Committee Chair Cosponsors ",
+        "bills-with-cosponsor-other-party": "# of Bipartisan Bills",
+        "committee-positions": '# of Committee Positions'
     }
     
     const formattedLabelsShort = {
@@ -46,7 +56,8 @@
                 y: Number(d[$scatterPlotYVar]) }))
             .filter(d => d[$scatterPlotColorVar] != undefined)
             .filter(d => d.x !== -99 && d.y !== -99);
-
+        
+        console.log(Object.keys(congressmen[0]))
         xScale = d3.scaleLinear()
             .domain(d3.extent(congressmen, d => d.x)).nice()
             .range([margin.left, width - margin.right])
@@ -146,7 +157,7 @@
     </svg>
 </div>
 
-<ScatterOptions/>
+<ScatterOptions options={formattedLabels}/>
 
 {#if isHovered}
     <WikipediaToolTip bind:x={xTool} bind:y={yTool} bind:message/>

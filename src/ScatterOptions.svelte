@@ -1,13 +1,10 @@
 <script>
-    import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar} from './stores.js';
+import { xlink_attr } from 'svelte/internal';
 
-    let options = [
-        {id: 'min_age', text: "Age when first joining Congress"},
-        {id: 'cumulative_time_sen_and_house', text:'Total time spent in Congress'},
-        {id: 'age', text:'Current age'},
-        {id: 'nominate_dim1', text: 'Liberal-Conservative Dimension'},
-        {id: 'nominate_dim2', text: 'Hot Topics Dimension'}
-    ];
+    import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar} from './stores.js';
+    export let options;
+
+    options = Object.entries(options).map((x) => ({id: x[0], text: x[1]}))
 </script>
 
 <div class="options">
