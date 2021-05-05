@@ -5,6 +5,7 @@
 	import ScatterStory from './ScatterStory.svelte';	
 	import IntroStory from './IntroStory.svelte';
 	import ProgressHeader from './ProgressHeader.svelte';
+	import { currentSection } from './stores.js';
 	export let name;
 
 	let data = Promise.all([
@@ -39,28 +40,28 @@
 <main>
 	<ProgressHeader/>
 	<h1>{name}</h1>
-	<div class="spacer"></div>
+	<div class="spacer" id="intro"></div>
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
 		<IntroStory/> 
 
-		<div class="spacer">
+		<div class="spacer" id="bubbleplot">
 			<h1>Distribution of Years in Congress</h1>
 		</div>
 		<BubbleStory {data}/>	
 
-		<div class="spacer">
+		<div class="spacer" id="boxplot">
 			<h1>Congress Over The Years</h1>
 		</div>
 		
 		<BoxplotStory {data}/>
 
-		<div class="spacer">
+		<div class="spacer" id="scatterplot">
 			<h1>Congress Today</h1>
 		</div>
 		<ScatterStory {data}/>
-
+		{currentSection.set('intro')}
 	{:catch error}
 		<p>An error occurred!</p>
 		{console.log(error)}

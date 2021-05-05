@@ -42,7 +42,7 @@
 
     $: {
         progress = progress;
-        currentSection.set("Boxplot");
+        currentSection.set("boxplot");
     }
 </script>
 

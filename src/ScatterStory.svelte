@@ -2,6 +2,8 @@
     import Scatterplot2 from './Scatterplot2.svelte';
     import Scroller from '@sveltejs/svelte-scroller';
     import { currentSection } from './stores.js';
+    import { onMount } from 'svelte';
+
     export let data;
     
 	// Scroller stuff
@@ -15,8 +17,11 @@
 
     $: {
         progress = progress;
-        currentSection.set("Bubble Chart");
+        currentSection.set("scatterplot");
     }
+
+    currentSection.set("intro");
+    onMount(() => {currentSection.set("intro")});
 </script>
 
 <Scroller bind:progress>

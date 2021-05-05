@@ -16,9 +16,9 @@
 
     $: {
         progress = progress;
-        currentSection.set("Introduction");
+        currentSection.set("intro");
     }
-
+    
 </script>
 
 <Scroller {index} bind:progress>

@@ -15,7 +15,7 @@
 
     $: {
         progress = progress;
-        currentSection.set("Bubble Chart");
+        currentSection.set("bubbleplot");
     }
 </script>
 
