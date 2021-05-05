@@ -56,6 +56,7 @@
         legendSvg.append('text')
             .attr('y', -10)
             .attr('text-anchor', 'middle')
+            .attr('font-size', 13)
             .text(title);
 
         legendSvg.append('rect')

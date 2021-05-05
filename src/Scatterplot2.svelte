@@ -4,8 +4,9 @@
     import Scat from './Scat.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     import { onMount } from 'svelte';
-    import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar} from './stores.js';
-
+    import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar,
+             winWidth, winHeight} from './stores.js';
+    import ScatterOptions from "./ScatterOptions.svelte";
     import ColorLegend from './ColorLegend.svelte';
     export let data;
 
@@ -16,10 +17,17 @@
         'age': 'Current Age',
         'cumulative_time_sen_and_house': 'Total Time in Congress',
     }
-
-    const margin = ({top: 20, right: 20, bottom: 60, left: 50})
-    const width = 600 - margin.left - margin.right;
-    const height = 600 - margin.top - margin.bottom;
+    
+    const formattedLabelsShort = {
+        'nominate_dim1': 'Ideology Score',
+        'min_age': 'Age on Entry',
+        'max_age': 'Max Age',
+        'age': 'Current Age',
+        'cumulative_time_sen_and_house': 'Total Time',
+    }
+    const margin = ({top: 20, right: 100, bottom: 60, left: 50})
+    const width = .4*$winWidth - margin.left - margin.right;
+    const height = .6*$winHeight - margin.top - margin.bottom;
 
     let congressmen; 
     let xScale;
@@ -60,13 +68,6 @@
             .domain(d3.extent(congressmen, d => d[$scatterPlotSizeVar])).nice()
             .range([2,8])
         }
-    let options = [
-        {id: 'min_age', text: "Age when first joining Congress"},
-        {id: 'cumulative_time_sen_and_house', text:'Total time spent in Congress'},
-        {id: 'age', text:'Current age'},
-        {id: 'nominate_dim1', text: 'Liberal-Conservative Dimension'},
-        {id: 'nominate_dim2', text: 'Hot Topics Dimension'}
-    ];
 
     // Tool tip
     let isHovered = false;
@@ -75,16 +76,15 @@
     let yTool;
 
     function mouseOver(event) {
-        console.log('mouse over happening', event)
         message = event;
         isHovered = true;
-		xTool = event.detail.event.clientX - 25;
-		yTool = event.detail.event.clientY - 25;
+		xTool = event.detail.event.clientX - 5;
+		yTool = event.detail.event.clientY - 5;
     }
 
     function mouseMove(event) {
-        xTool = event.detail.event.clientX - 25;
-		yTool = event.detail.event.clientY - 25;
+        xTool = event.detail.event.clientX - 5;
+		yTool = event.detail.event.clientY - 5;
 	}
 
     function mouseOut(){
@@ -92,41 +92,7 @@
     }
 </script>
 
-<div width=75% height=75%>
-    <form class="scatterplot-options">
-        x-axis: 
-        <select bind:value={$scatterPlotXVar}>
-            {#each options as o}
-            <option value={o.id}>
-                {o.text}
-            </option>
-            {/each}
-        </select>
-        y-axis: 
-        <select bind:value={$scatterPlotYVar}>
-            {#each options as o}
-            <option value={o.id}>
-                {o.text}
-            </option>
-            {/each}
-        </select>
-        color: 
-        <select bind:value={$scatterPlotColorVar}>
-            {#each options as o}
-            <option value={o.id}>
-                {o.text}
-            </option>
-            {/each}
-        </select>
-        size: 
-        <select bind:value={$scatterPlotSizeVar}>
-            {#each options as o}
-            <option value={o.id}>
-                {o.text}
-            </option>
-            {/each}
-        </select>
-    </form>
+<div class="scatterplot">
 
     <svg viewBox={[0, 0, width, height]}
         width={width}
@@ -149,15 +115,16 @@
         <Legend 
             title={formattedLabels[$scatterPlotSizeVar]}
             scale={sizeScale}
-            values={[5,20,40]}
             xCircle={width-100}
-            ycircle={margin.bottom}/>
+            yCircle={margin.bottom}/>
 
         <ColorLegend
             width={10}
             height={100}
             scale={colorScale}
-            title={formattedLabels[$scatterPlotColorVar] + 'Scale'}
+            xStart={width}
+            yStart={300}
+            title={formattedLabelsShort[$scatterPlotColorVar]}
         />
         <text 
         text-anchor= "middle"
@@ -175,22 +142,16 @@
                 on:mousemove={mouseMove}/>
             {/each}
         </g>
-
-
     </svg>
 </div>
 
+<ScatterOptions/>
 
 {#if isHovered}
     <WikipediaToolTip bind:x={xTool} bind:y={yTool} bind:message/>
 {/if}
 
 <style>
-    label {
-        display: inline-block;
-        padding: 10px;
-    }
-
     text {
         color: black;
     }
