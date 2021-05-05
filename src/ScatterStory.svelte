@@ -16,12 +16,7 @@
 <Scroller>
     <div slot="background">
         <h2>Age versus Ideology</h2>
-        <Scatterplot2 
-        {data} 
-        xVar={'nominate_dim1'}
-        yVar={'cumulative_time_sen_and_house'}
-        colorVar={'nominate_dim1'}
-        sizeVar={'cumulative_time_sen_and_house'}/>	
+        <Scatterplot2 {data}/>	
     </div>
 
     <div slot="foreground">

@@ -4,13 +4,11 @@
     import Scat from './Scat.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     import { onMount } from 'svelte';
+    import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar} from './stores.js';
+
     import ColorLegend from './ColorLegend.svelte';
     export let data;
-    export let xVar;
-    export let yVar;
-    export let colorVar;
-    export let sizeVar;
-
+    
     const formattedLabels = {
         'nominate_dim1': 'Ideology Score (liberal-conservative)',
         'min_age': 'Age on Entering Congress',
@@ -30,14 +28,14 @@
     let sizeScale;
     $: {
         congressmen = data.congresses[2020]
-            .filter(d => d[xVar] != undefined)
-            .filter(d => d[yVar] != undefined)
-            .filter(d => ! isNaN(d[xVar]))
-            .filter(d => ! isNaN(d[yVar]))
+            .filter(d => d[$scatterPlotXVar] != undefined)
+            .filter(d => d[$scatterPlotYVar] != undefined)
+            .filter(d => ! isNaN(d[$scatterPlotXVar]))
+            .filter(d => ! isNaN(d[$scatterPlotYVar]))
             .map(d => ({ ...d, 
-                x: Number(d[xVar]),
-                y: Number(d[yVar]) }))
-            .filter(d => d[colorVar] != undefined)
+                x: Number(d[$scatterPlotXVar]),
+                y: Number(d[$scatterPlotYVar]) }))
+            .filter(d => d[$scatterPlotColorVar] != undefined)
             .filter(d => d.x !== -99 && d.y !== -99);
 
         xScale = d3.scaleLinear()
@@ -48,18 +46,18 @@
             .domain(d3.extent(congressmen, d => d.y)).nice()
             .range([height - margin.bottom, margin.top])
 
-        if (colorVar === "nominate_dim1"){
+        if ($scatterPlotColorVar === "nominate_dim1"){
             colorScale = d3.scaleLinear()
                 .domain([-.8, 0, .8]).nice()
                 .range(["blue", "white", "red"])
         } else {
             colorScale = d3.scaleLinear()
-            .domain(d3.extent(congressmen, d => d[colorVar])).nice()
+            .domain(d3.extent(congressmen, d => d[$scatterPlotColorVar])).nice()
             .range(["white", "blue"])
         }
         
         sizeScale = d3.scaleLinear()
-            .domain(d3.extent(congressmen, d => d[sizeVar])).nice()
+            .domain(d3.extent(congressmen, d => d[$scatterPlotSizeVar])).nice()
             .range([2,8])
         }
     let options = [
@@ -95,13 +93,39 @@
 </script>
 
 <div width=75% height=75%>
-    <form class="radio-inline">
-        {#each options as o}
-        <label>
-            <input type=radio bind:group={xVar} value={o}>
-            {o.text}
-        </label>
-        {/each}
+    <form class="scatterplot-options">
+        x-axis: 
+        <select bind:value={$scatterPlotXVar}>
+            {#each options as o}
+            <option value={o.id}>
+                {o.text}
+            </option>
+            {/each}
+        </select>
+        y-axis: 
+        <select bind:value={$scatterPlotYVar}>
+            {#each options as o}
+            <option value={o.id}>
+                {o.text}
+            </option>
+            {/each}
+        </select>
+        color: 
+        <select bind:value={$scatterPlotColorVar}>
+            {#each options as o}
+            <option value={o.id}>
+                {o.text}
+            </option>
+            {/each}
+        </select>
+        size: 
+        <select bind:value={$scatterPlotSizeVar}>
+            {#each options as o}
+            <option value={o.id}>
+                {o.text}
+            </option>
+            {/each}
+        </select>
     </form>
 
     <svg viewBox={[0, 0, width, height]}
@@ -116,14 +140,14 @@
         text-anchor= "middle"
         x = {width/2}
         y = {height - margin.bottom/3}
-        fill = black>{formattedLabels[xVar]}</text>
+        fill = black>{formattedLabels[$scatterPlotXVar]}</text>
 
         <Axis width={width} 
             height={height} 
             margin={margin.left} scale={yScale} position='left' />
 
         <Legend 
-            title={formattedLabels[sizeVar]}
+            title={formattedLabels[$scatterPlotSizeVar]}
             scale={sizeScale}
             values={[5,20,40]}
             xCircle={width-100}
@@ -133,18 +157,19 @@
             width={10}
             height={100}
             scale={colorScale}
+            title={formattedLabels[$scatterPlotColorVar] + 'Scale'}
         />
         <text 
         text-anchor= "middle"
         fill = black
         transform = {`translate(${margin.left/3}, ${height/2}) rotate(270)`}
-        >{formattedLabels[yVar]}</text>
+        >{formattedLabels[$scatterPlotYVar]}</text>
 
         <g>
             {#each congressmen as d}
                 <Scat {d} x={xScale(d.x)} y={yScale(d.y)} 
-                color={colorScale(d[colorVar])}
-                r={sizeScale(d[sizeVar])}
+                color={colorScale(d[$scatterPlotColorVar])}
+                r={sizeScale(d[$scatterPlotSizeVar])}
                 on:mouseover={mouseOver}
                 on:mouseout={mouseOut}
                 on:mousemove={mouseMove}/>

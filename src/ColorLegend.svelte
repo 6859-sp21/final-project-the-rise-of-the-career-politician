@@ -2,7 +2,8 @@
     import { axisRight } from 'd3-axis';
     export let width;
     export let height; 
-    export let scale; 
+    export let scale;
+    export let title;
     export let xStart = 500;
     export let yStart = 30;
     let el;
@@ -38,7 +39,7 @@
         // this creates an array of [pct, colour] pairs as stop
         // values for legend
         let ticks = scale.ticks()
-        ticks = [30,40,50,60,70,80,90]
+        //ticks = [30,40,50,60,70,80,90]
         let pct = ticks
             .map(d => (d - ticks[0]) / (ticks[ticks.length-1] - ticks[0]) * 100)
             .map(d => Math.round(d) + '%');
@@ -55,7 +56,7 @@
         legendSvg.append('text')
             .attr('y', -10)
             .attr('text-anchor', 'middle')
-            .text('Age scale');
+            .text(title);
 
         legendSvg.append('rect')
             .attr('x1', 0)
@@ -72,7 +73,7 @@
         var legendAxis = axisRight()
             .scale(legendScale)
             .tickValues(ticks)
-            .tickFormat(d3.format("d"));
+            // .tickFormat(d3.format("d"));
 
         legendSvg.append("g")
             .attr("class", "legend axis")
