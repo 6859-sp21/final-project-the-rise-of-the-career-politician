@@ -44,13 +44,20 @@
 	{:then data}
 		<IntroStory/> 
 
-		<div class="spacer"></div>
+		<div class="spacer">
+			<h1>Distribution of Years in Congress</h1>
+		</div>
 		<BubbleStory {data}/>	
 
-		<div class="spacer"></div>
+		<div class="spacer">
+			<h1>Congress Over The Years</h1>
+		</div>
+		
 		<BoxplotStory {data}/>
 
-		<div class="spacer"></div>
+		<div class="spacer">
+			<h1>Congress Today</h1>
+		</div>
 		<ScatterStory {data}/>
 
 	{:catch error}
@@ -77,6 +84,10 @@
 		font-weight: 100;
 	}
 
+	.spacer h1 {
+		margin: 5em 0 10em 0;
+	}
+
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
@@ -89,7 +100,7 @@
 
 	:global(.story-part) {
 		/* height: 600px; */		
-		width: 30%;
+		width: 25%;
 		background-color: rgba(22, 117, 146, 0.5); 
 		color: white;
 		size: 4em;
@@ -102,6 +113,6 @@
 		width: 20%;
 		background-color: rgba(0, 0, 0, 0); 
 		padding: 1em;
-		margin: 0 0 50em 0;
+		margin: 0 0 0 0;
 	}
 </style>
