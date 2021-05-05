@@ -8,7 +8,7 @@
 
     import ColorLegend from './ColorLegend.svelte';
     export let data;
-    
+
     const formattedLabels = {
         'nominate_dim1': 'Ideology Score (liberal-conservative)',
         'min_age': 'Age on Entering Congress',
@@ -78,13 +78,13 @@
         console.log('mouse over happening', event)
         message = event;
         isHovered = true;
-		xTool = event.detail.event.clientX + 5;
-		yTool = event.detail.event.clientY + 5;
+		xTool = event.detail.event.clientX - 25;
+		yTool = event.detail.event.clientY - 25;
     }
 
     function mouseMove(event) {
-        xTool = event.detail.event.clientX + 5;
-		yTool = event.detail.event.clientY + 5;
+        xTool = event.detail.event.clientX - 25;
+		yTool = event.detail.event.clientY - 25;
 	}
 
     function mouseOut(){

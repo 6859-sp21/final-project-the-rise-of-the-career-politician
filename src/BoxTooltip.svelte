@@ -1,12 +1,12 @@
 <script>
-	export let messageBox;
-	export let xToolBox; 
-	export let yToolBox;
+	export let message;
+	export let xTool; 
+	export let yTool;
 	export let label;
-	let data = messageBox.detail.data;
+	let data = message.detail.data;
 </script>
 
-<div style="top: {yToolBox}px; left: {xToolBox}px;" class="tooltip">
+<div style="top: {yTool}px; left: {xTool}px;" class="tooltip">
 	<h4>Summary of {label}</h4>
 	<h4>{data.x0} - {data.x1}</h4>
     <ul>

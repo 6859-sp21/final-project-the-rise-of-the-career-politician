@@ -30,7 +30,7 @@
     const dispatch = createEventDispatcher();
     function sendInfo(event) {
         dispatch(event.type, {
-            text: "Hi there",
+            text: "I am box",
             event: event,
             data: b
         });
