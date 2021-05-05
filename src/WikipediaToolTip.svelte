@@ -4,6 +4,7 @@
 	export let message;
 	export let x; 
 	export let y;
+	export let otherFields = Array();
 	let image; 
 	let data = message.detail.data.data;
 
@@ -28,6 +29,7 @@
         return promise;
     }
 	image = getWikiPhoto();
+	console.log(data)
 </script>
 
 <div style="top: {y}px; left: {x}px;" class="tooltip">
@@ -46,6 +48,9 @@
 		<li>Party: {data.party}</li>
 		<li>Position: {data.type === "sen" ? "Senator" : "Representative"}</li>
 		<li>State: {data.state}</li>
+		{#each otherFields as o}
+		<li>{o}: {data[o]}</li>
+		{/each}
 	</ul>
 </div>
 
@@ -54,9 +59,15 @@
 		border: 1px solid #ddd;
 		box-shadow: 1px 1px 1px #ddd;
 		background: white;
-		border-radius: 4px;
-		padding: 4px;
+		border-radius: 2px;
+		padding: 2px;
 		position: absolute;
 		color: black;
+	}
+
+	ul {
+		float: left;
+		text-align: left;
+		list-style: none;
 	}
 </style>

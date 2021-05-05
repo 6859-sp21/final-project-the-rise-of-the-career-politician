@@ -4,10 +4,15 @@ import { xlink_attr } from 'svelte/internal';
     import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar} from './stores.js';
     export let options;
 
+    let showSettings = false;
     options = Object.entries(options).map((x) => ({id: x[0], text: x[1]}))
 </script>
 
 <div class="options">
+    <button on:click={() => showSettings = !showSettings}>
+        {showSettings ? "Collapse Options" : "Reveal Options"}
+    </button>
+    {#if showSettings}
     <ul>
         <li>
             x-axis: 
@@ -52,6 +57,7 @@ import { xlink_attr } from 'svelte/internal';
             </select>
         </li>
     </ul>
+    {/if}
 </div>
 
 <style>
