@@ -9,9 +9,23 @@
 	let data = Promise.all([
 			d3.json('./data/all_congressmen.json'),
 			d3.json('./data/congress_by_year.json'),
+			d3.json('./data/report_cards/2020-report-card.json'),
+			d3.json('./data/misconduct.json')
 		])
 		.then(d => {
 			const congressmen = d[0]
+			
+			// Integrate othet datasets 
+			const misconduct = d3.group(Object.values(d[3]), d => d.person)
+			for (const id in congressmen){
+				if (id in d[2]){
+					congressmen[id]['report_card'] = d[2][id]
+				}
+				const govtrack = congressmen[id]['govtrack']
+				if (govtrack in d[3]){
+					congressmen[id]['misconduct'] = misconduct.get(govtrack)
+				}
+			}
 			const congresses = d[1]
 			return ({congressmen, congresses})
 		})

@@ -12,6 +12,7 @@
 
     const formattedLabels = {
         'nominate_dim1': 'Ideology Score (liberal-conservative)',
+        'nominate_dim2': 'Ideology Score ("hot topics" dimension)',
         'min_age': 'Age on Entering Congress',
         'max_age': 'Max Age in Congress',
         'age': 'Current Age',
@@ -116,14 +117,14 @@
             title={formattedLabels[$scatterPlotSizeVar]}
             scale={sizeScale}
             xCircle={width-100}
-            yCircle={margin.bottom}/>
+            yCircle={height/3}/>
 
         <ColorLegend
             width={10}
             height={100}
             scale={colorScale}
-            xStart={width}
-            yStart={300}
+            xStart={width-25}
+            yStart={height/3}
             title={formattedLabelsShort[$scatterPlotColorVar]}
         />
         <text 

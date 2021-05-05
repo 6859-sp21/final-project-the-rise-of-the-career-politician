@@ -4,8 +4,8 @@
 	
 	export let scale;
 	export let title;
-	export let xCircle = 40;
-	export let yCircle = 40;
+	export let xCircle;
+	export let yCircle;
 
 	let spacing = 15;
 
@@ -16,7 +16,7 @@
 		values = quantiles.map(d => d3.quantile(scale.ticks(), d))
 						  .map(d => Math.round(d))
 
-		 totalLength = values.map(d => scale(d) + spacing)
+		totalLength = values.map(d => scale(d) + spacing)
 							.reduce((a,b) => a + b, 0) - spacing
 	}
 </script>
@@ -25,10 +25,8 @@
 	<text
 	x = {xCircle + totalLength/2}
 	y = {yCircle - 30}
-	text-anchor = "middle"
-	font-size = 13
-	fill = none
-	stroke = black
+	text-anchor="middle"
+	font-size=13
 	>{title}</text>
 
 	{#each values as d, i}
@@ -43,10 +41,8 @@
 		<text
 		x = {xCircle + scale(d) + spacing*i }
 		y = {yCircle + 10} 
-		text-anchor = "middle"
-		font-size = 10
-		fill = none
-		stroke = black
+		text-anchor="middle"
+		font-size={10}
 		>{d}</text>
 	{/each}
 </g>
