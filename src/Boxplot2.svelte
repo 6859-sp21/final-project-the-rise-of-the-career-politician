@@ -4,8 +4,9 @@
   import { fade, draw, fly } from "svelte/transition";
   import WikipediaToolTip from "./WikipediaToolTip.svelte";
   import Box from "./Box.svelte";
-  import { boxplotOutcomeVar, boxplotRepType, winWidth, winHeight } from "./stores.js";
+  import { boxplotOutcomeVar, boxplotRepType, winWidth, winHeight, scatterPlotYVar } from "./stores.js";
   import BoxTooltip from "./BoxTooltip.svelte";
+  import {lifeExpectancy} from "./lifeExpectancy";
   export let data;
 
   let formattedOutcome = {
@@ -89,11 +90,19 @@
   let bins;
   let x;
   let y;
+  let line;
+  let lineData = lifeExpectancy.map(d => ({year: d[0], value: d[1]}))
+
   $: {
     let returnVal = getBins($boxplotOutcomeVar, $boxplotRepType);
     bins = returnVal.bins;
     x = returnVal.x;
     y = returnVal.y;
+    line = d3.line()
+      .defined(d => !isNaN(d.value))
+      .x(d => x(d.year))
+      .y(d => y(d.value))(lineData)
+    
   }
 
   // Tooltip
@@ -118,7 +127,6 @@
   function mouseOut(event) {
     event.detail.text === "I am box" ? showBox = false : showOutlier = false;
   }
-
 </script>
 
 <div>
@@ -205,10 +213,19 @@
               on:mousemove={mouseMove}
             />
           {/each}
+
         </g>
       </g>
     {/each}
+
+    {#if $boxplotOutcomeVar === "age"}
+      <path d={line} stroke="blue" fill="none" transition:fade={{ duration: 1000 }}></path>
+    {/if}
   </svg>
+
+  {#if $boxplotOutcomeVar === "age"}
+    <p transition:fade={{ duration: 1000 }}>Showing life expectancy in blue</p>  
+  {/if}
 </div>
 
 {#if showOutlier}
@@ -231,5 +248,9 @@
 
   text {
     color: black;
+  }
+
+  p {
+    color: blue;
   }
 </style>
