@@ -1,5 +1,5 @@
 /node_modules/
-# /public/build/
+/public/build/
 *-checkpoint.ipynb
 .DS_Store
 scripts/misconduct.json
