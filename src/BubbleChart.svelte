@@ -3,6 +3,7 @@
     import { fade } from 'svelte/transition';
     import { winWidth, winHeight } from './stores.js';
     
+    import BubbleLegend from './BubbleLegend.svelte';
     import Bubble from './Bubble.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     export let data;
@@ -84,6 +85,8 @@
         {/each}
     </svg>
 </div>
+<BubbleLegend/>
+
 
 {#if isHovered}
     <WikipediaToolTip bind:x bind:y bind:message/>

@@ -1,7 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
     import { onDestroy } from 'svelte';
-    import { fade } from 'svelte/transition';
     export let d;
     export let displayVar;
 
@@ -29,14 +28,12 @@
     on:mouseover={sendInfo}
     on:mouseout={sendInfo}
     on:mousemove={sendInfo}
-    transition:fade
-    >
+>
     <circle 
     cx = {d.x}
     cy = {d.y}
     r = {d.r}
-    fill = {colorDict[d.data.party] ? colorDict[d.data.party] : 'green'}
-    />
+    fill = {colorDict[d.data.party] ? colorDict[d.data.party] : 'green'}/>
     <!-- <text 
     x = {d.x}
     y = {d.y}
