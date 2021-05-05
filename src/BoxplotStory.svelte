@@ -1,6 +1,6 @@
 <script>
   	import Boxplot2 from './Boxplot2.svelte';
-    import { boxplotOutcomeVar, boxplotRepType} from './stores.js';
+    import { boxplotOutcomeVar, boxplotRepType, currentSection } from './stores.js';
     import Scroller from '@sveltejs/svelte-scroller';
     export let data;
     
@@ -39,6 +39,11 @@
 
         }
 	}
+
+    $: {
+        progress = progress;
+        currentSection.set("Boxplot");
+    }
 </script>
 
 <Scroller

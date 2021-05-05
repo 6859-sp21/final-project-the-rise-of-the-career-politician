@@ -4,6 +4,7 @@
 	import BoxplotStory from './BoxplotStory.svelte';
 	import ScatterStory from './ScatterStory.svelte';	
 	import IntroStory from './IntroStory.svelte';
+	import ProgressHeader from './ProgressHeader.svelte';
 	export let name;
 
 	let data = Promise.all([
@@ -35,8 +36,8 @@
 		})
 	
 </script>
-
 <main>
+	<ProgressHeader/>
 	<h1>{name}</h1>
 	<div class="spacer"></div>
 	{#await data}
@@ -115,4 +116,5 @@
 		padding: 1em;
 		margin: 0 0 0 0;
 	}
+	
 </style>

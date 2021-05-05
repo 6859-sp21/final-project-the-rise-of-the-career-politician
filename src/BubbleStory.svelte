@@ -1,6 +1,8 @@
 <script>
 	import Scroller from '@sveltejs/svelte-scroller';
 	import BubbleChart from './BubbleChart.svelte';
+    import { currentSection } from './stores.js'
+
     export let data;
 
     let count;
@@ -10,9 +12,14 @@
 	let top = 0.1;
 	let threshold = 0.5;
 	let bottom = 0.9;
+
+    $: {
+        progress = progress;
+        currentSection.set("Bubble Chart");
+    }
 </script>
 
-<Scroller {index}>
+<Scroller {index} bind:progress>
     <div slot="background">
         <h2>Congress Sized According to Years Spent in Congress</h2>
         <BubbleChart data={data}/>				

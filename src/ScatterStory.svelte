@@ -1,6 +1,7 @@
 <script>
     import Scatterplot2 from './Scatterplot2.svelte';
     import Scroller from '@sveltejs/svelte-scroller';
+    import { currentSection } from './stores.js';
     export let data;
     
 	// Scroller stuff
@@ -11,9 +12,14 @@
 	let top = 0.1;
 	let threshold = 0.5;
 	let bottom = 0.9;
+
+    $: {
+        progress = progress;
+        currentSection.set("Bubble Chart");
+    }
 </script>
 
-<Scroller>
+<Scroller bind:progress>
     <div slot="background">
         <h2>Age versus Ideology</h2>
         <Scatterplot2 {data}/>	

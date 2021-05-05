@@ -1,6 +1,6 @@
 <script>
 	import Scroller from '@sveltejs/svelte-scroller';
-    import { winWidth, winHeight } from './stores.js';
+    import { winWidth, winHeight, currentSection } from './stores.js';
 
     let count;
 	let index;
@@ -13,9 +13,15 @@
     const width = .4*$winWidth;
     const height = .3*$winHeight;
 
+
+    $: {
+        progress = progress;
+        currentSection.set("Introduction");
+    }
+
 </script>
 
-<Scroller {index}>
+<Scroller {index} bind:progress>
     <div slot="background">
         <ul>
             <li>
