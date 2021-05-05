@@ -20,6 +20,8 @@
 			for (const id in congressmen){
 				if (id in d[2]){
 					congressmen[id]['report_card'] = d[2][id]
+					for (const [key, value] of Object.entries(d[2][id]))
+						congressmen[id][key] = value
 				}
 				const govtrack = congressmen[id]['govtrack']
 				if (govtrack in d[3]){
