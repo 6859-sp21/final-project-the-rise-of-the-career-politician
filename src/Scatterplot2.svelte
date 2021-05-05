@@ -161,7 +161,7 @@
 
 {#if isHovered}
     <WikipediaToolTip bind:x={xTool} bind:y={yTool} 
-    bind:message otherFields={Array('committee_positions')}/>
+    bind:message otherFields={true}/>
 {/if}
 
 <style>

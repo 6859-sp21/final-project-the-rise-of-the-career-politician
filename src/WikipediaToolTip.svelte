@@ -4,9 +4,10 @@
 	export let message;
 	export let x; 
 	export let y;
-	export let otherFields = Array();
+	export let otherFields = false;
 	let image; 
 	let data = message.detail.data.data;
+	let showMore = false
 
 	let name = data.official_full;
     if (name === undefined || name === "unknown") name = data.wikipedia;
@@ -29,7 +30,24 @@
         return promise;
     }
 	image = getWikiPhoto();
-	console.log(data)
+
+	const formattedLabels = [
+        ['nominate_dim1', 'Ideology Score (liberal-conservative)'],
+        // ['nominate_dim2', 'Ideology Score ("hot topics" dimension)'],
+        ['min_age', 'Age on Entering Congress'],
+        // ['max_age', 'Max Age in Congress'],
+        // ['age', 'Current Age'],
+        // ['cumulative_time_sen_and_house', 'Total Time in Congress'],
+        // ["cosponsored", '# of Bills Cosponsored'],
+        ["bills_introduced", '# of Bills Introduced'],
+        //["bills-reported", '# of Bills Gone Out of Committee'],
+        ['bills_enacted_ti', '# of Bills that Became Law'],
+        // ["leadership", 'Leadership Score'],
+        ["missed_votes", "% of Votes Missed"],
+        // ["bills-with-committee-leaders", "# of Bills with Committee Chair Cosponsors"],
+        // ["bills-with-cosponsor-other-party", "# of Bipartisan Bills"],
+        ["committee_positions", '# of Committee Positions']
+	]
 </script>
 
 <div style="top: {y}px; left: {x}px;" class="tooltip">
@@ -42,15 +60,17 @@
 	{/await}
 	<h4>{name}</h4>
 	<ul>
-		<li>Year: {data.year}</li>
-		<li>Age: {data.age}</li>
-		<li>Total Time Served: {data.cumulative_time_sen_and_house}</li>
-		<li>Party: {data.party}</li>
-		<li>Position: {data.type === "sen" ? "Senator" : "Representative"}</li>
-		<li>State: {data.state}</li>
-		{#each otherFields as o}
-		<li>{o}: {data[o]}</li>
-		{/each}
+		<li><strong>Year:</strong> {data.year}</li>
+		<li><strong>Current Age:</strong> {data.age}</li>
+		<li><strong>Total Time Served:</strong> {data.cumulative_time_sen_and_house}</li>
+		<li><strong>Party:</strong> {data.party}</li>
+		<li><strong>Position:</strong> {data.type === "sen" ? "Senator" : "Representative"}</li>
+		<li><strong>State:</strong> {data.state}</li>
+		{#if otherFields}
+			{#each formattedLabels as o}
+				<li><strong>{o[1]}:</strong> {data[o[0]]}</li>
+			{/each}
+		{/if}
 	</ul>
 </div>
 
