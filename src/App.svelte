@@ -67,7 +67,7 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-		background-color: rgba(0,0,0,0.5);
+		background-color: rgba(87, 84, 84, 0.5);
 	}
 
 	h1 {

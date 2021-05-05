@@ -1,7 +1,8 @@
 <script>
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
-
+    import { winWidth, winHeight } from './stores.js';
+    
     import Bubble from './Bubble.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     export let data;
@@ -32,8 +33,8 @@
     let running = false;
     let displayVar = 'cumulative_time_sen_and_house';
     let interval;
-    const width = 600;
-    const height = 600;
+    const width = .4*$winWidth;
+    const height = .6*$winHeight;
 
     function getLongestServing(data, year, n) {
         return data.congresses[year]

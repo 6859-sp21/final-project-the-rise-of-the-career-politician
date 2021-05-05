@@ -4,7 +4,7 @@
   import { fade, draw, fly } from "svelte/transition";
   import WikipediaToolTip from "./WikipediaToolTip.svelte";
   import Box from "./Box.svelte";
-  import { boxplotOutcomeVar, boxplotRepType } from "./stores.js";
+  import { boxplotOutcomeVar, boxplotRepType, winWidth, winHeight } from "./stores.js";
   import BoxTooltip from "./BoxTooltip.svelte";
   export let data;
 
@@ -82,8 +82,10 @@
   }
 
   let margin = { top: 20, right: 20, bottom: 60, left: 50 };
-  let height = 600;
-  let width = 600;
+  const width = .4*$winWidth - margin.left - margin.right;
+  const height = .6*$winHeight - margin.top - margin.bottom;
+  // let height = 600;
+  // let width = 600;
   let bins;
   let x;
   let y;

@@ -1,5 +1,6 @@
 <script>
 	import Scroller from '@sveltejs/svelte-scroller';
+    import { winWidth, winHeight } from './stores.js';
 
     let count;
 	let index;
@@ -8,6 +9,10 @@
 	let top = 0.1;
 	let threshold = 0.5;
 	let bottom = 0.9;
+
+    const width = .4*$winWidth;
+    const height = .3*$winHeight;
+
 </script>
 
 <Scroller {index}>
@@ -15,12 +20,12 @@
         <ul>
             <li>
                 <div class="img-wrap">
-                    <img src={"images/drain_the_swamp.jpeg"} alt="background image" height=400px>/
+                    <img src={"images/drain_the_swamp.jpeg"} alt="drain the swamp" height={height}>
                 </div>
             </li>
-
+            <br>
             <li>
-                <img src={"images/no_pac_money.webp"} alt="background image" height=400px/>
+                <img src={"images/no_pac_money.webp"} alt="no pac money" height={height}/>
             </li>
         </ul>
     </div>
