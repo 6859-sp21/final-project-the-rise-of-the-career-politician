@@ -130,13 +130,13 @@
     function mouseOverBox(event) {
         messageBox = event;
         isHoveredBox = true; 
-        xToolBox = event.detail.event.clientX;
-        yToolBox = event.detail.event.clientY;
+        xToolBox = event.detail.event.clientX - 25;
+        yToolBox = event.detail.event.clientY - 25;
     }
 
     function mouseMoveBox(event) {
-        xToolBox = event.detail.event.clientX;
-		yToolBox = event.detail.event.clientY;
+        xToolBox = event.detail.event.clientX - 25;
+		yToolBox = event.detail.event.clientY - 25;
 	}
 
     function mouseOutBox(){

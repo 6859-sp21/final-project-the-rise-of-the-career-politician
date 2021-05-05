@@ -20,7 +20,7 @@
         {data} 
         xVar={'nominate_dim1'}
         yVar={'cumulative_time_sen_and_house'}
-        colorVar={'max_age'}
+        colorVar={'nominate_dim1'}
         sizeVar={'cumulative_time_sen_and_house'}/>	
     </div>
 

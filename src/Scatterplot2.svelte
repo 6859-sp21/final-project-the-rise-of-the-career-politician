@@ -48,9 +48,15 @@
             .domain(d3.extent(congressmen, d => d.y)).nice()
             .range([height - margin.bottom, margin.top])
 
-        colorScale = d3.scaleLinear()
+        if (colorVar === "nominate_dim1"){
+            colorScale = d3.scaleLinear()
+                .domain([-.8, 0, .8]).nice()
+                .range(["blue", "white", "red"])
+        } else {
+            colorScale = d3.scaleLinear()
             .domain(d3.extent(congressmen, d => d[colorVar])).nice()
             .range(["white", "blue"])
+        }
         
         sizeScale = d3.scaleLinear()
             .domain(d3.extent(congressmen, d => d[sizeVar])).nice()
@@ -64,7 +70,7 @@
         {id: 'nominate_dim2', text: 'Hot Topics Dimension'}
     ];
 
-   // Tool tip
+    // Tool tip
     let isHovered = false;
     let message;
     let xTool;
@@ -89,14 +95,14 @@
 </script>
 
 <div width=75% height=75%>
-    <!-- <form>
+    <form class="radio-inline">
         {#each options as o}
-            <label>
-                <input type=radio bind:group={xVar} value={o}>
-                {o.text}
-            </label>
-            {/each}
-    </form> -->
+        <label>
+            <input type=radio bind:group={xVar} value={o}>
+            {o.text}
+        </label>
+        {/each}
+    </form>
 
     <svg viewBox={[0, 0, width, height]}
         width={width}
@@ -153,3 +159,14 @@
 {#if isHovered}
     <WikipediaToolTip bind:x={xTool} bind:y={yTool} bind:message/>
 {/if}
+
+<style>
+    label {
+        display: inline-block;
+        padding: 10px;
+    }
+
+    text {
+        color: black;
+    }
+</style>
