@@ -33,7 +33,9 @@
     cx = {d.x}
     cy = {d.y}
     r = {d.r}
-    fill = {colorDict[d.data.party] ? colorDict[d.data.party] : 'green'}/>
+    fill = {colorDict[d.data.party] ? colorDict[d.data.party] : 'green'}
+    fill-opacity=.8
+    />
     <!-- <text 
     x = {d.x}
     y = {d.y}

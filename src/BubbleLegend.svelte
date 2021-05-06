@@ -11,8 +11,11 @@ let options = [
 
 let height = .2*$winHeight;
 let width = .4*$winWidth;
+
+let lengthOfLegend = ((spacing + r) * (options.length-1));
+
 let yStart = height/6;
-let xStart = width/3;
+let xStart = width/2 - lengthOfLegend/2;
 
 
 </script>
