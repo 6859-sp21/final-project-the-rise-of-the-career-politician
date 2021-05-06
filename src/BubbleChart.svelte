@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
     import { winWidth, winHeight } from './stores.js';
-    
+    import * as d3 from 'd3';    
     import BubbleLegend from './BubbleLegend.svelte';
     import Bubble from './Bubble.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';

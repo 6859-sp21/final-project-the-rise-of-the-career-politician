@@ -1,5 +1,5 @@
 <script>
-	import { select, selectAll } from 'd3-selection';
+	import * as d3 from 'd3';
 	import { axisBottom, axisLeft } from 'd3-axis';
 
 	export let width;
@@ -12,7 +12,7 @@
 	let g;
 
 	$: {
-		select(g).selectAll('*').remove();
+		d3.select(g).selectAll('*').remove();
 
 		let axis;
 		switch(position) {
@@ -30,7 +30,7 @@
             
 		}
 
-		select(g).call(axis);
+		d3.select(g).call(axis);
 	}
 </script>
 

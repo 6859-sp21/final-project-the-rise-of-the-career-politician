@@ -1,5 +1,5 @@
 <script>
-	import { select, selectAll } from 'd3-selection';
+	import * as d3 from 'd3';
     import { legendSize, legendColor } from 'd3-svg-legend';
 	
 	export let scale;

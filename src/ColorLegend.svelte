@@ -1,5 +1,7 @@
 <script>
     import { axisRight } from 'd3-axis';
+    import * as d3 from 'd3';
+
     export let width;
     export let height; 
     export let scale;

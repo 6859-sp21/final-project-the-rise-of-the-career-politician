@@ -6,6 +6,7 @@
 	import IntroStory from './IntroStory.svelte';
 	import ProgressHeader from './ProgressHeader.svelte';
 	import { currentSection } from './stores.js';
+	import * as d3 from 'd3';
 	export let name;
 
 	let data = Promise.all([

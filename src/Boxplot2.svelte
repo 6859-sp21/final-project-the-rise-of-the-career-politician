@@ -7,6 +7,7 @@
   import { boxplotOutcomeVar, boxplotRepType, winWidth, winHeight, scatterPlotYVar } from "./stores.js";
   import BoxTooltip from "./BoxTooltip.svelte";
   import {lifeExpectancy} from "./lifeExpectancy";
+  import * as d3 from 'd3';
   export let data;
 
   let formattedOutcome = {

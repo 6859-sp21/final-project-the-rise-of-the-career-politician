@@ -4,6 +4,8 @@
     import Scat from './Scat.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     import { onMount } from 'svelte';
+    import * as d3 from 'd3';
+
     import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar,
              winWidth, winHeight} from './stores.js';
     import ScatterOptions from "./ScatterOptions.svelte";
@@ -57,7 +59,6 @@
             .filter(d => d[$scatterPlotColorVar] != undefined)
             .filter(d => d.x !== -99 && d.y !== -99);
         
-        console.log(Object.keys(congressmen[0]))
         xScale = d3.scaleLinear()
             .domain(d3.extent(congressmen, d => d.x)).nice()
             .range([margin.left, width - margin.right])
