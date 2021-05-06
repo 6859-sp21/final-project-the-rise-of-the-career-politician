@@ -1,7 +1,7 @@
 <script>
 	import Scroller from '@sveltejs/svelte-scroller';
 	import BubbleChart from './BubbleChart.svelte';
-    import { currentSection } from './stores.js'
+    import { currentSection, startedScrolling } from './stores.js'
 
     export let data;
 
@@ -15,7 +15,7 @@
 
     $: {
         progress = progress;
-        currentSection.set("bubbleplot");
+        if ($startedScrolling) currentSection.set("bubbleplot");
     }
 </script>
 

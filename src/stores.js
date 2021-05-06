@@ -3,6 +3,7 @@ import { writable } from 'svelte/store';
 export const winWidth = writable(window.innerWidth);
 export const winHeight = writable(window.innerHeight);
 export const currentSection = writable('intro');
+export const startedScrolling = writable(false);
 
 //Boxplot 
 export const boxplotOutcomeVar = writable('cumulative_time_sen_and_house');

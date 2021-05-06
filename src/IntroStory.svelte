@@ -1,6 +1,6 @@
 <script>
 	import Scroller from '@sveltejs/svelte-scroller';
-    import { winWidth, winHeight, currentSection } from './stores.js';
+    import { winWidth, winHeight, currentSection, startedScrolling } from './stores.js';
 
     let count;
 	let index;
@@ -16,8 +16,9 @@
 
     $: {
         progress = progress;
-        currentSection.set("intro");
+        if ($startedScrolling) currentSection.set("intro");
     }
+    document.addEventListener('scroll', () => {startedScrolling.set(true)});
     
 </script>
 
@@ -37,13 +38,18 @@
     </div>
     
     <div slot="foreground" class="foreground">
-        <section class="story-part"> Dissatisfaction with the "career politician" is a theme among populists on both sides of the aisle. 
-            Whether it's "drain the swamp" or a no corporate PAC pledge, populist messages suggest the need for an outsider to disrupt the status quo and deliver for the American people.
+        <section class="story-part"> Dissatisfaction with business-as-usual in American politics is a theme among populists on both sides of the aisle. 
+            Whether it's "drain the swamp" or a no corporate PAC pledge, populist messages suggest the need for an outsider to disrupt 
+            the status quo and deliver for the American people. 
         </section>
 
-        <section class="story-part"> Are there more career politicians today than there were in the past? 
-            This visualization seeks to answer this question by exploring the age and term lengths of members of Congress over time. 
-            It concludes with some analysis of how these outcomes are related to polarization and ideology.
+        <section class="story-part"> Many criticisms take aim at the establishment or the professional politicians who have been in office for decades. 
+            Term  limits. 
+        </section>
+
+        <section class="story-part"> Are there really more career politicians today than there were in the past? Continue scrolling to find out. 
+            This article explores the age and term lengths of members of Congress over time. 
+            It concludes with a visual analysis of how these outcomes may be related to polarization and ideology.
         </section>
 
         <section class="blank-story-part"></section>

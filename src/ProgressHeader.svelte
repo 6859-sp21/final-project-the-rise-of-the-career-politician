@@ -23,12 +23,13 @@
 
 header { 
 		/* background-color: yellow;  */
-		padding: 2em; 
+		padding: 1em; 
 		text-align: left; 
 		margin-bottom: 1em; 
 		position: fixed;
-		left: 88%;
+		left: 85%;
 		top: 0;
+        font-size: 1em;
 	}
 
 li {
