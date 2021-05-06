@@ -5,6 +5,9 @@ export const winHeight = writable(window.innerHeight);
 export const currentSection = writable('intro');
 export const startedScrolling = writable(false);
 
+//Bubbleplot
+export const bubbleN = writable('2021');
+
 //Boxplot 
 export const boxplotOutcomeVar = writable('cumulative_time_sen_and_house');
 export const boxplotRepType = writable('both');

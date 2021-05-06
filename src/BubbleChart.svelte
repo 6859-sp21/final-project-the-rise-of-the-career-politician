@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
-    import { winWidth, winHeight } from './stores.js';
+    import { winWidth, winHeight, bubbleN } from './stores.js';
     import * as d3 from 'd3';    
     import BubbleLegend from './BubbleLegend.svelte';
     import Bubble from './Bubble.svelte';
@@ -42,7 +42,7 @@
 		 		.sort((x,y) => x[displayVar] < y[displayVar] ? 1: -1);
 	};
 
-    $: users = getLongestServing(data, year, n);
+    $: users = getLongestServing(data, $bubbleN, n);
     $: root = d3.pack().size([width - 2, height - 2])
                 .padding(1)(d3.hierarchy({children: users})
                 .sum(d => d[displayVar]).sort());
@@ -67,10 +67,10 @@
 
 </script>
 
-<p>The year is: {year}</p>
+<h3>Distribution of experience in {$bubbleN}</h3>
 
 <!-- <button on:click={toggleAnimation}>Play/Pause</button> -->
-<input type=range bind:value={year} min=1790 max=2021>
+<input type=range bind:value={$bubbleN} min=1790 max=2021>
 
 <div>
     <svg width={width} height={height} transition:fade>

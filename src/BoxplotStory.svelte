@@ -68,8 +68,8 @@
 
             <!-- 2 --> <section class="story-part">How about average age in Congress?</section>
 
-            <!-- 3 --> <section class="story-part">While age has gone up, this trend has largely tracked with life expectancy. 
-                [TODO] add life expectancy data to make claim about changes relative to that.</section>
+            <!-- 3 --> <section class="story-part">While age has gone up, this trend has lagged behind gains in life expectancy.
+                       </section>
 
             <!-- 4 --> <section class="story-part">How do patterns vary by house and senate?</section>
 
