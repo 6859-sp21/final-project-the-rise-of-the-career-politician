@@ -49,27 +49,9 @@
 
     $: leaves = root.leaves();
     
-    function toggleAnimation() {
-        running = !running;
-        if (running){
-            interval = window.setInterval( function() {
-                if (year === 2019)
-                    year = 1790
-                else 
-                    year = year + 1;
-                console.log(year)
-            } , 500);
-        }
-        else {
-            clearInterval(interval);
-        }
-    };
-
 </script>
 
 <h3>Distribution of experience in {$bubbleN}</h3>
-
-<!-- <button on:click={toggleAnimation}>Play/Pause</button> -->
 <input type=range bind:value={$bubbleN} min=1790 max=2021>
 
 <div>
