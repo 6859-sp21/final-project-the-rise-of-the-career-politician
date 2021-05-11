@@ -10,6 +10,7 @@
 </script>
 
 <header>
+    <h2>Quick Navigation</h2>
     <ul>
         {#each sections as s}
         <li class={$currentSection === s[0]? "current" : "inactive"}>
@@ -25,7 +26,7 @@ header {
 		/* background-color: yellow;  */
 		padding: 1em; 
 		text-align: left; 
-		margin-bottom: 1em; 
+		margin-bottom: 1em;
 		position: fixed;
 		left: 85%;
 		top: 0;
@@ -33,9 +34,11 @@ header {
         z-index: 5;
 	}
 
-li {
+ul, li {
     list-style: none;
     text-align: left;
+    margin: 0;
+    padding: 0;
 }
 
 .inactive {
