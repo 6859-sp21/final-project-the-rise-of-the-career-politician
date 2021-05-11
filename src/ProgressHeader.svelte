@@ -30,6 +30,7 @@ header {
 		left: 85%;
 		top: 0;
         font-size: 1em;
+        z-index: 5;
 	}
 
 li {
