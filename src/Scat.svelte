@@ -24,6 +24,7 @@
 
 <circle
 transform={`translate(${x},${y})`}
+id = {d.official_full.replace(' ', '_')}
 r={r}
 fill={color}
 stroke=black

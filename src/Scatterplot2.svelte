@@ -10,7 +10,10 @@
              winWidth, winHeight, scatterPlotYear} from './stores.js';
     import ScatterOptions from "./ScatterOptions.svelte";
     import ColorLegend from './ColorLegend.svelte';
+    import SearchBar from './SearchBar.svelte';
     export let data;
+
+    let scatter
 
 
     const formattedLabels = {
@@ -103,6 +106,45 @@
     function mouseOut(){
         isHovered = false;
     }
+
+    // Search bar
+    let highlighted = []
+    function handleMessage(event) {
+        if (event.detail.text === "clear-labels") {
+            clearLabels();
+        } else {
+            highlighted.push(congressmen.find(d => d.official_full == event.detail.text))
+            // d3.select('#' + event.detail.text.replace(' ', '_')).style("fill", "#FFD700")
+            d3.select(scatter)
+            .selectAll('text')
+            .data(highlighted)//, d => d.id)
+            .join('text')
+            .attr('x', d => xScale(d[$scatterPlotXVar]))
+            .attr('y', d => yScale(d[$scatterPlotYVar]))
+            .style('font-size', '12px')
+            .text(d => d.official_full)
+        }
+    }
+
+    function clearLabels(){
+        highlighted = [];
+        d3.select(scatter).selectAll('text').remove()
+    }
+
+    $: {
+        if (highlighted.length != 0) {
+            // remove text 
+            clearLabels();
+            d3.select(scatter)
+                .selectAll('text')
+                .data(highlighted)//, d => d.id)
+                .join('text')
+                .attr('x', d => xScale(d[$scatterPlotXVar]))
+                .attr('y', d => yScale(d[$scatterPlotYVar]))
+                .style('font-size', '12px')
+                .text(d => d.official_full);
+        }
+    }
 </script>
 
 <div class="scatterplot">
@@ -145,7 +187,7 @@
         transform = {`translate(${margin.left/3}, ${height/2}) rotate(270)`}
         >{formattedLabels[$scatterPlotYVar]}</text>
 
-        <g>
+        <g bind:this={scatter}>
             {#each congressmen as d}
                 <Scat {d} x={xScale(d.x)} y={yScale(d.y)} 
                 color={colorScale(d[$scatterPlotColorVar])}
@@ -158,6 +200,7 @@
     </svg>
 </div>
 
+<SearchBar data={congressmen} on:message={handleMessage}/>
 <ScatterOptions options={formattedLabels}/>
 
 {#if isHovered}

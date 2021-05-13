@@ -131,8 +131,8 @@
 		margin: 0 0 0 0;
 	}
 	
-	:global(html) {
+	/* :global(html) {
   		scroll-behavior: smooth;
-	}
+	} */
 
 </style>
