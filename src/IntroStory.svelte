@@ -24,12 +24,9 @@
 
 <Scroller {index} bind:progress>
     <div slot="background">
-        <h2>Populism is on the Rise</h2>
         <ul>
             <li>
-                <div class="img-wrap">
-                    <img src={"images/drain_the_swamp.jpeg"} alt="drain the swamp" height={height}>
-                </div>
+                <img src={"images/drain_the_swamp.jpeg"} alt="drain the swamp" height={height}>
             </li>
             <br>
             <li>
@@ -39,18 +36,42 @@
     </div>
     
     <div slot="foreground" class="foreground">
-        <section class="story-part"> Dissatisfaction with business-as-usual in American politics is a theme among populists on both sides of the aisle. 
-            Whether it's "drain the swamp" or a no corporate PAC pledge, populist messages suggest the need for an outsider to disrupt 
-            the status quo and deliver for the American people. 
+        <section class="story-part"> 
+            <p>
+                Dissatisfaction with business-as-usual in American politics is a theme among populists on both sides of the aisle. 
+                Whether it's 
+                <span class="red">drain the swamp</span> 
+                or a 
+                <span class="blue">no corporate PAC pledge</span>,
+                
+                populist messages suggest the need for an outsider to disrupt 
+                the status quo and deliver for the American people.
+
+            </p> 
         </section>
 
-        <section class="story-part"> Many criticisms take aim at the establishment or the professional politicians who have been in office for decades. 
-            Term  limits. 
+        <section class="story-part">
+            <p>
+                Many criticisms take aim at the corruption of the  
+                <span class="emphasize"> establishment </span> 
+                or the 
+                <span class="emphasize">career politicians</span>
+                
+                who have been in office for decades.
+                <!-- <span class="emphasize">decades</span>. -->
+
+                Current bills addressing these issues include H.R. 1, <a href="https://en.wikipedia.org/wiki/For_the_People_Act" target="_blank">a sweeping election reform bill</a> and a 
+                <a href="https://www.congress.gov/bill/116th-congress/house-joint-resolution/20?q=%7B%22search%22%3A%5B%22term+limits%22%5D%7D&s=1&r=1" target="_blank">
+                    proposed amendment to limit congressional term lengths.</a>
+                
+            </p>  
         </section>
 
-        <section class="story-part"> Are there really more career politicians today than there were in the past? Continue scrolling to find out. 
-            This article explores the age and term lengths of members of Congress over time. 
-            It concludes with a visual analysis of how these outcomes may be related to polarization and ideology.
+        <section class="story-part"> 
+            <p>
+                <i>Are there really more career politicians today than there were in the past? </i> 
+                Scroll on to find out...
+            </p>
         </section>
 
         <section class="blank-story-part"></section>
@@ -64,4 +85,13 @@
         margin: 0;
         padding: 0;
       }
+
+	
+	[slot="foreground"] {
+		pointer-events: none;
+	}
+	
+	[slot="foreground"] section {
+		pointer-events: all;
+	}
 </style>

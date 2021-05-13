@@ -116,11 +116,13 @@
 	:global(.story-part) {
 		/* height: 600px; */		
 		width: 20%;
+		position: relative;
 		background-color: rgba(22, 117, 146, 0.5); 
 		color: white;
 		size: 4em;
 		padding: 1em;
 		margin: 0 0 50em 0;
+		z-index: 4;
 	}
 
 	:global(.blank-story-part) {
@@ -131,8 +133,20 @@
 		margin: 0 0 0 0;
 	}
 	
-	/* :global(html) {
-  		scroll-behavior: smooth;
-	} */
+	:global(.red) {
+		color: red;
+	}
+
+	:global(.blue) {
+		color: blue;
+	}
+
+	:global(.emphasize) {
+		color: black;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	
 
 </style>
