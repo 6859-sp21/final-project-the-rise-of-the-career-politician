@@ -84,8 +84,8 @@
   }
 
   let margin = { top: 20, right: 20, bottom: 60, left: 50 };
-  const width = .4*$winWidth - margin.left - margin.right;
-  const height = .6*$winHeight - margin.top - margin.bottom;
+  const width = .6*$winWidth - margin.left - margin.right;
+  const height = .7*$winHeight - margin.top - margin.bottom;
   // let height = 600;
   // let width = 600;
   let bins;
@@ -116,13 +116,13 @@
   function mouseOver(event) {
     message = event;
     message.detail.text === "I am box" ? showBox = true : showOutlier = true
-    xTool = event.detail.event.clientX - 25;
-    yTool = event.detail.event.clientY - 25;
+    xTool = event.detail.event.clientX;
+    yTool = event.detail.event.clientY - .2*height;
   }
 
   function mouseMove(event) {
-    xTool = event.detail.event.clientX - 25;
-    yTool = event.detail.event.clientY - 25;
+    xTool = event.detail.event.clientX;
+    yTool = event.detail.event.clientY - .2*height;
   }
 
   function mouseOut(event) {
@@ -207,6 +207,7 @@
         >
           {#each b.outliers as o}
             <Outlier
+              {x}
               {y}
               d={o}
               on:mouseover={mouseOver}

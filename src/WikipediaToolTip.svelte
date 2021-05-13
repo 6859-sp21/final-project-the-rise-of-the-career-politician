@@ -32,7 +32,7 @@
 	image = getWikiPhoto();
 
 	const formattedLabels = [
-        ['nominate_dim1', 'Ideology Score (liberal-conservative)'],
+        ['nominate_dim1', 'Ideology Score'],
         // ['nominate_dim2', 'Ideology Score ("hot topics" dimension)'],
         ['min_age', 'Age on Entering Congress'],
         // ['max_age', 'Max Age in Congress'],
@@ -54,7 +54,7 @@
 	{#await image}
 		<p>Loading image</p>
 	{:then image}
-		<img src={image} alt="here" width="100" height="100"/>
+		<img src={image} alt="image of {name}" width="100" height="100"/>
 	{:catch error}
 		{console.log(error)}
 	{/await}
@@ -68,7 +68,11 @@
 		<li><strong>State:</strong> {data.state}</li>
 		{#if otherFields}
 			{#each formattedLabels as o}
+			{#if o === "nominate_dim1"}
+				<li><strong>{o[1]}:</strong> {Math.round(data[o[0]] * 100) / 100}</li>
+			{:else}
 				<li><strong>{o[1]}:</strong> {data[o[0]]}</li>
+			{/if}
 			{/each}
 		{/if}
 	</ul>

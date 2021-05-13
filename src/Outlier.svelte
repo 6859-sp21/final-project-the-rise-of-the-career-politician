@@ -3,6 +3,7 @@
     import { onDestroy } from 'svelte';
     import { fade } from 'svelte/transition';
     export let d;
+    export let x;
     export let y;
 
     let name; 
@@ -26,9 +27,9 @@
 </script>
 <circle
 r=3
-cx={(Math.random() - .5) * 4}
+cx={(Math.random() - .5) * 30}
 cy={y(d.y)}
-fill=white
+fill=black
 on:mouseover={sendInfo}
 on:mouseout={sendInfo}
 on:mousemove={sendInfo}

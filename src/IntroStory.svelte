@@ -10,7 +10,7 @@
 	let threshold = 0.5;
 	let bottom = 0.9;
 
-    const width = .4*$winWidth;
+    const width = .6*$winWidth;
     const height = .3*$winHeight;
 
 
@@ -24,6 +24,7 @@
 
 <Scroller {index} bind:progress>
     <div slot="background">
+        <h2>Populism is on the Rise</h2>
         <ul>
             <li>
                 <div class="img-wrap">

@@ -16,13 +16,13 @@
     function mouseOver(event) {
         message = event;
         isHovered = true;
-        x = event.detail.event.clientX + 5;
-		y = event.detail.event.clientY + 5;
+        x = event.detail.event.clientX;
+		y = event.detail.event.clientY;
     }
 
     function mouseMove(event) {
-        x = event.detail.event.clientX + 5;
-		y = event.detail.event.clientY + 5;
+        x = event.detail.event.clientX;
+		y = event.detail.event.clientY;
 	}
 
     function mouseOut(){
@@ -34,8 +34,8 @@
     let running = false;
     let displayVar = 'cumulative_time_sen_and_house';
     let interval;
-    const width = .4*$winWidth;
-    const height = .6*$winHeight;
+    const width = .6*$winWidth;
+    const height = .7*$winHeight;
 
     function getLongestServing(data, year, n) {
         return data.congresses[year]
