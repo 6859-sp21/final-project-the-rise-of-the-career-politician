@@ -24,7 +24,6 @@
 
 <Scroller bind:progress>
     <div slot="background">
-        <h2>Age versus Ideology</h2>
         <Scatterplot2 {data}/>	
     </div>
 

@@ -7,7 +7,7 @@
     import * as d3 from 'd3';
 
     import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar,
-             winWidth, winHeight} from './stores.js';
+             winWidth, winHeight, scatterPlotYear} from './stores.js';
     import ScatterOptions from "./ScatterOptions.svelte";
     import ColorLegend from './ColorLegend.svelte';
     export let data;
@@ -17,18 +17,18 @@
         'nominate_dim1': 'Ideology Score (liberal-conservative)',
         'nominate_dim2': 'Ideology Score ("hot topics" dimension)',
         'min_age': 'Age on Entering Congress',
-        'max_age': 'Max Age in Congress',
+        // 'max_age': 'Max Age in Congress',
         'age': 'Current Age',
         'cumulative_time_sen_and_house': 'Total Time in Congress',
         "cosponsored": '# of Bills Cosponsored',
-        "bills-introduced": '# of Bills Introduced',
+        "bills_introduced": '# of Bills Introduced',
         // "bills-reported": '# of Bills Gone Out of Committee',
-        'bills-enacted-ti': '# of Bills that Became Law',
+        'bills_enacted_ti': '# of Bills that Became Law',
         // "leadership": 'Leadership Score',
-        "missed-votes": "% of Votes Missed",
+        "missed_votes": "% of Votes Missed",
         // "bills-with-committee-leaders": "# of Bills with Committee Chair Cosponsors ",
-        "bills-with-cosponsor-other-party": "# of Bipartisan Bills",
-        "committee-positions": '# of Committee Positions'
+        "bills_with_cosponsor_other_party": "# of Bipartisan Bills",
+        "committee_positions": '# of Committee Positions'
     }
     
     const formattedLabelsShort = {
@@ -39,8 +39,8 @@
         'cumulative_time_sen_and_house': 'Total Time',
     }
     const margin = ({top: 20, right: 100, bottom: 60, left: 50})
-    const width = .4*$winWidth - margin.left - margin.right;
-    const height = .6*$winHeight - margin.top - margin.bottom;
+    const width = .6*$winWidth - margin.left - margin.right;
+    const height = .7*$winHeight - margin.top - margin.bottom;
 
     let congressmen; 
     let xScale;
@@ -48,7 +48,7 @@
     let colorScale;
     let sizeScale;
     $: {
-        congressmen = data.congresses[2020]
+        congressmen = data.congresses[$scatterPlotYear]
             .filter(d => d[$scatterPlotXVar] != undefined)
             .filter(d => d[$scatterPlotYVar] != undefined)
             .filter(d => ! isNaN(d[$scatterPlotXVar]))
@@ -91,13 +91,13 @@
     function mouseOver(event) {
         message = event;
         isHovered = true;
-		xTool = event.detail.event.clientX - 5;
-		yTool = event.detail.event.clientY - 5;
+		xTool = event.detail.event.clientX;
+		yTool = event.detail.event.clientY;
     }
 
     function mouseMove(event) {
-        xTool = event.detail.event.clientX - 5;
-		yTool = event.detail.event.clientY - 5;
+        xTool = event.detail.event.clientX;
+		yTool = event.detail.event.clientY;
 	}
 
     function mouseOut(){
@@ -106,7 +106,7 @@
 </script>
 
 <div class="scatterplot">
-
+    <h2>Congress in {$scatterPlotYear}</h2>
     <svg viewBox={[0, 0, width, height]}
         width={width}
         height={height}>

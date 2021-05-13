@@ -26,6 +26,7 @@
 transform={`translate(${x},${y})`}
 r={r}
 fill={color}
+stroke=black
 on:mouseover={sendInfo}
 on:mouseout={sendInfo}
 on:mousemove={sendInfo}

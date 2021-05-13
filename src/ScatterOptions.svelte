@@ -1,7 +1,8 @@
 <script>
 import { xlink_attr } from 'svelte/internal';
 
-    import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar} from './stores.js';
+    import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, 
+        scatterPlotYVar, scatterPlotYear} from './stores.js';
     export let options;
 
     let showSettings = false;
@@ -14,6 +15,10 @@ import { xlink_attr } from 'svelte/internal';
     </button>
     {#if showSettings}
     <ul>
+        <li>
+            year: 
+            <input type=range bind:value={$scatterPlotYear} min=1790 max=2021>            
+        </li>
         <li>
             x-axis: 
             <select bind:value={$scatterPlotXVar}>
@@ -66,7 +71,10 @@ import { xlink_attr } from 'svelte/internal';
         width: auto;
     }
 
-    ul {
+    ul, li {
         list-style: none;
+        margin: 0;
+        padding: 0;
+        /* text-align: left; */
     }
 </style>

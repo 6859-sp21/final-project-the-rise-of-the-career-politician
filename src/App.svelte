@@ -13,12 +13,18 @@
 			d3.json('./data/all_congressmen.json'),
 			d3.json('./data/congress_by_year.json'),
 			d3.json('./data/report_cards/2020-report-card.json'),
-			d3.json('./data/misconduct.json')
+			d3.json('./data/misconduct.json'), 
+			d3.csv('./data/HSall_members.csv')
 		])
 		.then(d => {
 			const congressmen = d[0]
 			
-			// Integrate othet datasets 
+			const ideologyScores = d[4].reduce(function(map, obj) {
+				map[obj.bioguide_id] = obj;
+				return map;
+			}, {});
+
+			// Integrate other datasets 
 			const misconduct = d3.group(Object.values(d[3]), d => d.person)
 			for (const id in congressmen){
 				if (id in d[2]){
@@ -30,10 +36,17 @@
 				if (govtrack in d[3]){
 					congressmen[id]['misconduct'] = misconduct.get(govtrack)
 				}
+				if (id in ideologyScores) {
+					for (const [key, value] of Object.entries(ideologyScores[id]))
+						congressmen[id][key] = value
+				}
 			}
-			const congresses = d[1]
-			congresses[2020] = congresses[2020].map(obj => ({...obj, ...d[2][obj.id]}))
 
+			const congresses = d[1]
+			for (let year = 1790; year < 2021; year++)
+				congresses[year] = congresses[year].map(obj => ({...obj, ...ideologyScores[obj.id]}))
+			
+			congresses[2021] = congresses[2021].map(obj => ({...obj, ...d[2][obj.id]}))
 			return ({congressmen, congresses})
 		})
 	
@@ -62,7 +75,6 @@
 			<h1>Congress Today</h1>
 		</div>
 		<ScatterStory {data}/>
-		{currentSection.set('intro')}
 	{:catch error}
 		<p>An error occurred!</p>
 		{console.log(error)}
@@ -77,7 +89,7 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-		background-color: rgba(87, 84, 84, 0.5);
+		/* background-color: rgba(87, 84, 84, 0.5); */
 	}
 
 	h1 {
@@ -103,7 +115,7 @@
 
 	:global(.story-part) {
 		/* height: 600px; */		
-		width: 25%;
+		width: 20%;
 		background-color: rgba(22, 117, 146, 0.5); 
 		color: white;
 		size: 4em;
