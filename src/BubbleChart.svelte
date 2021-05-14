@@ -3,7 +3,7 @@
     import { fade } from 'svelte/transition';
     import { winWidth, winHeight, bubbleN, bubbleShowAnnotation } from './stores.js';
     import * as d3 from 'd3';
-    import {annotation, annotationCalloutElbow} from 'd3-svg-annotation'
+    import {annotation, annotationCalloutElbow, annotationCalloutCircle} from 'd3-svg-annotation'
     import BubbleLegend from './BubbleLegend.svelte';
     import Bubble from './Bubble.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
@@ -22,12 +22,15 @@
         isHovered = true;
         x = event.detail.event.clientX;
 		y = event.detail.event.clientY;
+        if (y > .5*height) y -= .3*height
+
     }
 
     function mouseMove(event) {
         x = event.detail.event.clientX;
 		y = event.detail.event.clientY;
-	}
+        if (y > .5*height) y -= .3*height
+    }
 
     function mouseOut(){
         isHovered = false;
@@ -55,22 +58,34 @@
 
     function addAnnotation() {
         let bernie = leaves.find(x => x.data.official_full === "Bernard Sanders");
-        const annotations = [{
-            note: {label: "This bubble represents Senator Bernie Sanders. Hover for more information",
-            bgPadding: 10},
-            x: bernie.x,
-            y: bernie.y,
-            className: "show-bg",
-            dy: 0,
-            dx: width/3,
-            color: "black",
-            type: annotationCalloutElbow,
-            connector: {end: "arrow", endscale: 10},
-            subject: {
-                radius: bernie.r + 10,
-                radiusPadding: 10
+        const annotations = [
+            {
+                note: {label: "This bubble represents Senator Bernie Sanders. Hover for more information",
+                bgPadding: 10},
+                x: bernie.x,
+                y: bernie.y,
+                className: "show-bg",
+                dy: 0,
+                dx: width/3,
+                color: "black",
+                type: annotationCalloutElbow,
+                connector: {end: "arrow", endscale: 10},
+                subject: {
+                    radius: bernie.r + 10,
+                    radiusPadding: 10
+                },
             },
-        }]
+            {
+                note: { label: "Career politicians" },
+                x: width/2,
+                y: height/2,
+                dy: -width/5,
+                dx: width/5,
+                type: annotationCalloutCircle,
+                color: "black",
+                subject: { radius: width/6, radiusPadding: 10 },        
+            }
+    ];
 
         const makeAnnotations = annotation()
             .notePadding(15)
@@ -81,6 +96,7 @@
             .attr("class", "annotation-group")
             .style("background-color", "rgba(230, 242, 255, 0.8)")
             .style("border-radius", "5px")
+            .style("stroke-width", "2px")
             .call(makeAnnotations)
     }
 
