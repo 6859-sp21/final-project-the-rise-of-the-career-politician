@@ -81,3 +81,13 @@
         <section class="blank-story-part"></section>
     </div>
 </Scroller>
+
+<style>
+    [slot="foreground"] {
+		pointer-events: none;
+	}
+	
+	[slot="foreground"] section {
+		pointer-events: all;
+	}
+</style>

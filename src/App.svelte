@@ -135,7 +135,7 @@ import ConclusionStory from './ConclusionStory.svelte';
 		position: relative;
 		background-color: rgba(22, 117, 146, 0.5); 
 		color: black;
-		size: 4em;
+		font-size: 1.5em;
 		padding: 1em;
 		margin: 0 0 50em 0;
 		z-index: 4;
