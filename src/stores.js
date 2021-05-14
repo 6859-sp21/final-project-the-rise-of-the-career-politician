@@ -21,3 +21,4 @@ export const scatterPlotYVar = writable('cumulative_time_sen_and_house');
 export const scatterPlotSizeVar = writable('cumulative_time_sen_and_house');
 export const scatterPlotColorVar = writable('nominate_dim1');
 export const scatterPlotYear = writable(2021);
+export const scatterShowAnnotation = writable(true);

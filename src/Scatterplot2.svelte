@@ -4,10 +4,12 @@
     import Scat from './Scat.svelte';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     import { onMount } from 'svelte';
+    import {annotation, annotationCalloutElbow} from 'd3-svg-annotation';
+
     import * as d3 from 'd3';
 
     import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar,
-             winWidth, winHeight, scatterPlotYear} from './stores.js';
+             winWidth, winHeight, scatterPlotYear, scatterShowAnnotation } from './stores.js';
     import ScatterOptions from "./ScatterOptions.svelte";
     import ColorLegend from './ColorLegend.svelte';
     import SearchBar from './SearchBar.svelte';
@@ -92,6 +94,7 @@
     let yTool;
 
     function mouseOver(event) {
+        scatterShowAnnotation.set(false);
         message = event;
         isHovered = true;
 		xTool = event.detail.event.clientX;
@@ -145,11 +148,59 @@
                 .text(d => d.official_full);
         }
     }
+
+
+    // Annotations
+    let mySvg;
+    function addAnnotation() {
+        let bernie = congressmen.find(x => x.official_full === "Chuck Grassley");
+        console.log(bernie)
+        const annotations = [{
+            note: {label: "Hover over a point to reveal more information",
+            bgPadding: 10},
+            x: xScale(bernie.x),
+            y: yScale(bernie.y),
+            className: "show-bg",
+            dy: 0,
+            dx: width/7,
+            color: "black",
+            type: annotationCalloutElbow,
+            connector: {end: "arrow", endscale: 10},
+            subject: {
+                radius: bernie.r + 10,
+                radiusPadding: 10
+            },
+        }];
+
+        const makeAnnotations = annotation()
+            .notePadding(15)
+            .annotations(annotations)
+
+        d3.select(mySvg)
+            .append("g")
+            .attr("class", "annotation-group-scatter")
+            .style("background-color", "rgba(230, 242, 255, 0.8)")
+            .style("border-radius", "5px")
+            .call(makeAnnotations)
+    }
+    onMount(() => {addAnnotation()});
+    $: { //Once someone has hovered 
+        if (! $scatterShowAnnotation) {
+            setTimeout(function() {
+                d3.select(mySvg)
+                    .selectAll(".annotation-group-scatter")
+                    .transition().duration(4000)
+                    .style('fill-opacity', 0)
+                    .style('stroke-opacity', 0)
+                    .remove()
+            }, 100);
+        }
+    }
 </script>
 
 <div class="scatterplot">
     <h2>Congress in {$scatterPlotYear}</h2>
-    <svg viewBox={[0, 0, width, height]}
+    <svg bind:this={mySvg} viewBox={[0, 0, width, height]}
         width={width}
         height={height}>
 

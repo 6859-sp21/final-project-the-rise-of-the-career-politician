@@ -315,7 +315,7 @@
     {#if $boxplotOutcomeVar === "age" || $boxplotOutcomeVar === "min_age"}
       <p transition:fade={{ duration: 1000 }}>Showing life expectancy in blue</p>  
     {:else}
-    <p transition:fade={{ duration: 1000 }}>Showing adjusted life expectancy in blue</p>
+    <p transition:fade={{ duration: 1000 }}>Showing <strong>adjusted</strong> life expectancy in blue</p>
     {/if}    
   {/if}
 </div>

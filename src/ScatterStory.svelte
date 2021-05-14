@@ -1,7 +1,7 @@
 <script>
     import Scatterplot2 from './Scatterplot2.svelte';
     import Scroller from '@sveltejs/svelte-scroller';
-    import { currentSection, startedScrolling } from './stores.js';
+    import { currentSection, startedScrolling, scatterShowAnnotation } from './stores.js';
     import { onMount } from 'svelte';
 
     export let data;
@@ -20,9 +20,16 @@
         if ($startedScrolling) currentSection.set("scatterplot");
     }
     
+    $: {
+		switch (index) {
+            case 1:
+                scatterShowAnnotation.set(false);
+                break;  
+        }
+	}
 </script>
 
-<Scroller bind:progress>
+<Scroller bind:index bind:progress>
     <div slot="background">
         <Scatterplot2 {data}/>	
     </div>
