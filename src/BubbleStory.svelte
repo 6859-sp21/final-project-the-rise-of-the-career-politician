@@ -70,9 +70,9 @@
             <span class="emphasize"> career politicians</span>, have served over 25 years. 
          </section>
         
-        <!-- 2 --> <section class="story-part">  Is today's distribution really an anomaly? Compared to past congresses, the current Congress does not appear to have a greater 
-            concentration of career politicians. 
-        </section>        
+        <!-- 2 --> <section class="story-part">  Is today's distribution really an anomaly? Compared to past congresses, while term lengths are longer, 
+            the current Congress does not appear to have a greater concentration of career politicians. 
+        </section>
 
         <!-- 3 --> <section class="story-part"> Explore for yourself. Move the slider to view different Congresses experience distributions. 
         </section>        

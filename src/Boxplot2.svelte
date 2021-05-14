@@ -4,7 +4,8 @@
   import { fade, draw, fly } from "svelte/transition";
   import WikipediaToolTip from "./WikipediaToolTip.svelte";
   import Box from "./Box.svelte";
-  import { boxplotOutcomeVar, boxplotRepType, winWidth, winHeight, scatterPlotYVar } from "./stores.js";
+  import { boxplotOutcomeVar, boxplotRepType, winWidth, winHeight, 
+        showLifeExpectancy } from "./stores.js";
   import BoxTooltip from "./BoxTooltip.svelte";
   import {lifeExpectancy} from "./lifeExpectancy";
   import * as d3 from 'd3';
@@ -14,7 +15,9 @@
     cumulative_time_sen_and_house: "Years Served",
     age: "Age",
     nominate_dim1: "Ideology Score (liberal-conservative)",
+    min_age: "Age at Start of Career"
   };
+
   function getBins(outcomeVar, repType) {
     let newData = new Array();
     let bins;
@@ -31,7 +34,7 @@
       newData = newData.filter((d) => d.data.type === repType);
     }
 
-    if (outcomeVar === "age") newData = newData.filter((d) => d.y > 20);
+    if (outcomeVar === "age" || outcomeVar == "min_age") newData = newData.filter((d) => d.y > 20);
     bins = d3
       .histogram()
       .thresholds(23)
@@ -102,8 +105,7 @@
     line = d3.line()
       .defined(d => !isNaN(d.value))
       .x(d => x(d.year))
-      .y(d => y(d.value))(lineData)
-    
+      .y(d => y($boxplotOutcomeVar === "age" || $boxplotOutcomeVar === "min_age"? d.value : d.value-30))(lineData)
   }
 
   // Tooltip
@@ -128,6 +130,11 @@
   function mouseOut(event) {
     event.detail.text === "I am box" ? showBox = false : showOutlier = false;
   }
+
+  function mouseClick(event) {
+    console.log(event);
+    let bin = event.detail.data;
+  }
 </script>
 
 <div>
@@ -146,22 +153,34 @@
       <input type="radio" bind:group={$boxplotOutcomeVar} value={"age"} />
       Age
     </label>
+
+    <label>
+      <input type="radio" bind:group={$boxplotOutcomeVar} value={"min_age"} />
+      Age at Career Start
+    </label>
   </form>
+
+    <form>
+      <label>
+        <input type="radio" bind:group={$boxplotRepType} value={"both"} />
+        Both
+      </label>
+
+      <label>
+        <input type="radio" bind:group={$boxplotRepType} value={"sen"} />
+        Senate
+      </label>
+
+      <label>
+        <input type="radio" bind:group={$boxplotRepType} value={"rep"} />
+        House
+      </label>
+    </form>
 
   <form>
     <label>
-      <input type="radio" bind:group={$boxplotRepType} value={"both"} />
-      Both
-    </label>
-
-    <label>
-      <input type="radio" bind:group={$boxplotRepType} value={"sen"} />
-      Senate
-    </label>
-
-    <label>
-      <input type="radio" bind:group={$boxplotRepType} value={"rep"} />
-      House
+      <input type=checkbox bind:checked={$showLifeExpectancy}>
+      Overlay life expectancy
     </label>
   </form>
 
@@ -196,6 +215,7 @@
           on:mouseover={mouseOver}
           on:mouseout={mouseOut}
           on:mousemove={mouseMove}
+          on:click={mouseClick}
         />
 
         <g
@@ -220,13 +240,17 @@
       </g>
     {/each}
 
-    {#if $boxplotOutcomeVar === "age"}
+    {#if $showLifeExpectancy }
       <path d={line} stroke="blue" fill="none" transition:fade={{ duration: 1000 }}></path>
     {/if}
   </svg>
 
-  {#if $boxplotOutcomeVar === "age"}
-    <p transition:fade={{ duration: 1000 }}>Showing life expectancy in blue</p>  
+  {#if $showLifeExpectancy }
+    {#if $boxplotOutcomeVar === "age" || $boxplotOutcomeVar === "min_age"}
+      <p transition:fade={{ duration: 1000 }}>Showing life expectancy in blue</p>  
+    {:else}
+    <p transition:fade={{ duration: 1000 }}>Showing adjusted life expectancy in blue</p>
+    {/if}    
   {/if}
 </div>
 

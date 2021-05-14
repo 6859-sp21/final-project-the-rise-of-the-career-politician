@@ -49,7 +49,8 @@
     d={getPath2(b)}
     on:mouseover={sendInfo}
     on:mouseout={sendInfo}
-    on:mousemove={sendInfo}>
+    on:mousemove={sendInfo}
+    on:click={sendInfo}>
 </path>
 
 <path
