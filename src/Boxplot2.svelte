@@ -145,7 +145,6 @@
   function addAnnotation() {
     let temp = bins[6];
     let outlier = temp.outliers[0];
-    console.log(temp);   
     const annotations = [{
       note: {label: "Hover over a box to see precise numbers for each decade",
       bgPadding: 10},

@@ -9,7 +9,7 @@
     import * as d3 from 'd3';
 
     import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar,
-             winWidth, winHeight, scatterPlotYear, scatterShowAnnotation } from './stores.js';
+             winWidth, winHeight, scatterPlotYear, scatterShowAnnotation, scatterHighlighted } from './stores.js';
     import ScatterOptions from "./ScatterOptions.svelte";
     import ColorLegend from './ColorLegend.svelte';
     import SearchBar from './SearchBar.svelte';
@@ -111,16 +111,17 @@
     }
 
     // Search bar
-    let highlighted = []
     function handleMessage(event) {
         if (event.detail.text === "clear-labels") {
-            clearLabels();
+            $scatterHighlighted = [];
+            d3.select(scatter).selectAll('text').remove()
         } else {
-            highlighted.push(congressmen.find(d => d.official_full == event.detail.text))
+            $scatterHighlighted = [...$scatterHighlighted, 
+                congressmen.find(d => d.official_full == event.detail.text)]
             // d3.select('#' + event.detail.text.replace(' ', '_')).style("fill", "#FFD700")
             d3.select(scatter)
             .selectAll('text')
-            .data(highlighted)//, d => d.id)
+            .data($scatterHighlighted)//, d => d.id)
             .join('text')
             .attr('x', d => xScale(d[$scatterPlotXVar]))
             .attr('y', d => yScale(d[$scatterPlotYVar]))
@@ -129,32 +130,26 @@
         }
     }
 
-    function clearLabels(){
-        highlighted = [];
-        d3.select(scatter).selectAll('text').remove()
-    }
-
-    $: {
-        if (highlighted.length != 0) {
-            // remove text 
-            clearLabels();
+    scatterHighlighted.subscribe((a) => {
+        if (a.length > 0) {
+            d3.select(scatter).selectAll('text').remove();
             d3.select(scatter)
                 .selectAll('text')
-                .data(highlighted)//, d => d.id)
+                .data(a)//, d => d.id)
                 .join('text')
                 .attr('x', d => xScale(d[$scatterPlotXVar]))
                 .attr('y', d => yScale(d[$scatterPlotYVar]))
                 .style('font-size', '12px')
                 .text(d => d.official_full);
+
         }
-    }
+    });
 
 
     // Annotations
     let mySvg;
     function addAnnotation() {
         let bernie = congressmen.find(x => x.official_full === "Chuck Grassley");
-        console.log(bernie)
         const annotations = [{
             note: {label: "Hover over a point to reveal more information",
             bgPadding: 10},
