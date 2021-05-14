@@ -7,6 +7,7 @@ export const startedScrolling = writable(false);
 
 //Bubbleplot
 export const bubbleN = writable(2021);
+export const bubbleShowAnnotation = writable(true);
 
 //Boxplot 
 export const boxplotOutcomeVar = writable('cumulative_time_sen_and_house');
