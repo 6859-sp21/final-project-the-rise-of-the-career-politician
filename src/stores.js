@@ -12,6 +12,7 @@ export const bubbleShowAnnotation = writable(true);
 //Boxplot 
 export const boxplotOutcomeVar = writable('cumulative_time_sen_and_house');
 export const boxplotRepType = writable('both');
+export const boxplotShowAnnotation = writable(true);
 export const showLifeExpectancy = writable(false);
 
 // Scatterplot

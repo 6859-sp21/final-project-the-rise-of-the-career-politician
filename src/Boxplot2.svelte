@@ -5,10 +5,12 @@
   import WikipediaToolTip from "./WikipediaToolTip.svelte";
   import Box from "./Box.svelte";
   import { boxplotOutcomeVar, boxplotRepType, winWidth, winHeight, 
-        showLifeExpectancy } from "./stores.js";
+      showLifeExpectancy, boxplotShowAnnotation } from "./stores.js";
   import BoxTooltip from "./BoxTooltip.svelte";
   import {lifeExpectancy} from "./lifeExpectancy";
   import * as d3 from 'd3';
+  import {annotation, annotationCalloutElbow} from 'd3-svg-annotation';
+  import { onMount } from "svelte";
   export let data;
 
   let formattedOutcome = {
@@ -116,15 +118,16 @@
   let yTool;
 
   function mouseOver(event) {
+    boxplotShowAnnotation.set(false);
     message = event;
     message.detail.text === "I am box" ? showBox = true : showOutlier = true
     xTool = event.detail.event.clientX;
-    yTool = event.detail.event.clientY - .2*height;
+    yTool = event.detail.event.clientY - .4*height;
   }
 
   function mouseMove(event) {
     xTool = event.detail.event.clientX;
-    yTool = event.detail.event.clientY - .2*height;
+    yTool = event.detail.event.clientY - .4*height;
   }
 
   function mouseOut(event) {
@@ -134,6 +137,69 @@
   function mouseClick(event) {
     console.log(event);
     let bin = event.detail.data;
+  }
+
+  // Annotation
+  let mySvg;
+
+  function addAnnotation() {
+    let temp = bins[6];
+    let outlier = temp.outliers[0];
+    console.log(temp);   
+    const annotations = [{
+      note: {label: "Hover over a box to see precise numbers for each decade",
+      bgPadding: 10},
+      x: x((temp.x0 + temp.x1)/2),
+      y: y(temp.quartiles[1]),
+      className: "show-bg",
+      dy: -height/2,
+      dx: -width/10,
+      color: "black",
+      type: annotationCalloutElbow,
+      connector: {end: "arrow", endscale: 10},
+    }, 
+  {
+    note: {label: "Hover over an outlier to see which member of Congress it is",
+      bgPadding: 10},
+      x: x(outlier.x),
+      y: y(outlier.y),
+      className: "show-bg",
+      dy: -height/5,
+      dx: width/10,
+      color: "black",
+      type: annotationCalloutElbow,
+      connector: {end: "arrow", endscale: 10},
+      subject: {
+                radius: 3 + 10,
+                radiusPadding: 20
+            },
+  }];
+
+   const makeAnnotations = annotation()
+        .notePadding(15)
+        .annotations(annotations)
+
+    d3.select(mySvg)
+        .append("g")
+        .attr("class", "annotation-group-box")
+        .style("background-color", "rgba(230, 242, 255, 0.8)")
+        .style("border-radius", "5px")
+        .call(makeAnnotations)
+    }
+ 
+  onMount(() => addAnnotation()); 
+
+  $: { //Once someone has hovered 
+      if (! $boxplotShowAnnotation) {
+          setTimeout(function() {
+              d3.select(mySvg)
+                  .selectAll(".annotation-group-box")
+                  .transition().duration(4000)
+                  .style('fill-opacity', 0)
+                  .style('stroke-opacity', 0)
+                  .remove()
+          }, 100);
+      }
   }
 </script>
 
@@ -184,7 +250,7 @@
     </label>
   </form>
 
-  <svg {width} {height}>
+  <svg {width} {height} bind:this={mySvg}>
     <Axis
       {width}
       {height}

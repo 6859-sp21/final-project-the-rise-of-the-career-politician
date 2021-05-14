@@ -1,6 +1,7 @@
 <script>
   	import Boxplot2 from './Boxplot2.svelte';
-    import { boxplotOutcomeVar, boxplotRepType, currentSection, showLifeExpectancy, startedScrolling } from './stores.js';
+    import { boxplotOutcomeVar, boxplotRepType, currentSection, 
+        showLifeExpectancy, startedScrolling, boxplotShowAnnotation } from './stores.js';
     import Scroller from '@sveltejs/svelte-scroller';
     export let data;
     
@@ -19,6 +20,7 @@
 				boxplotOutcomeVar.set('cumulative_time_sen_and_house');
 				break;
 			case 1:
+                boxplotShowAnnotation.set(false);
 				boxplotOutcomeVar.set('cumulative_time_sen_and_house');
                 showLifeExpectancy.set(false);
 				break;
