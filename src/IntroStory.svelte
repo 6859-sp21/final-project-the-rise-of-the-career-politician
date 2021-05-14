@@ -24,7 +24,7 @@
 
 <Scroller {index} bind:progress>
     <div slot="background">
-        <ul>
+        <ul class="blank">
             <li>
                 <img src={"images/drain_the_swamp.jpeg"} alt="drain the swamp" height={height}>
             </li>
@@ -60,16 +60,21 @@
                 who have been in office for decades.
                 <!-- <span class="emphasize">decades</span>. -->
 
-                Current bills addressing these issues include H.R. 1, <a href="https://en.wikipedia.org/wiki/For_the_People_Act" target="_blank">a sweeping election reform bill</a>, and a 
-                <a href="https://www.congress.gov/bill/116th-congress/house-joint-resolution/20?q=%7B%22search%22%3A%5B%22term+limits%22%5D%7D&s=1&r=1" target="_blank">
-                    proposed Constitutional amendment to limit congressional term lengths.</a>
-                
+                Current bills addressing these issues include:
             </p>  
+
+                <ul>
+                    <li> <a href="https://en.wikipedia.org/wiki/For_the_People_Act" target="_blank">H.R. 1 (electoral reform bill)</a>  </li>
+                    <li>
+                        <a href="https://www.congress.gov/bill/116th-congress/house-joint-resolution/20?q=%7B%22search%22%3A%5B%22term+limits%22%5D%7D&s=1&r=1" target="_blank">
+                            Proposed Constitutional amendment to limit congressional term lengths</a>
+                    </li>
+                </ul>                  
         </section>
 
         <section class="story-part"> 
             <p>
-                <i>Are there more career politicians today than there were in the past? Is this a problem></i> 
+                <i>Are there more career politicians today than there were in the past? Is this a problem?</i> 
                 <br>
                 <span class="direction">
                     Continue scrolling for a visual exploration of this issue.
@@ -83,7 +88,7 @@
 </Scroller>
 
 <style>
-    ul {
+    ul.blank {
         list-style-type: none;
         margin: 0;
         padding: 0;

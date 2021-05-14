@@ -89,7 +89,7 @@
   }
 
   let margin = { top: 20, right: 20, bottom: 60, left: 50 };
-  const width = .6*$winWidth - margin.left - margin.right;
+  const width = .55*$winWidth - margin.left - margin.right;
   const height = .7*$winHeight - margin.top - margin.bottom;
   // let height = 600;
   // let width = 600;
