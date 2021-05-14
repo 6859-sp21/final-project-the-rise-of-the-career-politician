@@ -67,7 +67,9 @@ import { xlink_attr } from 'svelte/internal';
 
 <style>
     .options {
-        float: center;
+        position: fixed;
+        left: 85%;
+        top: 30%;
         width: auto;
     }
 
