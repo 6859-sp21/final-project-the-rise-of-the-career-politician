@@ -136,7 +136,7 @@
                     .data(toPlot)//, d => d.id)
                     .join('text')
                     .attr('x', d => xScale(d[$scatterPlotXVar]))
-                    .attr('y', d => yScale(d[$scatterPlotYVar]))
+                    .attr('y', d => yScale(d[$scatterPlotYVar]) - 5)
                     .style('font-size', '12px')
                     .style("stroke", "black")
                     .style('text-anchor', 'middle')

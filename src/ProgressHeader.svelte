@@ -3,8 +3,8 @@
 
     let sections = Array(
         ['intro', 'Introduction'],
-        ['bubbleplot', 'Bubble Plot'],
-        ['boxplot', 'Congress over the Years'],
+        ['bubbleplot', 'Distribution of Congressional Experience'],
+        ['boxplot', 'Congress over Time'],
         ['scatterplot', 'Congress Today'],
         ['conclusion', 'Conclusion']
     );
