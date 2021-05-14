@@ -7,6 +7,7 @@
 	import ProgressHeader from './ProgressHeader.svelte';
 	import { currentSection } from './stores.js';
 	import * as d3 from 'd3';
+import ConclusionStory from './ConclusionStory.svelte';
 	export let name;
 
 	let data = Promise.all([
@@ -54,10 +55,10 @@
 <main>
 	<ProgressHeader/>
 	<h1>{name}</h1>
-	<div class="spacer" id="intro"></div>
 	{#await data}
 		<p>...waiting</p>
 	{:then data}
+		<div class="spacer" id="intro"></div>
 		<IntroStory/> 
 
 		<div class="spacer" id="bubbleplot">
@@ -75,6 +76,21 @@
 			<h1>Congress Today</h1>
 		</div>
 		<ScatterStory {data}/>
+
+		<div class="spacer" id="conclusion">
+			<h1>Conclusion</h1>
+		</div>
+		<ConclusionStory/>
+		<div class="footer">
+            <h3>Data Sources:</h3>
+            <ul>
+                <li><a href="https://www.govtrack.us/congress/members">Govtrack Congressional Database</a></li>
+                <li><a href="https://voteview.com/about">Voteview</a></li>
+            </ul>
+    
+            <a href="https://github.com/6859-sp21/final-project-the-rise-of-the-career-politician">Project Writeup</a>    
+        </div>
+
 	{:catch error}
 		<p>An error occurred!</p>
 		{console.log(error)}
@@ -148,5 +164,19 @@
 	}
 
 	
+    .footer { 
+		text-align: left; 
+		position: fixed;
+        height: 20%;
+		left: 85%;
+		bottom: 0%;
+        z-index: 5;
+	}
 
+	ul, li {
+		list-style: none;
+		text-align: left;
+		margin: 0;
+		padding: 0;
+	}
 </style>

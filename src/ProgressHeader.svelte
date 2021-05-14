@@ -5,7 +5,8 @@
         ['intro', 'Introduction'],
         ['bubbleplot', 'Bubble Plot'],
         ['boxplot', 'Congress over the Years'],
-        ['scatterplot', 'Congress Today']
+        ['scatterplot', 'Congress Today'],
+        ['conclusion', 'Conclusion']
     );
 </script>
 
