@@ -1,22 +1,19 @@
 <script>
-import { xlink_attr } from 'svelte/internal';
-
     import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, 
-        scatterPlotYVar, scatterPlotYear} from './stores.js';
+        scatterPlotYVar, scatterPlotYear, scatterShowOptions} from './stores.js';
     export let options;
 
-    let showSettings = false;
     options = Object.entries(options).map((x) => ({id: x[0], text: x[1]}))
 </script>
 
 <div class="options">
-    <button on:click={() => showSettings = !showSettings}>
-        {showSettings ? "Collapse Options" : "Reveal Options"}
+    <button on:click={() => $scatterShowOptions = !$scatterShowOptions}>
+        {$scatterShowOptions ? "Collapse Options" : "Reveal Options"}
     </button>
-    {#if showSettings}
+    {#if $scatterShowOptions}
     <ul>
         <li>
-            year: 
+            year: {$scatterPlotYear}
             <input type=range bind:value={$scatterPlotYear} min=1790 max=2021>            
         </li>
         <li>

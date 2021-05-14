@@ -99,11 +99,13 @@
         isHovered = true;
 		xTool = event.detail.event.clientX;
 		yTool = event.detail.event.clientY;
+        if (yTool > .5*height) yTool -= .3*height
     }
 
     function mouseMove(event) {
         xTool = event.detail.event.clientX;
 		yTool = event.detail.event.clientY;
+        if (yTool > .5*height) yTool -= .3*height
 	}
 
     function mouseOut(){
@@ -116,42 +118,37 @@
             $scatterHighlighted = [];
             d3.select(scatter).selectAll('text').remove()
         } else {
-            $scatterHighlighted = [...$scatterHighlighted, 
-                congressmen.find(d => d.official_full == event.detail.text)]
-            // d3.select('#' + event.detail.text.replace(' ', '_')).style("fill", "#FFD700")
-            d3.select(scatter)
-            .selectAll('text')
-            .data($scatterHighlighted)//, d => d.id)
-            .join('text')
-            .attr('x', d => xScale(d[$scatterPlotXVar]))
-            .attr('y', d => yScale(d[$scatterPlotYVar]))
-            .style('font-size', '12px')
-            .text(d => d.official_full)
+            $scatterHighlighted = [...$scatterHighlighted, event.detail.text];
         }
     }
 
-    scatterHighlighted.subscribe((a) => {
-        if (a.length > 0) {
+    $: {
+        scatterHighlighted.subscribe((a) => {
             d3.select(scatter).selectAll('text').remove();
-            d3.select(scatter)
-                .selectAll('text')
-                .data(a)//, d => d.id)
-                .join('text')
-                .attr('x', d => xScale(d[$scatterPlotXVar]))
-                .attr('y', d => yScale(d[$scatterPlotYVar]))
-                .style('font-size', '12px')
-                .text(d => d.official_full);
+            if (a.length > 0) {
+                let toPlot = a.map(x => congressmen.find(d => d.official_full == x));
+                d3.select(scatter)
+                    .selectAll('text')
+                    .data(toPlot)//, d => d.id)
+                    .join('text')
+                    .attr('x', d => xScale(d[$scatterPlotXVar]))
+                    .attr('y', d => yScale(d[$scatterPlotYVar]))
+                    .style('font-size', '12px')
+                    .style("stroke", "black")
+                    .style('text-anchor', 'middle')
+                    // .style("stroke", "black")
+                    .text(d => d.official_full);
 
-        }
-    });
-
+            }
+        });
+    }
 
     // Annotations
     let mySvg;
     function addAnnotation() {
         let bernie = congressmen.find(x => x.official_full === "Chuck Grassley");
         const annotations = [{
-            note: {label: "Hover over a point to reveal more information",
+            note: {label: "Each point is sized by length of tenure and colored by ideology. Hover over a point to reveal more details.",
             bgPadding: 10},
             x: xScale(bernie.x),
             y: yScale(bernie.y),
@@ -246,6 +243,12 @@
     </svg>
 </div>
 
+{#if congressmen.length === 0}
+<div class="error">
+    <h3> No data available for this query </h3>
+</div>
+{/if}
+
 <SearchBar data={congressmen} on:message={handleMessage}/>
 <ScatterOptions options={formattedLabels}/>
 
@@ -257,5 +260,9 @@
 <style>
     text {
         color: black;
+    }
+
+    h3 {
+        color: red;
     }
 </style>
