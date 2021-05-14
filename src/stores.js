@@ -24,3 +24,4 @@ export const scatterPlotYear = writable(2021);
 export const scatterShowAnnotation = writable(true);
 export const scatterHighlighted = writable(Array());
 export const scatterShowOptions = writable(false);
+export const scatterRepType = writable('both');

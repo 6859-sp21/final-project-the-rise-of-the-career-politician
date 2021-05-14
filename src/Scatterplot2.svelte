@@ -9,7 +9,8 @@
     import * as d3 from 'd3';
 
     import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, scatterPlotYVar,
-             winWidth, winHeight, scatterPlotYear, scatterShowAnnotation, scatterHighlighted } from './stores.js';
+             winWidth, winHeight, scatterPlotYear, scatterShowAnnotation, 
+             scatterHighlighted, scatterRepType } from './stores.js';
     import ScatterOptions from "./ScatterOptions.svelte";
     import ColorLegend from './ColorLegend.svelte';
     import SearchBar from './SearchBar.svelte';
@@ -63,6 +64,9 @@
                 y: Number(d[$scatterPlotYVar]) }))
             .filter(d => d[$scatterPlotColorVar] != undefined)
             .filter(d => d.x !== -99 && d.y !== -99);
+
+        if ($scatterRepType !== "both")
+            congressmen = congressmen.filter(d => d.type === $scatterRepType)
         
         xScale = d3.scaleLinear()
             .domain(d3.extent(congressmen, d => d.x)).nice()

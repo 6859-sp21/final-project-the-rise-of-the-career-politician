@@ -1,9 +1,11 @@
 <script>
     import { scatterPlotColorVar, scatterPlotSizeVar, scatterPlotXVar, 
-        scatterPlotYVar, scatterPlotYear, scatterShowOptions} from './stores.js';
+        scatterPlotYVar, scatterPlotYear, scatterShowOptions, scatterRepType} from './stores.js';
     export let options;
 
     options = Object.entries(options).map((x) => ({id: x[0], text: x[1]}))
+
+    scatterRepType.subscribe(d => {console.log('updating type to', d)})
 </script>
 
 <div class="options">
@@ -57,6 +59,25 @@
                 </option>
                 {/each}
             </select>
+        </li>
+
+        <li>
+            <form>
+                <label>
+                  <input type="radio" bind:group={$scatterRepType} value={"both"} />
+                  Both
+                </label>
+          
+                <label>
+                  <input type="radio" bind:group={$scatterRepType} value={"sen"} />
+                  Senate
+                </label>
+          
+                <label>
+                  <input type="radio" bind:group={$scatterRepType} value={"rep"} />
+                  House
+                </label>
+              </form>
         </li>
     </ul>
     {/if}
