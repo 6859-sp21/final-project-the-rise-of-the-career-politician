@@ -35918,9 +35918,9 @@ var app = (function () {
     			h3 = element$3("h3");
     			h3.textContent = "No data available for this query";
     			attr_dev(h3, "class", "svelte-1mkmnmf");
-    			add_location(h3, file$5, 251, 4, 8628);
+    			add_location(h3, file$5, 251, 4, 8632);
     			attr_dev(div, "class", "error");
-    			add_location(div, file$5, 250, 0, 8604);
+    			add_location(div, file$5, 250, 0, 8608);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -36171,25 +36171,25 @@ var app = (function () {
     			t8 = space();
     			if (if_block1) if_block1.c();
     			if_block1_anchor = empty$5();
-    			add_location(h2, file$5, 197, 4, 6978);
+    			add_location(h2, file$5, 197, 4, 6982);
     			attr_dev(text0, "text-anchor", "middle");
     			attr_dev(text0, "x", /*width*/ ctx[19] / 2);
     			attr_dev(text0, "y", /*height*/ ctx[20] - /*margin*/ ctx[18].bottom / 3);
     			attr_dev(text0, "fill", "black");
     			attr_dev(text0, "class", "svelte-1mkmnmf");
-    			add_location(text0, file$5, 206, 8, 7267);
+    			add_location(text0, file$5, 206, 8, 7271);
     			attr_dev(text1, "text-anchor", "middle");
     			attr_dev(text1, "fill", "black");
     			attr_dev(text1, "transform", `translate(${/*margin*/ ctx[18].left / 3}, ${/*height*/ ctx[20] / 2}) rotate(270)`);
     			attr_dev(text1, "class", "svelte-1mkmnmf");
-    			add_location(text1, file$5, 230, 8, 7968);
-    			add_location(g, file$5, 236, 8, 8164);
+    			add_location(text1, file$5, 230, 8, 7972);
+    			add_location(g, file$5, 236, 8, 8168);
     			attr_dev(svg, "viewBox", [0, 0, /*width*/ ctx[19], /*height*/ ctx[20]]);
     			attr_dev(svg, "width", /*width*/ ctx[19]);
     			attr_dev(svg, "height", /*height*/ ctx[20]);
-    			add_location(svg, file$5, 198, 4, 7022);
+    			add_location(svg, file$5, 198, 4, 7026);
     			attr_dev(div, "class", "scatterplot");
-    			add_location(div, file$5, 196, 0, 6948);
+    			add_location(div, file$5, 196, 0, 6952);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -36667,7 +36667,7 @@ var app = (function () {
     					if (a.length > 0) {
     						let toPlot = a.map(x => congressmen.find(d => d.official_full == x));
 
-    						select$2(scatter).selectAll("text").data(toPlot).join("text").attr("x", d => xScale(d[$scatterPlotXVar])).attr("y", d => yScale(d[$scatterPlotYVar])).style("font-size", "12px").style("stroke", "black").style("text-anchor", "middle").// .style("stroke", "black")
+    						select$2(scatter).selectAll("text").data(toPlot).join("text").attr("x", d => xScale(d[$scatterPlotXVar])).attr("y", d => yScale(d[$scatterPlotYVar]) - 5).style("font-size", "12px").style("stroke", "black").style("text-anchor", "middle").// .style("stroke", "black")
     						text(d => d.official_full); //, d => d.id)
     					}
     				});
@@ -37627,13 +37627,13 @@ var app = (function () {
     			t1 = space();
     			attr_dev(a, "href", "#" + /*s*/ ctx[2][0]);
     			attr_dev(a, "class", "svelte-5ui8gw");
-    			add_location(a, file$2, 17, 12, 466);
+    			add_location(a, file$2, 17, 12, 490);
 
     			attr_dev(li, "class", li_class_value = "" + (null_to_empty(/*$currentSection*/ ctx[0] === /*s*/ ctx[2][0]
     			? "current"
     			: "inactive") + " svelte-5ui8gw"));
 
-    			add_location(li, file$2, 16, 8, 392);
+    			add_location(li, file$2, 16, 8, 416);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -37689,11 +37689,11 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(h2, file$2, 13, 4, 319);
+    			add_location(h2, file$2, 13, 4, 343);
     			attr_dev(ul, "class", "svelte-5ui8gw");
-    			add_location(ul, file$2, 14, 4, 349);
+    			add_location(ul, file$2, 14, 4, 373);
     			attr_dev(header, "class", "svelte-5ui8gw");
-    			add_location(header, file$2, 12, 0, 306);
+    			add_location(header, file$2, 12, 0, 330);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -37758,7 +37758,7 @@ var app = (function () {
     	component_subscribe($$self, currentSection, $$value => $$invalidate(0, $currentSection = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("ProgressHeader", slots, []);
-    	let sections = Array(["intro", "Introduction"], ["bubbleplot", "Bubble Plot"], ["boxplot", "Congress over the Years"], ["scatterplot", "Congress Today"], ["conclusion", "Conclusion"]);
+    	let sections = Array(["intro", "Introduction"], ["bubbleplot", "Distribution of Congressional Experience"], ["boxplot", "Congress over Time"], ["scatterplot", "Congress Today"], ["conclusion", "Conclusion"]);
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
