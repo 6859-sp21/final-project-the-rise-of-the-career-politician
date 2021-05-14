@@ -43,7 +43,7 @@
 
         <section class="story-part"> 
             <p>
-                On the other hand, these members have to win a Democratic election regularly. If their constituents are happy, does it matter? 
+                On the other hand, these members have to win a democratic election regularly. If their constituents are happy, does it matter? 
                 Moreover, these members are generally more moderate. Term limits could increase polarization, which could mean even less bipartisan legislation.
             </p> 
         </section>

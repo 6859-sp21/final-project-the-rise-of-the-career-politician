@@ -105,6 +105,12 @@
 
 <div>
     <svg bind:this={mySvg} width={width} height={height} transition:fade>
+        <text 
+            x={.25*width}
+            y={.1*height}
+            text-anchor = "middle"
+            font-size="24px"
+        >{$bubbleN}</text>
         {#each leaves as d}
             <Bubble 
                 on:mouseover={mouseOver}

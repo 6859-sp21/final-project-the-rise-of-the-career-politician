@@ -33,27 +33,27 @@
                 showLifeExpectancy.set(true);
                 boxplotRepType.set('both');
 				break;
+            // case 4:
+            //     showLifeExpectancy.set(true);
+			// 	boxplotOutcomeVar.set('min_age');
+            //     boxplotRepType.set('both');
+			// 	break;
             case 4:
-                showLifeExpectancy.set(true);
-				boxplotOutcomeVar.set('min_age');
-                boxplotRepType.set('both');
-				break;
-            case 5:
                 boxplotOutcomeVar.set('cumulative_time_sen_and_house');
                 showLifeExpectancy.set(true);
                 boxplotRepType.set('both');
 				break;
 
-            case 7:
-                boxplotOutcomeVar.set('cumulative_time_sen_and_house');
-                boxplotRepType.set('sen');
-                showLifeExpectancy.set(false);
-                break;
-            case 8:
-                boxplotOutcomeVar.set('cumulative_time_sen_and_house');
-                boxplotRepType.set('rep');
-                showLifeExpectancy.set(false);
-                break;
+            // case 7:
+            //     boxplotOutcomeVar.set('cumulative_time_sen_and_house');
+            //     boxplotRepType.set('sen');
+            //     showLifeExpectancy.set(false);
+            //     break;
+            // case 8:
+            //     boxplotOutcomeVar.set('cumulative_time_sen_and_house');
+            //     boxplotRepType.set('rep');
+            //     showLifeExpectancy.set(false);
+            //     break;
         }
 	}
 
@@ -76,39 +76,61 @@
         </div>
 
         <div slot="foreground">
-            <!-- 0 --> <section class="story-part"> Let's take a look at the distribution of experience in Congress over the years... 
-                The following chart shows boxplots of the distribution of years in Congress by decade. </section>
+            <!-- 0 --> <section class="story-part"> Let's take a look at the distribution of experience in Congress over time... 
+                The following chart shows the distribution of time spent in Congress for each decade. </section>
                 
             <!-- 1 --> <section class="story-part"> Time spent in Congress was relatively flat up until WW2.
-                After WW2, members of Congress began to serve longer terms.</section>
+                <span class="emphasize">
+                    After WW2, members of Congress began to serve longer terms.
+                </span>
+                <br>
+                Specifically, some members began to serve <strong>really</strong> long terms, increasing the variance in time spent.
+            </section>
 
             <!-- 2 --> <section class="story-part">How about average age in Congress?</section>
 
-            <!-- 3 --> <section class="story-part">While age has gone up slightly, this trend has lagged behind gains in life expectancy. Congress does not seem to be getting much older.
+            <!-- 3 --> <section class="story-part">While average age has gone up slightly, this trend has lagged behind gains in life expectancy. 
+                The age of the outliers has increased roughly on pace with life expectancy.
+
+                <span class="emphasize">
+                    On average, Congress is not getting much older, except at the extremes.
+                </span>
                        </section>
 
-            <!-- 4 --> <section class="story-part">Moreover, if we look at the age when first elected, members of Congress are not starting any earlier. 
-                <span class="emphasize">So, what explains the increased term lengths?</span>
+            <!-- na --> 
+            <!-- <section class="story-part">If we look at the age when first elected, members of Congress are joining at the same age. 
+                <span class="emphasize">What explains the longer tenures?</span>
+            </section> -->
+
+            <!-- 4 --> 
+            <section class="story-part">Let's look back at tenure length and overlay the slope of life expectancy increases. 
+                We can see that increases in term lengths for the outliers are closely correlated with increases in life expectancy.
+                <span class="emphasize">Career politicians stay in Congress for life.</span> 
+            </section>
+            
+            <!-- 5 --> 
+            <section class="story-part">
+                <span class="direction">Explore the trends for yourself. How do increases in tenure differ between the House and Senate?</span>
             </section>
 
-            <!-- 5 --> <section class="story-part">Let's move back to term lengths and overlay life expectancy shifted by 30 years (the minimum age for a senator).
-                Increases in term lengths are closely correlated with increases in life expectancy. 
-                <span class="emphasize">Career politicians stay elected until they die.</span> 
-            </section>
 
+            <!-- 6 --> 
+            <!-- <section class="story-part">How do patterns vary by house and senate?</section> -->
 
-            <!-- 6 --> <section class="story-part">How do patterns vary by house and senate?</section>
-
-            <!-- 7 --> <section class="story-part">In the senate, the median time in Congress increased from 1 term (6 years) to 2 terms (12 years) shortly after WW2. 
+            <!-- 7 --> 
+            <!-- <section class="story-part">In the senate, the median time in Congress increased from 1 term (6 years) to 2 terms (12 years) shortly after WW2. 
                 
                 While the average senator only serves 12 years today, 
                 <span class="emphasize">25% of senators have served for 24 years. </span>
-            </section>
+            </section> -->
 
-            <!-- 8 --> <section class="story-part">The increases in time spent in the House have been more dramatic. The average House member serves 4 terms, with 25% serving 8 terms! 
+            <!-- 8 --> 
+            <!-- <section class="story-part">The increases in time spent in the House have been more dramatic. The average House member serves 4 terms, with 25% serving 8 terms! 
                 John Dingell, the House member with the longest tenure ever, spent 60 years as a representative from Michigan! 30 consecutive terms. </section>
-            
+             -->
+
             <!-- 9 --> <section class="blank-story-part"></section>
+            
             
         </div>
 

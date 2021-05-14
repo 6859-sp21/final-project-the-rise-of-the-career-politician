@@ -134,7 +134,7 @@ import ConclusionStory from './ConclusionStory.svelte';
 		width: 20%;
 		position: relative;
 		background-color: rgba(22, 117, 146, 0.5); 
-		color: white;
+		color: black;
 		size: 4em;
 		padding: 1em;
 		margin: 0 0 50em 0;
@@ -163,6 +163,10 @@ import ConclusionStory from './ConclusionStory.svelte';
 		text-transform: uppercase;
 	}
 
+	:global(.direction) {
+		color: black;
+		font-weight: bold;
+	}
 	
     .footer { 
 		text-align: left; 

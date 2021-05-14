@@ -57,13 +57,15 @@
 
         <!-- 1 -->
         <section class="story-part"> In general, the longest serving members of Congress tend to be more moderate. 
-            <span class="red"> This is especially true for conservatives, where term length is negatively correlated with right-wingness</span>
-            
-            <span class="blue">Some very liberal members, like Rep. Maxine Waters and Rep. Barbara Lee, have had long tenures.</span>
+            This is especially true for conservatives, where
+            <span class="red">term length is negatively correlated with right-wingness.</span>
+
+            <br>Some very liberal members, like
+            <span class="blue"> Rep. Maxine Waters and Rep. Barbara Lee</span>,  have had long tenures.
         </section>
 
         <!-- 2 -->
-        <section class="story-part"> Let's explore some other outcomes... <i>Do longer-tenured members sponsor more bills?</i> There does not appear to be any relationship.  
+        <section class="story-part"> Let's explore some other outcomes... <i>Do longer-tenured members sponsor more bills?</i> There is not a clear relationship.  
         </section>
 
         <!-- 3 -->
