@@ -106,7 +106,7 @@
             setTimeout(function() {
                 d3.select(mySvg)
                     .selectAll(".annotation-group")
-                    .transition().duration(4000)
+                    .transition().duration(2000)
                     .style('fill-opacity', 0)
                     .style('stroke-opacity', 0)
                     .remove()
