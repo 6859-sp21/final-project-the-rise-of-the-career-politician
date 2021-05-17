@@ -2,6 +2,7 @@
     import Axis from './Axis.svelte';
     import Legend from './Legend.svelte';
     import Scat from './Scat.svelte';
+    import { fade } from 'svelte/transition';
     import WikipediaToolTip from './WikipediaToolTip.svelte';
     import { onMount } from 'svelte';
     import {annotation, annotationCalloutElbow} from 'd3-svg-annotation';
@@ -234,16 +235,18 @@
         transform = {`translate(${margin.left/3}, ${height/2}) rotate(270)`}
         >{formattedLabels[$scatterPlotYVar]}</text>
 
-        <g bind:this={scatter}>
+        {#key congressmen}
+        <g transition:fade={{duration: 1000}} bind:this={scatter}>
             {#each congressmen as d}
-                <Scat {d} x={xScale(d.x)} y={yScale(d.y)} 
-                color={colorScale(d[$scatterPlotColorVar])}
-                r={sizeScale(d[$scatterPlotSizeVar])}
-                on:mouseover={mouseOver}
-                on:mouseout={mouseOut}
-                on:mousemove={mouseMove}/>
+                    <Scat {d} x={xScale(d.x)} y={yScale(d.y)} 
+                    color={colorScale(d[$scatterPlotColorVar])}
+                    r={sizeScale(d[$scatterPlotSizeVar])}
+                    on:mouseover={mouseOver}
+                    on:mouseout={mouseOut}
+                    on:mousemove={mouseMove}/>
             {/each}
         </g>
+        {/key}
     </svg>
 </div>
 
