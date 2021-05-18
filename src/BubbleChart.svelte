@@ -138,13 +138,15 @@
 <input type=range bind:value={$bubbleN} min=1790 max=2021>
 
 <div>
-    <svg bind:this={mySvg} width={width} height={height} transition:fade>
+    <svg width={width} height={height} transition:fade>
+        <g bind:this={mySvg}></g>
         <text 
             x={.25*width}
             y={.1*height}
             text-anchor = "middle"
             font-size="24px"
         >{$bubbleN}</text>
+        <g>
         {#each leaves as d}
             <Bubble 
                 on:mouseover={mouseOver}
@@ -154,6 +156,7 @@
                 {displayVar}
             />
         {/each}
+        </g>
     </svg>
 </div>
 <BubbleLegend/>
