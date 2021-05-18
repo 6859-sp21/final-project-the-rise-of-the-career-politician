@@ -7,7 +7,7 @@
 	import ProgressHeader from './ProgressHeader.svelte';
 	import { currentSection } from './stores.js';
 	import * as d3 from 'd3';
-import ConclusionStory from './ConclusionStory.svelte';
+	import ConclusionStory from './ConclusionStory.svelte';
 	export let name;
 
 	let data = Promise.all([
@@ -62,7 +62,7 @@ import ConclusionStory from './ConclusionStory.svelte';
 		<IntroStory/> 
 
 		<div class="spacer" id="bubbleplot">
-			<h1>Distribution of Years in Congress</h1>
+			<h1>Distribution of Congressional Experience</h1>
 		</div>
 		<BubbleStory {data}/>	
 
@@ -73,7 +73,7 @@ import ConclusionStory from './ConclusionStory.svelte';
 		<BoxplotStory {data}/>
 
 		<div class="spacer" id="scatterplot">
-			<h1>Congress Today</h1>
+			<h1>Congressional Experience versus Performance</h1>
 		</div>
 		<ScatterStory {data}/>
 

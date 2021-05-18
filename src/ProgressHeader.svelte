@@ -4,8 +4,8 @@
     let sections = Array(
         ['intro', 'Introduction'],
         ['bubbleplot', 'Distribution of Congressional Experience'],
-        ['boxplot', 'Congress over Time'],
-        ['scatterplot', 'Congress Today'],
+        ['boxplot', 'Congress over the Years'],
+        ['scatterplot', 'Length of Tenure vs. Performance'],
         ['conclusion', 'Conclusion']
     );
 </script>
@@ -29,7 +29,7 @@ header {
 		text-align: left; 
 		margin-bottom: 1em;
 		position: fixed;
-		left: 85%;
+		left: 80%;
 		top: 0;
         font-size: 1em;
         z-index: 5;

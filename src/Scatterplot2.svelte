@@ -90,6 +90,7 @@
         sizeScale = d3.scaleLinear()
             .domain(d3.extent(congressmen, d => d[$scatterPlotSizeVar])).nice()
             .range([2,8])
+
         }
 
     // Tool tip
@@ -117,6 +118,7 @@
         isHovered = false;
     }
 
+    scatterPlotYear.subscribe(() => {scatterHighlighted.set([]);});
     // Search bar
     let formattedHighlighted = [];
     function handleMessage(event) {

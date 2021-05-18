@@ -3,11 +3,15 @@
         scatterPlotYVar, scatterPlotYear, scatterShowOptions, scatterRepType} from './stores.js';
     export let options;
 
-    options = Object.entries(options).map((x) => ({id: x[0], text: x[1]}))
+    options = Object.entries(options).map((x) => ({id: x[0], text: x[1]}));
+
+    function toggleOptions(){
+        scatterShowOptions.set(!$scatterShowOptions);
+    }
 </script>
 
 <div class="options">
-    <button on:click={() => $scatterShowOptions = !$scatterShowOptions}>
+    <button on:click={toggleOptions}>
         {$scatterShowOptions ? "Collapse Options" : "Reveal Options"}
     </button>
     {#if $scatterShowOptions}
