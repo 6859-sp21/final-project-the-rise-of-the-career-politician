@@ -1,7 +1,8 @@
 <script>
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
-    import { winWidth, winHeight, bubbleN, bubbleShowAnnotation } from './stores.js';
+    import { winWidth, winHeight, bubbleN, bubbleShowAnnotation,
+             bubbleShowAnnotation2 } from './stores.js';
     import * as d3 from 'd3';
     import {annotation, annotationCalloutElbow, annotationCalloutCircle} from 'd3-svg-annotation'
     import BubbleLegend from './BubbleLegend.svelte';
@@ -56,9 +57,11 @@
 
     $: leaves = root.leaves();
 
-    function addAnnotation() {
+    function addAnnotation(ind) {
         let bernie = leaves.find(x => x.data.official_full === "Bernard Sanders");
-        const annotations = [
+        let annotations;
+        if (ind === 0)
+            annotations = [
             {
                 note: {label: "This bubble represents Senator Bernie Sanders. Hover for more information",
                 bgPadding: 10},
@@ -74,7 +77,10 @@
                     radius: bernie.r + 10,
                     radiusPadding: 10
                 },
-            },
+            }
+            ];
+        else 
+            annotations = [
             {
                 note: { label: "Career politicians" },
                 x: width/2,
@@ -85,32 +91,47 @@
                 color: "black",
                 subject: { radius: width/6, radiusPadding: 10 },        
             }
-    ];
+            ];
 
         const makeAnnotations = annotation()
             .notePadding(15)
             .annotations(annotations)
 
+        let className = (ind === 0) ? "annotation-group" : "callout";
+        console.log(annotations, ind, 'annotating');
         d3.select(mySvg)
             .append("g")
-            .attr("class", "annotation-group")
+            .attr("class", className)
             .style("background-color", "rgba(230, 242, 255, 0.8)")
             .style("border-radius", "5px")
             .style("stroke-width", "2px")
-            .call(makeAnnotations)
+            .call(makeAnnotations);
     }
 
-    onMount(() => addAnnotation());
-    $: { //Once someone has hovered 
-        if (! $bubbleShowAnnotation) {
-            setTimeout(function() {
-                d3.select(mySvg)
-                    .selectAll(".annotation-group")
+    $: {
+        if ($bubbleShowAnnotation2){
+            addAnnotation(1);
+        } else { 
+            d3.select(mySvg)
+                    .selectAll(".callout")
                     .transition().duration(2000)
                     .style('fill-opacity', 0)
                     .style('stroke-opacity', 0)
                     .remove()
-            }, 100);
+        }
+    }
+    $: { //Once someone has hovered 
+        if ($bubbleShowAnnotation) {
+            addAnnotation(0);
+            console.log('adding annotation from if')
+        } else {
+            console.log('removing annotation')
+            d3.select(mySvg)
+                .selectAll(".annotation-group")
+                .transition().duration(2000)
+                .style('fill-opacity', 0)
+                .style('stroke-opacity', 0)
+                .remove()
         }
     }
     

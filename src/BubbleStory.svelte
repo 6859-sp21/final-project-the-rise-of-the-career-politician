@@ -1,7 +1,8 @@
 <script>
 	import Scroller from '@sveltejs/svelte-scroller';
 	import BubbleChart from './BubbleChart.svelte';
-    import { currentSection, startedScrolling, bubbleN, bubbleShowAnnotation } from './stores.js'
+    import { currentSection, startedScrolling, bubbleN, 
+        bubbleShowAnnotation, bubbleShowAnnotation2 } from './stores.js'
 
     export let data;
 
@@ -36,13 +37,16 @@
 		switch (index) {
 			case 0:
                 bubbleN.set(2021);
-				break;
+                bubbleShowAnnotation2.set(false);
+                break;
             case 1:
                 bubbleN.set(2021);
                 clearInterval(interval);
                 bubbleShowAnnotation.set(false);
+                bubbleShowAnnotation2.set(true);
                 break;
             case 2:
+                bubbleShowAnnotation2.set(false);
                 clearInterval(interval);
                 if (! disableInterval) {
                     interval = setInterval(() => {

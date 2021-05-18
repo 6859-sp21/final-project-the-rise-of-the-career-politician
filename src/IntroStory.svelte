@@ -52,7 +52,7 @@
 
         <section class="story-part">
             <p>
-                Many criticisms take aim at the corruption of the  
+                Many criticisms take aim at the inadequacy of the  
                 <span class="emphasize"> establishment </span> 
                 or the 
                 <span class="emphasize">career politicians</span>
@@ -60,7 +60,9 @@
                 who have been in office for decades.
                 <!-- <span class="emphasize">decades</span>. -->
 
-                Current bills addressing these issues include:
+                <br><br>
+
+                Some current bills addressing these issues include:
             </p>  
 
                 <ul>
@@ -74,10 +76,10 @@
 
         <section class="story-part"> 
             <p>
-                <i>Are there more career politicians today than there were in the past? Is this a problem?</i> 
-                <br>
+                <i>Are career politicians a new phenomenon?</i> More importantly, <i>is this a problem?</i> 
+                <br><br>
                 <span class="direction">
-                    Continue scrolling for a visual exploration of this issue.
+                    Scroll on for a visual exploration of this question.
                 </span>
             </p>
         </section>
