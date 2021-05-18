@@ -1,5 +1,5 @@
 
-(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35731/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35732/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 var app = (function () {
     'use strict';
 
@@ -26706,14 +26706,14 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (148:8) {#each leaves as d}
+    // (150:8) {#each leaves as d}
     function create_each_block$5(ctx) {
     	let bubble_1;
     	let updating_d;
     	let current;
 
     	function bubble_1_d_binding(value) {
-    		/*bubble_1_d_binding*/ ctx[19](value, /*d*/ ctx[33], /*each_value*/ ctx[34], /*d_index*/ ctx[35]);
+    		/*bubble_1_d_binding*/ ctx[20](value, /*d*/ ctx[33], /*each_value*/ ctx[34], /*d_index*/ ctx[35]);
     	}
 
     	let bubble_1_props = { displayVar: /*displayVar*/ ctx[10] };
@@ -26766,14 +26766,14 @@ var app = (function () {
     		block,
     		id: create_each_block$5.name,
     		type: "each",
-    		source: "(148:8) {#each leaves as d}",
+    		source: "(150:8) {#each leaves as d}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (162:0) {#if isHovered}
+    // (165:0) {#if isHovered}
     function create_if_block$3(ctx) {
     	let wikipediatooltip;
     	let updating_x;
@@ -26865,7 +26865,7 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(162:0) {#if isHovered}",
+    		source: "(165:0) {#if isHovered}",
     		ctx
     	});
 
@@ -26881,8 +26881,10 @@ var app = (function () {
     	let t3;
     	let div;
     	let svg;
+    	let g0;
     	let text_1;
     	let t4;
+    	let g1;
     	let svg_transition;
     	let t5;
     	let bubblelegend;
@@ -26916,8 +26918,10 @@ var app = (function () {
     			t3 = space();
     			div = element$3("div");
     			svg = svg_element("svg");
+    			g0 = svg_element("g");
     			text_1 = svg_element("text");
     			t4 = text$1(/*$bubbleN*/ ctx[1]);
+    			g1 = svg_element("g");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
@@ -26933,11 +26937,13 @@ var app = (function () {
     			attr_dev(input, "min", "1790");
     			attr_dev(input, "max", "2021");
     			add_location(input, file$i, 137, 0, 4151);
+    			add_location(g0, file$i, 141, 8, 4281);
     			attr_dev(text_1, "x", 0.25 * /*width*/ ctx[11]);
     			attr_dev(text_1, "y", 0.1 * /*height*/ ctx[12]);
     			attr_dev(text_1, "text-anchor", "middle");
     			attr_dev(text_1, "font-size", "24px");
-    			add_location(text_1, file$i, 141, 8, 4299);
+    			add_location(text_1, file$i, 142, 8, 4315);
+    			add_location(g1, file$i, 148, 8, 4473);
     			attr_dev(svg, "width", /*width*/ ctx[11]);
     			attr_dev(svg, "height", /*height*/ ctx[12]);
     			add_location(svg, file$i, 140, 4, 4221);
@@ -26956,14 +26962,16 @@ var app = (function () {
     			insert_dev(target, t3, anchor);
     			insert_dev(target, div, anchor);
     			append_dev(div, svg);
+    			append_dev(svg, g0);
+    			/*g0_binding*/ ctx[19](g0);
     			append_dev(svg, text_1);
     			append_dev(text_1, t4);
+    			append_dev(svg, g1);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(svg, null);
+    				each_blocks[i].m(g1, null);
     			}
 
-    			/*svg_binding*/ ctx[20](svg);
     			insert_dev(target, t5, anchor);
     			mount_component(bubblelegend, target, anchor);
     			insert_dev(target, t6, anchor);
@@ -27004,7 +27012,7 @@ var app = (function () {
     						each_blocks[i] = create_each_block$5(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(svg, null);
+    						each_blocks[i].m(g1, null);
     					}
     				}
 
@@ -27075,8 +27083,8 @@ var app = (function () {
     			if (detaching) detach_dev(input);
     			if (detaching) detach_dev(t3);
     			if (detaching) detach_dev(div);
+    			/*g0_binding*/ ctx[19](null);
     			destroy_each(each_blocks, detaching);
-    			/*svg_binding*/ ctx[20](null);
     			if (detaching && svg_transition) svg_transition.end();
     			if (detaching) detach_dev(t5);
     			destroy_component(bubblelegend, detaching);
@@ -27210,16 +27218,16 @@ var app = (function () {
     		bubbleN.set($bubbleN);
     	}
 
-    	function bubble_1_d_binding(value, d, each_value, d_index) {
-    		each_value[d_index] = value;
-    		(((((($$invalidate(6, leaves), $$invalidate(15, root)), $$invalidate(14, users)), $$invalidate(10, displayVar)), $$invalidate(13, data)), $$invalidate(1, $bubbleN)), $$invalidate(27, n));
-    	}
-
-    	function svg_binding($$value) {
+    	function g0_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
     			mySvg = $$value;
     			$$invalidate(0, mySvg);
     		});
+    	}
+
+    	function bubble_1_d_binding(value, d, each_value, d_index) {
+    		each_value[d_index] = value;
+    		(((((($$invalidate(6, leaves), $$invalidate(15, root)), $$invalidate(14, users)), $$invalidate(10, displayVar)), $$invalidate(13, data)), $$invalidate(1, $bubbleN)), $$invalidate(27, n));
     	}
 
     	function wikipediatooltip_x_binding(value) {
@@ -27362,8 +27370,8 @@ var app = (function () {
     		$bubbleShowAnnotation2,
     		$bubbleShowAnnotation,
     		input_change_input_handler,
+    		g0_binding,
     		bubble_1_d_binding,
-    		svg_binding,
     		wikipediatooltip_x_binding,
     		wikipediatooltip_y_binding,
     		wikipediatooltip_message_binding
