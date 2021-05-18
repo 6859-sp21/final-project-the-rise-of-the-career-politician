@@ -98,7 +98,6 @@
             .annotations(annotations)
 
         let className = (ind === 0) ? "annotation-group" : "callout";
-        console.log(annotations, ind, 'annotating');
         d3.select(mySvg)
             .append("g")
             .attr("class", className)
@@ -123,9 +122,7 @@
     $: { //Once someone has hovered 
         if ($bubbleShowAnnotation) {
             addAnnotation(0);
-            console.log('adding annotation from if')
         } else {
-            console.log('removing annotation')
             d3.select(mySvg)
                 .selectAll(".annotation-group")
                 .transition().duration(2000)

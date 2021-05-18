@@ -49,8 +49,11 @@
 
     <div slot="foreground">
         <!-- 0 -->
-        <section class="story-part"> Let's focus in on Congress today... How does the increase in tenure correlate with outcomes?
-
+        <section class="story-part"> While members of Congress may be slightly older and serving longer, why does that matter? In this section, 
+            we explore how longer terms correlate with different variables of interest.
+            
+            <br><br>
+            Let's zoom in on Congress today. 
             This scatterplot shows the relationship between a member's ideology and length of tenure. Ideology scores are computed based on historical voting patterns 
             <a href="https://en.wikipedia.org/wiki/NOMINATE_(scaling_method)">using the DW-NOMINATE algorithm</a>. 
         </section>
@@ -58,22 +61,27 @@
         <!-- 1 -->
         <section class="story-part"> In general, the longest serving members of Congress tend to be more moderate. 
             This is especially true for conservatives, where
-            <span class="red">term length is negatively correlated with right-wingness.</span>
+            <span class="red">time in Congress is negatively correlated with conservative ideology.</span>
 
             <br>Some very liberal members, like
             <span class="blue"> Rep. Maxine Waters and Rep. Barbara Lee</span>,  have had long tenures.
         </section>
 
         <!-- 2 -->
-        <section class="story-part"> Let's explore some other outcomes... <i>Do longer-tenured members sponsor more bills?</i> There is not a clear relationship.  
+        <section class="story-part"> Let's explore some other outcomes... <i>Do longer-tenured members sponsor more bills?</i> 
+            
+            <br><br>There is not a clear relationship.  
         </section>
 
         <!-- 3 -->
-        <section class="story-part"> <i>Do longer-tenured members work across the aisle more?</i> There's a small positive correlation between length of tenure and bipartisan bills sponsored. 
+        <section class="story-part"> <i>Do longer-tenured members work across the aisle more?</i> 
+            
+            <br><br> There's a small positive correlation between length of tenure and bipartisan bills sponsored. 
         </section>
 
         <!-- 4 -->
-        <section class="story-part"> While these outcomes are crude, it is not obvious that longer tenured members of Congress differ in behavior from newer members. 
+        <section class="story-part"> While these outcomes are crude and a lot of what's desired by members of Congress cannot be plotted on a graph, 
+            it is not clear that longer tenured members of Congress differ in behavior from newer members. 
 
             <span class="direction">Try it yourself! Explore different variables and years of Congress.</span>
         </section>

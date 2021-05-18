@@ -16,7 +16,7 @@
 
     $: {
         progress = progress;
-        if ($startedScrolling) currentSection.set("intro");
+        if ($startedScrolling && progress < .8) currentSection.set("intro");
     }
     document.addEventListener('scroll', () => {startedScrolling.set(true)});
     

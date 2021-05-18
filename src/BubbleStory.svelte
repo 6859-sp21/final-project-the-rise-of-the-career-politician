@@ -75,13 +75,16 @@
             <span class="emphasize"> over 25 years.</span> 
          </section>
         
-        <!-- 2 --> <section class="story-part">  Is today's distribution an anomaly? Compared to past congresses, while term lengths are longer, 
-            the current Congress does not appear to have a greater concentration of career politicians. 
+        <!-- 2 --> <section class="story-part"> <i>Is today's distribution an anomaly?</i> 
+            
+            <br><br>
+            Compared to past Congresses, term lengths are longer. 
+            Still, current Congress does not appear to have a greater concentration of career politicians. 
         </section>
 
         <!-- 3 --> <section class="story-part"> 
             <span class="direction"> 
-                Explore for yourself. Move the slider to view different Congresses experience distributions.
+                Explore for yourself. Move the slider to view different the experience distributions of historical Congresses.
             </span> 
         </section>        
 

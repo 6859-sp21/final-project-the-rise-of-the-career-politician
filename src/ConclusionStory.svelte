@@ -29,14 +29,17 @@
     <div slot="foreground" class="foreground">
         <section class="story-part"> 
             <p>
-                <i>Are increasingly long tenures a problem?</i>
+                <i>Are increasingly long stays in Congress a problem?</i>
+
+                <br><br>
+                Maybe.
             </p> 
         </section>
 
 
         <section class="story-part"> 
             <p>
-                Maybe. The Constitution was not written with 21st century life expectancies in mind. It has age minimums, but no age maximums... 
+                On the one hand, the Constitution was not written with 21st century life expectancies in mind. It has age minimums, but no age maximums... 
                 If we have members of Congress serving lifelong terms, like Supreme Court justices, this could be a problem.
             </p> 
         </section>
@@ -47,6 +50,13 @@
                 Moreover, these members are generally more moderate. Term limits could increase polarization, which could mean even less bipartisan legislation.
             </p> 
         </section>
+
+        <section class="story-part"> 
+            <p>
+                One thing is clear. If longevity in the United States begins to increase again, we can expect to see longer and longer stays in Congress. 
+            </p> 
+        </section>
+
 
         <section class="blank-story-part"></section>
 

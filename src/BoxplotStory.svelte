@@ -24,11 +24,7 @@
 				boxplotOutcomeVar.set('cumulative_time_sen_and_house');
                 showLifeExpectancy.set(false);
 				break;
-			case 2:
-				boxplotOutcomeVar.set('age');
-                showLifeExpectancy.set(true);
-				break;
-            case 3:
+            case 2:
 				boxplotOutcomeVar.set('age');
                 showLifeExpectancy.set(true);
                 boxplotRepType.set('both');
@@ -38,7 +34,7 @@
 			// 	boxplotOutcomeVar.set('min_age');
             //     boxplotRepType.set('both');
 			// 	break;
-            case 4:
+            case 3:
                 boxplotOutcomeVar.set('cumulative_time_sen_and_house');
                 showLifeExpectancy.set(true);
                 boxplotRepType.set('both');
@@ -76,24 +72,23 @@
         </div>
 
         <div slot="foreground">
-            <!-- 0 --> <section class="story-part"> Let's take a look at the distribution of experience in Congress over time... 
-                The following chart shows the distribution of time spent in Congress for each decade. </section>
+            <!-- 0 --> <section class="story-part"> Let's take a more precise look at the distribution of experience in Congress by decade... 
+            </section>
                 
             <!-- 1 --> <section class="story-part"> Time spent in Congress was relatively flat up until WW2.
                 <span class="emphasize">
                     After WW2, members of Congress began to serve longer terms.
                 </span>
-                <br>
-                Specifically, some members began to serve <strong>really</strong> long terms, increasing the variance in time spent.
+                <br><br>
+                Notably, some members began to serve <strong>really</strong> long terms, increasing the variance in time spent in Congress.
             </section>
 
-            <!-- 2 --> <section class="story-part">How about average age in Congress?</section>
+            <!-- 2 --> <section class="story-part"><i>How about average age in Congress?</i>
 
-            <!-- 3 --> <section class="story-part">While average age has gone up slightly, this trend has lagged behind gains in life expectancy. 
-                The age of the outliers has increased roughly on pace with life expectancy.
-
+                While average age has gone up slightly, this trend has lagged behind gains in life expectancy. 
+                <br><br>
                 <span class="emphasize">
-                    On average, Congress is not getting much older, except at the extremes.
+                    Current Congress is the oldest Congress ever, but not by much.
                 </span>
                        </section>
 
@@ -103,9 +98,11 @@
             </section> -->
 
             <!-- 4 --> 
-            <section class="story-part">Let's look back at tenure length and overlay the slope of life expectancy increases. 
-                We can see that increases in term lengths for the outliers are closely correlated with increases in life expectancy.
-                <span class="emphasize">Career politicians stay in Congress for life.</span> 
+            <section class="story-part">Let's look back at time in Congress and overlay life expectancy increases. 
+                We see that term lengths for the outliers increased as life expectancy increased.
+
+                <br><br>
+                <span class="emphasize">Death is the only limit on the career politicians' tenure in Congress.</span> 
             </section>
             
             <!-- 5 --> 
