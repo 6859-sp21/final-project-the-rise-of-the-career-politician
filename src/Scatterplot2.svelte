@@ -118,6 +118,7 @@
     }
 
     // Search bar
+    let formattedHighlighted = [];
     function handleMessage(event) {
         if (event.detail.text === "clear-labels") {
             $scatterHighlighted = [];
@@ -127,27 +128,10 @@
         }
     }
 
-    $: {
-        scatterHighlighted.subscribe((a) => {
-            d3.select(scatter).selectAll('text').remove();
-            if (a.length > 0) {
-                let toPlot = a.map(x => congressmen.find(d => d.official_full == x));
-                d3.select(scatter)
-                    .selectAll('text')
-                    .data(toPlot)//, d => d.id)
-                    .join('text')
-                    .attr('x', d => xScale(d[$scatterPlotXVar]))
-                    .attr('y', d => yScale(d[$scatterPlotYVar]) - 5)
-                    .style('font-size', '12px')
-                    .style("stroke", "black")
-                    .style('text-anchor', 'middle')
-                    // .style("stroke", "black")
-                    .text(d => d.official_full);
-
-            }
-        });
-    }
-
+    scatterHighlighted.subscribe((a) => {
+        formattedHighlighted = a.map(x => congressmen.find(d => d.official_full == x));
+        console.log('should be plotting', formattedHighlighted);
+    });
     // Annotations
     let mySvg;
     function addAnnotation() {
@@ -247,6 +231,18 @@
             {/each}
         </g>
         {/key}
+
+        <g>
+        {#each formattedHighlighted as h}
+            <text 
+            x={xScale(h[$scatterPlotXVar])}
+            y={yScale(h[$scatterPlotYVar]) - 5}
+            font-size='12px'
+            stroke='black'
+            text-anchor='middle'>{h.official_full}</text>
+        {/each}
+        </g>
+
     </svg>
 </div>
 

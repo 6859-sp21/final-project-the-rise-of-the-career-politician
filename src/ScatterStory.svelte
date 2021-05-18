@@ -28,7 +28,7 @@
                 scatterHighlighted.set(Array("Maxine Waters", "Barbara Lee"));
                 break;
             case 2:
-                scatterHighlighted.set(Array());
+                // scatterHighlighted.set(Array());
                 scatterPlotXVar.set('cosponsored');
                 break;
             case 3:
