@@ -8,8 +8,6 @@
     export let color = "black";
     export let r;
     
-    // console.log(d, x, y)
-
     const dispatch = createEventDispatcher();
     function sendInfo(event) {
         dispatch(event.type, {
@@ -19,7 +17,6 @@
         });
     };
 
-    onDestroy(d => console.log("Bubble being destroyed"));
 </script>
 
 <circle

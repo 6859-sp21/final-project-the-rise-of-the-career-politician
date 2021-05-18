@@ -135,7 +135,6 @@
   }
 
   function mouseClick(event) {
-    console.log(event);
     let bin = event.detail.data;
   }
 

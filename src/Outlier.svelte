@@ -23,7 +23,6 @@
         });
     };
 
-    onDestroy(d => console.log("Bubble being destroyed"));
 </script>
 <circle
 r=3

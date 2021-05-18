@@ -22,9 +22,7 @@
 				const pictureName = data.claims.P18[0].mainsnak.datavalue.value
 											.replaceAll(' ', '_');
 				const md5sum = md5(pictureName);
-				// console.log('picture name', pictureName, 'md5', md5sum)
 				const imageUrl = `https://upload.wikimedia.org/wikipedia/commons/${md5sum[0]}/${md5sum.slice(0,2)}/${pictureName}`
-				// console.log(imageUrl)
 				return imageUrl
 			})
         return promise;

@@ -4,8 +4,6 @@
     export let options;
 
     options = Object.entries(options).map((x) => ({id: x[0], text: x[1]}))
-
-    scatterRepType.subscribe(d => {console.log('updating type to', d)})
 </script>
 
 <div class="options">

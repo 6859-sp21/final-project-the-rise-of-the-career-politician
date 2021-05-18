@@ -45,7 +45,6 @@
             case 2:
                 clearInterval(interval);
                 if (! disableInterval) {
-                    console.log('launching interval')
                     interval = setInterval(() => {
                             i = (i+1)%yearsToLoop.length;
                             bubbleN.set(yearsToLoop[i]);
