@@ -68,10 +68,12 @@
 		<li><strong>State:</strong> {data.state}</li>
 		{#if otherFields}
 			{#each formattedLabels as o}
-			{#if o === "nominate_dim1"}
-				<li><strong>{o[1]}:</strong> {Math.round(data[o[0]] * 100) / 100}</li>
-			{:else}
-				<li><strong>{o[1]}:</strong> {data[o[0]]}</li>
+			{#if data[o[0]] !== undefined}
+				{#if o === "nominate_dim1"}
+					<li><strong>{o[1]}:</strong> {Math.round(data[o[0]] * 100) / 100}</li>
+				{:else}
+					<li><strong>{o[1]}:</strong> {data[o[0]]}</li>
+				{/if}
 			{/if}
 			{/each}
 		{/if}
