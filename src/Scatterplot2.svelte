@@ -130,7 +130,6 @@
 
     scatterHighlighted.subscribe((a) => {
         formattedHighlighted = a.map(x => congressmen.find(d => d.official_full == x));
-        console.log('should be plotting', formattedHighlighted);
     });
     // Annotations
     let mySvg;
