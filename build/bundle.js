@@ -28741,14 +28741,14 @@ var app = (function () {
     	return child_ctx;
     }
 
-    function get_each_context_1$1(ctx, list, i) {
+    function get_each_context_1$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[45] = list[i];
     	return child_ctx;
     }
 
     // (292:10) {#each b.outliers as o}
-    function create_each_block_1$1(ctx) {
+    function create_each_block_1$2(ctx) {
     	let outlier;
     	let current;
 
@@ -28796,7 +28796,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block_1$1.name,
+    		id: create_each_block_1$2.name,
     		type: "each",
     		source: "(292:10) {#each b.outliers as o}",
     		ctx
@@ -28832,7 +28832,7 @@ var app = (function () {
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
-    		each_blocks[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
+    		each_blocks[i] = create_each_block_1$2(get_each_context_1$2(ctx, each_value_1, i));
     	}
 
     	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -28884,13 +28884,13 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value_1.length; i += 1) {
-    					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
+    					const child_ctx = get_each_context_1$2(ctx, each_value_1, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     						transition_in(each_blocks[i], 1);
     					} else {
-    						each_blocks[i] = create_each_block_1$1(child_ctx);
+    						each_blocks[i] = create_each_block_1$2(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(g0, null);
@@ -34503,7 +34503,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    function get_each_context_1(ctx, list, i) {
+    function get_each_context_1$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[18] = list[i];
     	return child_ctx;
@@ -34521,7 +34521,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (13:4) {#if $scatterShowOptions}
+    // (17:4) {#if $scatterShowOptions}
     function create_if_block$1(ctx) {
     	let ul;
     	let li0;
@@ -34582,7 +34582,7 @@ var app = (function () {
     	let each_blocks_1 = [];
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
-    		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    		each_blocks_1[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
     	}
 
     	let each_value = /*options*/ ctx[0];
@@ -34654,48 +34654,48 @@ var app = (function () {
     			attr_dev(input0, "type", "range");
     			attr_dev(input0, "min", "1790");
     			attr_dev(input0, "max", "2021");
-    			add_location(input0, file$8, 16, 12, 570);
+    			add_location(input0, file$8, 20, 12, 627);
     			attr_dev(li0, "class", "svelte-1ogqo64");
-    			add_location(li0, file$8, 14, 8, 516);
+    			add_location(li0, file$8, 18, 8, 573);
     			if (/*$scatterPlotXVar*/ ctx[3] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[10].call(select0));
-    			add_location(select0, file$8, 20, 12, 709);
+    			add_location(select0, file$8, 24, 12, 766);
     			attr_dev(li1, "class", "svelte-1ogqo64");
-    			add_location(li1, file$8, 18, 8, 671);
+    			add_location(li1, file$8, 22, 8, 728);
     			if (/*$scatterPlotYVar*/ ctx[4] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[11].call(select1));
-    			add_location(select1, file$8, 31, 12, 989);
+    			add_location(select1, file$8, 35, 12, 1046);
     			attr_dev(li2, "class", "svelte-1ogqo64");
-    			add_location(li2, file$8, 29, 8, 951);
+    			add_location(li2, file$8, 33, 8, 1008);
     			if (/*$scatterPlotColorVar*/ ctx[5] === void 0) add_render_callback(() => /*select2_change_handler*/ ctx[12].call(select2));
-    			add_location(select2, file$8, 41, 12, 1267);
+    			add_location(select2, file$8, 45, 12, 1324);
     			attr_dev(li3, "class", "svelte-1ogqo64");
-    			add_location(li3, file$8, 39, 8, 1230);
+    			add_location(li3, file$8, 43, 8, 1287);
     			if (/*$scatterPlotSizeVar*/ ctx[6] === void 0) add_render_callback(() => /*select3_change_handler*/ ctx[13].call(select3));
-    			add_location(select3, file$8, 52, 12, 1549);
+    			add_location(select3, file$8, 56, 12, 1606);
     			attr_dev(li4, "class", "svelte-1ogqo64");
-    			add_location(li4, file$8, 50, 8, 1513);
+    			add_location(li4, file$8, 54, 8, 1570);
     			attr_dev(input1, "type", "radio");
     			input1.__value = "both";
     			input1.value = input1.__value;
     			/*$$binding_groups*/ ctx[15][0].push(input1);
-    			add_location(input1, file$8, 64, 18, 1856);
-    			add_location(label0, file$8, 63, 16, 1830);
+    			add_location(input1, file$8, 68, 18, 1913);
+    			add_location(label0, file$8, 67, 16, 1887);
     			attr_dev(input2, "type", "radio");
     			input2.__value = "sen";
     			input2.value = input2.__value;
     			/*$$binding_groups*/ ctx[15][0].push(input2);
-    			add_location(input2, file$8, 69, 18, 2024);
-    			add_location(label1, file$8, 68, 16, 1998);
+    			add_location(input2, file$8, 73, 18, 2081);
+    			add_location(label1, file$8, 72, 16, 2055);
     			attr_dev(input3, "type", "radio");
     			input3.__value = "rep";
     			input3.value = input3.__value;
     			/*$$binding_groups*/ ctx[15][0].push(input3);
-    			add_location(input3, file$8, 74, 18, 2193);
-    			add_location(label2, file$8, 73, 16, 2167);
-    			add_location(form, file$8, 62, 12, 1807);
+    			add_location(input3, file$8, 78, 18, 2250);
+    			add_location(label2, file$8, 77, 16, 2224);
+    			add_location(form, file$8, 66, 12, 1864);
     			attr_dev(li5, "class", "svelte-1ogqo64");
-    			add_location(li5, file$8, 61, 8, 1790);
+    			add_location(li5, file$8, 65, 8, 1847);
     			attr_dev(ul, "class", "svelte-1ogqo64");
-    			add_location(ul, file$8, 13, 4, 503);
+    			add_location(ul, file$8, 17, 4, 560);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -34848,12 +34848,12 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value_1.length; i += 1) {
-    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+    					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
 
     					if (each_blocks_1[i]) {
     						each_blocks_1[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks_1[i] = create_each_block_1(child_ctx);
+    						each_blocks_1[i] = create_each_block_1$1(child_ctx);
     						each_blocks_1[i].c();
     						each_blocks_1[i].m(select2, null);
     					}
@@ -34928,14 +34928,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(13:4) {#if $scatterShowOptions}",
+    		source: "(17:4) {#if $scatterShowOptions}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (22:16) {#each options as o}
+    // (26:16) {#each options as o}
     function create_each_block_3(ctx) {
     	let option;
     	let t0_value = /*o*/ ctx[18].text + "";
@@ -34950,7 +34950,7 @@ var app = (function () {
     			t1 = space();
     			option.__value = option_value_value = /*o*/ ctx[18].id;
     			option.value = option.__value;
-    			add_location(option, file$8, 22, 16, 801);
+    			add_location(option, file$8, 26, 16, 858);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -34974,14 +34974,14 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(22:16) {#each options as o}",
+    		source: "(26:16) {#each options as o}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (33:16) {#each options as o}
+    // (37:16) {#each options as o}
     function create_each_block_2(ctx) {
     	let option;
     	let t0_value = /*o*/ ctx[18].text + "";
@@ -34996,7 +34996,7 @@ var app = (function () {
     			t1 = space();
     			option.__value = option_value_value = /*o*/ ctx[18].id;
     			option.value = option.__value;
-    			add_location(option, file$8, 33, 16, 1081);
+    			add_location(option, file$8, 37, 16, 1138);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -35020,15 +35020,15 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(33:16) {#each options as o}",
+    		source: "(37:16) {#each options as o}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (43:16) {#each options as o}
-    function create_each_block_1(ctx) {
+    // (47:16) {#each options as o}
+    function create_each_block_1$1(ctx) {
     	let option;
     	let t0_value = /*o*/ ctx[18].text + "";
     	let t0;
@@ -35042,7 +35042,7 @@ var app = (function () {
     			t1 = space();
     			option.__value = option_value_value = /*o*/ ctx[18].id;
     			option.value = option.__value;
-    			add_location(option, file$8, 43, 16, 1363);
+    			add_location(option, file$8, 47, 16, 1420);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -35064,16 +35064,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block_1.name,
+    		id: create_each_block_1$1.name,
     		type: "each",
-    		source: "(43:16) {#each options as o}",
+    		source: "(47:16) {#each options as o}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (54:16) {#each options as o}
+    // (58:16) {#each options as o}
     function create_each_block$2(ctx) {
     	let option;
     	let t0_value = /*o*/ ctx[18].text + "";
@@ -35088,7 +35088,7 @@ var app = (function () {
     			t1 = space();
     			option.__value = option_value_value = /*o*/ ctx[18].id;
     			option.value = option.__value;
-    			add_location(option, file$8, 54, 16, 1644);
+    			add_location(option, file$8, 58, 16, 1701);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -35112,7 +35112,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(54:16) {#each options as o}",
+    		source: "(58:16) {#each options as o}",
     		ctx
     	});
 
@@ -35140,9 +35140,9 @@ var app = (function () {
     			t0 = text$1(t0_value);
     			t1 = space();
     			if (if_block) if_block.c();
-    			add_location(button, file$8, 9, 4, 316);
+    			add_location(button, file$8, 13, 4, 408);
     			attr_dev(div, "class", "options svelte-1ogqo64");
-    			add_location(div, file$8, 8, 0, 290);
+    			add_location(div, file$8, 12, 0, 382);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -35155,7 +35155,7 @@ var app = (function () {
     			if (if_block) if_block.m(div, null);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[8], false, false, false);
+    				dispose = listen_dev(button, "click", /*toggleOptions*/ ctx[8], false, false, false);
     				mounted = true;
     			}
     		},
@@ -35224,6 +35224,11 @@ var app = (function () {
     	validate_slots("ScatterOptions", slots, []);
     	let { options } = $$props;
     	options = Object.entries(options).map(x => ({ id: x[0], text: x[1] }));
+
+    	function toggleOptions() {
+    		scatterShowOptions.set(!$scatterShowOptions);
+    	}
+
     	const writable_props = ["options"];
 
     	Object_1$1.keys($$props).forEach(key => {
@@ -35231,7 +35236,6 @@ var app = (function () {
     	});
 
     	const $$binding_groups = [[]];
-    	const click_handler = () => set_store_value(scatterShowOptions, $scatterShowOptions = !$scatterShowOptions, $scatterShowOptions);
 
     	function input0_change_input_handler() {
     		$scatterPlotYear = to_number(this.value);
@@ -35290,6 +35294,7 @@ var app = (function () {
     		scatterShowOptions,
     		scatterRepType,
     		options,
+    		toggleOptions,
     		$scatterShowOptions,
     		$scatterPlotYear,
     		$scatterPlotXVar,
@@ -35316,7 +35321,7 @@ var app = (function () {
     		$scatterPlotColorVar,
     		$scatterPlotSizeVar,
     		$scatterRepType,
-    		click_handler,
+    		toggleOptions,
     		input0_change_input_handler,
     		select0_change_handler,
     		select1_change_handler,
@@ -35906,29 +35911,35 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[37] = list[i];
+    	child_ctx[38] = list[i];
     	return child_ctx;
     }
 
-    // (240:12) {#each congressmen as d}
-    function create_each_block$1(ctx) {
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[41] = list[i];
+    	return child_ctx;
+    }
+
+    // (225:12) {#each congressmen as d}
+    function create_each_block_1(ctx) {
     	let scat;
     	let current;
 
     	scat = new Scat({
     			props: {
-    				d: /*d*/ ctx[37],
-    				x: /*xScale*/ ctx[2](/*d*/ ctx[37].x),
-    				y: /*yScale*/ ctx[3](/*d*/ ctx[37].y),
-    				color: /*colorScale*/ ctx[10](/*d*/ ctx[37][/*$scatterPlotColorVar*/ ctx[8]]),
-    				r: /*sizeScale*/ ctx[11](/*d*/ ctx[37][/*$scatterPlotSizeVar*/ ctx[9]])
+    				d: /*d*/ ctx[41],
+    				x: /*xScale*/ ctx[8](/*d*/ ctx[41].x),
+    				y: /*yScale*/ ctx[9](/*d*/ ctx[41].y),
+    				color: /*colorScale*/ ctx[10](/*d*/ ctx[41][/*$scatterPlotColorVar*/ ctx[5]]),
+    				r: /*sizeScale*/ ctx[11](/*d*/ ctx[41][/*$scatterPlotSizeVar*/ ctx[6]])
     			},
     			$$inline: true
     		});
 
-    	scat.$on("mouseover", /*mouseOver*/ ctx[21]);
-    	scat.$on("mouseout", /*mouseOut*/ ctx[23]);
-    	scat.$on("mousemove", /*mouseMove*/ ctx[22]);
+    	scat.$on("mouseover", /*mouseOver*/ ctx[22]);
+    	scat.$on("mouseout", /*mouseOut*/ ctx[24]);
+    	scat.$on("mousemove", /*mouseMove*/ ctx[23]);
 
     	const block = {
     		c: function create() {
@@ -35940,11 +35951,11 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const scat_changes = {};
-    			if (dirty[0] & /*congressmen*/ 2) scat_changes.d = /*d*/ ctx[37];
-    			if (dirty[0] & /*xScale, congressmen*/ 6) scat_changes.x = /*xScale*/ ctx[2](/*d*/ ctx[37].x);
-    			if (dirty[0] & /*yScale, congressmen*/ 10) scat_changes.y = /*yScale*/ ctx[3](/*d*/ ctx[37].y);
-    			if (dirty[0] & /*colorScale, congressmen, $scatterPlotColorVar*/ 1282) scat_changes.color = /*colorScale*/ ctx[10](/*d*/ ctx[37][/*$scatterPlotColorVar*/ ctx[8]]);
-    			if (dirty[0] & /*sizeScale, congressmen, $scatterPlotSizeVar*/ 2562) scat_changes.r = /*sizeScale*/ ctx[11](/*d*/ ctx[37][/*$scatterPlotSizeVar*/ ctx[9]]);
+    			if (dirty[0] & /*congressmen*/ 1) scat_changes.d = /*d*/ ctx[41];
+    			if (dirty[0] & /*xScale, congressmen*/ 257) scat_changes.x = /*xScale*/ ctx[8](/*d*/ ctx[41].x);
+    			if (dirty[0] & /*yScale, congressmen*/ 513) scat_changes.y = /*yScale*/ ctx[9](/*d*/ ctx[41].y);
+    			if (dirty[0] & /*colorScale, congressmen, $scatterPlotColorVar*/ 1057) scat_changes.color = /*colorScale*/ ctx[10](/*d*/ ctx[41][/*$scatterPlotColorVar*/ ctx[5]]);
+    			if (dirty[0] & /*sizeScale, congressmen, $scatterPlotSizeVar*/ 2113) scat_changes.r = /*sizeScale*/ ctx[11](/*d*/ ctx[41][/*$scatterPlotSizeVar*/ ctx[6]]);
     			scat.$set(scat_changes);
     		},
     		i: function intro(local) {
@@ -35963,26 +35974,26 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$1.name,
+    		id: create_each_block_1.name,
     		type: "each",
-    		source: "(240:12) {#each congressmen as d}",
+    		source: "(225:12) {#each congressmen as d}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (238:8) {#key congressmen}
+    // (223:8) {#key congressmen}
     function create_key_block(ctx) {
     	let g;
     	let g_transition;
     	let current;
-    	let each_value = /*congressmen*/ ctx[1];
-    	validate_each_argument(each_value);
+    	let each_value_1 = /*congressmen*/ ctx[0];
+    	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
-    	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
     	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -35997,7 +36008,7 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(g, file$5, 238, 8, 8241);
+    			add_location(g, file$5, 223, 8, 7683);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g, anchor);
@@ -36006,23 +36017,23 @@ var app = (function () {
     				each_blocks[i].m(g, null);
     			}
 
-    			/*g_binding*/ ctx[28](g);
+    			/*g_binding*/ ctx[29](g);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*congressmen, xScale, yScale, colorScale, $scatterPlotColorVar, sizeScale, $scatterPlotSizeVar, mouseOver, mouseOut, mouseMove*/ 14683918) {
-    				each_value = /*congressmen*/ ctx[1];
-    				validate_each_argument(each_value);
+    			if (dirty[0] & /*congressmen, xScale, yScale, colorScale, $scatterPlotColorVar, sizeScale, $scatterPlotSizeVar, mouseOver, mouseOut, mouseMove*/ 29364065) {
+    				each_value_1 = /*congressmen*/ ctx[0];
+    				validate_each_argument(each_value_1);
     				let i;
 
-    				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$1(ctx, each_value, i);
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     						transition_in(each_blocks[i], 1);
     					} else {
-    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i] = create_each_block_1(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(g, null);
@@ -36031,7 +36042,7 @@ var app = (function () {
 
     				group_outros();
 
-    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    				for (i = each_value_1.length; i < each_blocks.length; i += 1) {
     					out(i);
     				}
 
@@ -36041,7 +36052,7 @@ var app = (function () {
     		i: function intro(local) {
     			if (current) return;
 
-    			for (let i = 0; i < each_value.length; i += 1) {
+    			for (let i = 0; i < each_value_1.length; i += 1) {
     				transition_in(each_blocks[i]);
     			}
 
@@ -36066,7 +36077,7 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(g);
     			destroy_each(each_blocks, detaching);
-    			/*g_binding*/ ctx[28](null);
+    			/*g_binding*/ ctx[29](null);
     			if (detaching && g_transition) g_transition.end();
     		}
     	};
@@ -36075,14 +36086,65 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(238:8) {#key congressmen}",
+    		source: "(223:8) {#key congressmen}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (253:0) {#if congressmen.length === 0}
+    // (237:8) {#each formattedHighlighted as h}
+    function create_each_block$1(ctx) {
+    	let text_1;
+    	let t_value = /*h*/ ctx[38].official_full + "";
+    	let t;
+    	let text_1_x_value;
+    	let text_1_y_value;
+
+    	const block = {
+    		c: function create() {
+    			text_1 = svg_element("text");
+    			t = text$1(t_value);
+    			attr_dev(text_1, "x", text_1_x_value = /*xScale*/ ctx[8](/*h*/ ctx[38][/*$scatterPlotXVar*/ ctx[3]]));
+    			attr_dev(text_1, "y", text_1_y_value = /*yScale*/ ctx[9](/*h*/ ctx[38][/*$scatterPlotYVar*/ ctx[4]]) - 5);
+    			attr_dev(text_1, "font-size", "12px");
+    			attr_dev(text_1, "stroke", "black");
+    			attr_dev(text_1, "text-anchor", "middle");
+    			attr_dev(text_1, "class", "svelte-1mkmnmf");
+    			add_location(text_1, file$5, 237, 12, 8214);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, text_1, anchor);
+    			append_dev(text_1, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*formattedHighlighted*/ 65536 && t_value !== (t_value = /*h*/ ctx[38].official_full + "")) set_data_dev(t, t_value);
+
+    			if (dirty[0] & /*xScale, formattedHighlighted, $scatterPlotXVar*/ 65800 && text_1_x_value !== (text_1_x_value = /*xScale*/ ctx[8](/*h*/ ctx[38][/*$scatterPlotXVar*/ ctx[3]]))) {
+    				attr_dev(text_1, "x", text_1_x_value);
+    			}
+
+    			if (dirty[0] & /*yScale, formattedHighlighted, $scatterPlotYVar*/ 66064 && text_1_y_value !== (text_1_y_value = /*yScale*/ ctx[9](/*h*/ ctx[38][/*$scatterPlotYVar*/ ctx[4]]) - 5)) {
+    				attr_dev(text_1, "y", text_1_y_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(text_1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(237:8) {#each formattedHighlighted as h}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (250:0) {#if congressmen.length === 0}
     function create_if_block_1(ctx) {
     	let div;
     	let h3;
@@ -36093,9 +36155,9 @@ var app = (function () {
     			h3 = element$3("h3");
     			h3.textContent = "No data available for this query";
     			attr_dev(h3, "class", "svelte-1mkmnmf");
-    			add_location(h3, file$5, 254, 4, 8779);
+    			add_location(h3, file$5, 251, 4, 8531);
     			attr_dev(div, "class", "error");
-    			add_location(div, file$5, 253, 0, 8755);
+    			add_location(div, file$5, 250, 0, 8507);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -36110,14 +36172,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(253:0) {#if congressmen.length === 0}",
+    		source: "(250:0) {#if congressmen.length === 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (262:0) {#if isHovered}
+    // (259:0) {#if isHovered}
     function create_if_block(ctx) {
     	let wikipediatooltip;
     	let updating_x;
@@ -36126,15 +36188,15 @@ var app = (function () {
     	let current;
 
     	function wikipediatooltip_x_binding(value) {
-    		/*wikipediatooltip_x_binding*/ ctx[30](value);
+    		/*wikipediatooltip_x_binding*/ ctx[31](value);
     	}
 
     	function wikipediatooltip_y_binding(value) {
-    		/*wikipediatooltip_y_binding*/ ctx[31](value);
+    		/*wikipediatooltip_y_binding*/ ctx[32](value);
     	}
 
     	function wikipediatooltip_message_binding(value) {
-    		/*wikipediatooltip_message_binding*/ ctx[32](value);
+    		/*wikipediatooltip_message_binding*/ ctx[33](value);
     	}
 
     	let wikipediatooltip_props = { otherFields: true };
@@ -36209,7 +36271,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(262:0) {#if isHovered}",
+    		source: "(259:0) {#if isHovered}",
     		ctx
     	});
 
@@ -36225,15 +36287,16 @@ var app = (function () {
     	let svg;
     	let axis0;
     	let text0;
-    	let t3_value = /*formattedLabels*/ ctx[16][/*$scatterPlotXVar*/ ctx[6]] + "";
+    	let t3_value = /*formattedLabels*/ ctx[17][/*$scatterPlotXVar*/ ctx[3]] + "";
     	let t3;
     	let axis1;
     	let legend;
     	let colorlegend;
     	let text1;
-    	let t4_value = /*formattedLabels*/ ctx[16][/*$scatterPlotYVar*/ ctx[7]] + "";
+    	let t4_value = /*formattedLabels*/ ctx[17][/*$scatterPlotYVar*/ ctx[4]] + "";
     	let t4;
-    	let previous_key = /*congressmen*/ ctx[1];
+    	let previous_key = /*congressmen*/ ctx[0];
+    	let g;
     	let t5;
     	let t6;
     	let searchbar;
@@ -36245,10 +36308,10 @@ var app = (function () {
 
     	axis0 = new Axis({
     			props: {
-    				width: /*width*/ ctx[19],
-    				height: /*height*/ ctx[20],
-    				margin: /*margin*/ ctx[18].bottom,
-    				scale: /*xScale*/ ctx[2],
+    				width: /*width*/ ctx[20],
+    				height: /*height*/ ctx[21],
+    				margin: /*margin*/ ctx[19].bottom,
+    				scale: /*xScale*/ ctx[8],
     				position: "bottom"
     			},
     			$$inline: true
@@ -36256,10 +36319,10 @@ var app = (function () {
 
     	axis1 = new Axis({
     			props: {
-    				width: /*width*/ ctx[19],
-    				height: /*height*/ ctx[20],
-    				margin: /*margin*/ ctx[18].left,
-    				scale: /*yScale*/ ctx[3],
+    				width: /*width*/ ctx[20],
+    				height: /*height*/ ctx[21],
+    				margin: /*margin*/ ctx[19].left,
+    				scale: /*yScale*/ ctx[9],
     				position: "left"
     			},
     			$$inline: true
@@ -36267,10 +36330,10 @@ var app = (function () {
 
     	legend = new Legend({
     			props: {
-    				title: /*formattedLabels*/ ctx[16][/*$scatterPlotSizeVar*/ ctx[9]],
+    				title: /*formattedLabels*/ ctx[17][/*$scatterPlotSizeVar*/ ctx[6]],
     				scale: /*sizeScale*/ ctx[11],
-    				xCircle: /*width*/ ctx[19] - 100,
-    				yCircle: /*height*/ ctx[20] / 3
+    				xCircle: /*width*/ ctx[20] - 100,
+    				yCircle: /*height*/ ctx[21] / 3
     			},
     			$$inline: true
     		});
@@ -36280,25 +36343,33 @@ var app = (function () {
     				width: 10,
     				height: 100,
     				scale: /*colorScale*/ ctx[10],
-    				xStart: /*width*/ ctx[19] - 25,
-    				yStart: /*height*/ ctx[20] / 3,
-    				title: /*formattedLabelsShort*/ ctx[17][/*$scatterPlotColorVar*/ ctx[8]]
+    				xStart: /*width*/ ctx[20] - 25,
+    				yStart: /*height*/ ctx[21] / 3,
+    				title: /*formattedLabelsShort*/ ctx[18][/*$scatterPlotColorVar*/ ctx[5]]
     			},
     			$$inline: true
     		});
 
     	let key_block = create_key_block(ctx);
-    	let if_block0 = /*congressmen*/ ctx[1].length === 0 && create_if_block_1(ctx);
+    	let each_value = /*formattedHighlighted*/ ctx[16];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	let if_block0 = /*congressmen*/ ctx[0].length === 0 && create_if_block_1(ctx);
 
     	searchbar = new SearchBar({
-    			props: { data: /*congressmen*/ ctx[1] },
+    			props: { data: /*congressmen*/ ctx[0] },
     			$$inline: true
     		});
 
-    	searchbar.$on("message", /*handleMessage*/ ctx[24]);
+    	searchbar.$on("message", /*handleMessage*/ ctx[25]);
 
     	scatteroptions = new ScatterOptions({
-    			props: { options: /*formattedLabels*/ ctx[16] },
+    			props: { options: /*formattedLabels*/ ctx[17] },
     			$$inline: true
     		});
 
@@ -36309,7 +36380,7 @@ var app = (function () {
     			div = element$3("div");
     			h2 = element$3("h2");
     			t0 = text$1("Congress in ");
-    			t1 = text$1(/*$scatterPlotYear*/ ctx[5]);
+    			t1 = text$1(/*$scatterPlotYear*/ ctx[2]);
     			t2 = space();
     			svg = svg_element("svg");
     			create_component(axis0.$$.fragment);
@@ -36321,6 +36392,12 @@ var app = (function () {
     			text1 = svg_element("text");
     			t4 = text$1(t4_value);
     			key_block.c();
+    			g = svg_element("g");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
     			t5 = space();
     			if (if_block0) if_block0.c();
     			t6 = space();
@@ -36330,24 +36407,25 @@ var app = (function () {
     			t8 = space();
     			if (if_block1) if_block1.c();
     			if_block1_anchor = empty$5();
-    			add_location(h2, file$5, 198, 4, 7028);
+    			add_location(h2, file$5, 183, 4, 6470);
     			attr_dev(text0, "text-anchor", "middle");
-    			attr_dev(text0, "x", /*width*/ ctx[19] / 2);
-    			attr_dev(text0, "y", /*height*/ ctx[20] - /*margin*/ ctx[18].bottom / 3);
+    			attr_dev(text0, "x", /*width*/ ctx[20] / 2);
+    			attr_dev(text0, "y", /*height*/ ctx[21] - /*margin*/ ctx[19].bottom / 3);
     			attr_dev(text0, "fill", "black");
     			attr_dev(text0, "class", "svelte-1mkmnmf");
-    			add_location(text0, file$5, 207, 8, 7317);
+    			add_location(text0, file$5, 192, 8, 6759);
     			attr_dev(text1, "text-anchor", "middle");
     			attr_dev(text1, "fill", "black");
-    			attr_dev(text1, "transform", `translate(${/*margin*/ ctx[18].left / 3}, ${/*height*/ ctx[20] / 2}) rotate(270)`);
+    			attr_dev(text1, "transform", `translate(${/*margin*/ ctx[19].left / 3}, ${/*height*/ ctx[21] / 2}) rotate(270)`);
     			attr_dev(text1, "class", "svelte-1mkmnmf");
-    			add_location(text1, file$5, 231, 8, 8018);
-    			attr_dev(svg, "viewBox", [0, 0, /*width*/ ctx[19], /*height*/ ctx[20]]);
-    			attr_dev(svg, "width", /*width*/ ctx[19]);
-    			attr_dev(svg, "height", /*height*/ ctx[20]);
-    			add_location(svg, file$5, 199, 4, 7072);
+    			add_location(text1, file$5, 216, 8, 7460);
+    			add_location(g, file$5, 235, 8, 8156);
+    			attr_dev(svg, "viewBox", [0, 0, /*width*/ ctx[20], /*height*/ ctx[21]]);
+    			attr_dev(svg, "width", /*width*/ ctx[20]);
+    			attr_dev(svg, "height", /*height*/ ctx[21]);
+    			add_location(svg, file$5, 184, 4, 6514);
     			attr_dev(div, "class", "scatterplot");
-    			add_location(div, file$5, 197, 0, 6998);
+    			add_location(div, file$5, 182, 0, 6440);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -36368,7 +36446,13 @@ var app = (function () {
     			append_dev(svg, text1);
     			append_dev(text1, t4);
     			key_block.m(svg, null);
-    			/*svg_binding*/ ctx[29](svg);
+    			append_dev(svg, g);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(g, null);
+    			}
+
+    			/*svg_binding*/ ctx[30](svg);
     			insert_dev(target, t5, anchor);
     			if (if_block0) if_block0.m(target, anchor);
     			insert_dev(target, t6, anchor);
@@ -36381,37 +36465,61 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (!current || dirty[0] & /*$scatterPlotYear*/ 32) set_data_dev(t1, /*$scatterPlotYear*/ ctx[5]);
+    			if (!current || dirty[0] & /*$scatterPlotYear*/ 4) set_data_dev(t1, /*$scatterPlotYear*/ ctx[2]);
     			const axis0_changes = {};
-    			if (dirty[0] & /*xScale*/ 4) axis0_changes.scale = /*xScale*/ ctx[2];
+    			if (dirty[0] & /*xScale*/ 256) axis0_changes.scale = /*xScale*/ ctx[8];
     			axis0.$set(axis0_changes);
-    			if ((!current || dirty[0] & /*$scatterPlotXVar*/ 64) && t3_value !== (t3_value = /*formattedLabels*/ ctx[16][/*$scatterPlotXVar*/ ctx[6]] + "")) set_data_dev(t3, t3_value);
+    			if ((!current || dirty[0] & /*$scatterPlotXVar*/ 8) && t3_value !== (t3_value = /*formattedLabels*/ ctx[17][/*$scatterPlotXVar*/ ctx[3]] + "")) set_data_dev(t3, t3_value);
     			const axis1_changes = {};
-    			if (dirty[0] & /*yScale*/ 8) axis1_changes.scale = /*yScale*/ ctx[3];
+    			if (dirty[0] & /*yScale*/ 512) axis1_changes.scale = /*yScale*/ ctx[9];
     			axis1.$set(axis1_changes);
     			const legend_changes = {};
-    			if (dirty[0] & /*$scatterPlotSizeVar*/ 512) legend_changes.title = /*formattedLabels*/ ctx[16][/*$scatterPlotSizeVar*/ ctx[9]];
+    			if (dirty[0] & /*$scatterPlotSizeVar*/ 64) legend_changes.title = /*formattedLabels*/ ctx[17][/*$scatterPlotSizeVar*/ ctx[6]];
     			if (dirty[0] & /*sizeScale*/ 2048) legend_changes.scale = /*sizeScale*/ ctx[11];
     			legend.$set(legend_changes);
     			const colorlegend_changes = {};
     			if (dirty[0] & /*colorScale*/ 1024) colorlegend_changes.scale = /*colorScale*/ ctx[10];
-    			if (dirty[0] & /*$scatterPlotColorVar*/ 256) colorlegend_changes.title = /*formattedLabelsShort*/ ctx[17][/*$scatterPlotColorVar*/ ctx[8]];
+    			if (dirty[0] & /*$scatterPlotColorVar*/ 32) colorlegend_changes.title = /*formattedLabelsShort*/ ctx[18][/*$scatterPlotColorVar*/ ctx[5]];
     			colorlegend.$set(colorlegend_changes);
-    			if ((!current || dirty[0] & /*$scatterPlotYVar*/ 128) && t4_value !== (t4_value = /*formattedLabels*/ ctx[16][/*$scatterPlotYVar*/ ctx[7]] + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty[0] & /*$scatterPlotYVar*/ 16) && t4_value !== (t4_value = /*formattedLabels*/ ctx[17][/*$scatterPlotYVar*/ ctx[4]] + "")) set_data_dev(t4, t4_value);
 
-    			if (dirty[0] & /*congressmen*/ 2 && safe_not_equal(previous_key, previous_key = /*congressmen*/ ctx[1])) {
+    			if (dirty[0] & /*congressmen*/ 1 && safe_not_equal(previous_key, previous_key = /*congressmen*/ ctx[0])) {
     				group_outros();
     				transition_out(key_block, 1, 1, noop$6);
     				check_outros();
     				key_block = create_key_block(ctx);
     				key_block.c();
     				transition_in(key_block);
-    				key_block.m(svg, null);
+    				key_block.m(svg, g);
     			} else {
     				key_block.p(ctx, dirty);
     			}
 
-    			if (/*congressmen*/ ctx[1].length === 0) {
+    			if (dirty[0] & /*xScale, formattedHighlighted, $scatterPlotXVar, yScale, $scatterPlotYVar*/ 66328) {
+    				each_value = /*formattedHighlighted*/ ctx[16];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(g, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (/*congressmen*/ ctx[0].length === 0) {
     				if (if_block0) ; else {
     					if_block0 = create_if_block_1(ctx);
     					if_block0.c();
@@ -36423,7 +36531,7 @@ var app = (function () {
     			}
 
     			const searchbar_changes = {};
-    			if (dirty[0] & /*congressmen*/ 2) searchbar_changes.data = /*congressmen*/ ctx[1];
+    			if (dirty[0] & /*congressmen*/ 1) searchbar_changes.data = /*congressmen*/ ctx[0];
     			searchbar.$set(searchbar_changes);
 
     			if (/*isHovered*/ ctx[12]) {
@@ -36479,7 +36587,8 @@ var app = (function () {
     			destroy_component(legend);
     			destroy_component(colorlegend);
     			key_block.d(detaching);
-    			/*svg_binding*/ ctx[29](null);
+    			destroy_each(each_blocks, detaching);
+    			/*svg_binding*/ ctx[30](null);
     			if (detaching) detach_dev(t5);
     			if (if_block0) if_block0.d(detaching);
     			if (detaching) detach_dev(t6);
@@ -36515,25 +36624,25 @@ var app = (function () {
     	let $scatterHighlighted;
     	let $scatterShowAnnotation;
     	validate_store(winWidth, "winWidth");
-    	component_subscribe($$self, winWidth, $$value => $$invalidate(33, $winWidth = $$value));
+    	component_subscribe($$self, winWidth, $$value => $$invalidate(34, $winWidth = $$value));
     	validate_store(winHeight, "winHeight");
-    	component_subscribe($$self, winHeight, $$value => $$invalidate(34, $winHeight = $$value));
+    	component_subscribe($$self, winHeight, $$value => $$invalidate(35, $winHeight = $$value));
     	validate_store(scatterPlotYear, "scatterPlotYear");
-    	component_subscribe($$self, scatterPlotYear, $$value => $$invalidate(5, $scatterPlotYear = $$value));
+    	component_subscribe($$self, scatterPlotYear, $$value => $$invalidate(2, $scatterPlotYear = $$value));
     	validate_store(scatterPlotXVar, "scatterPlotXVar");
-    	component_subscribe($$self, scatterPlotXVar, $$value => $$invalidate(6, $scatterPlotXVar = $$value));
+    	component_subscribe($$self, scatterPlotXVar, $$value => $$invalidate(3, $scatterPlotXVar = $$value));
     	validate_store(scatterPlotYVar, "scatterPlotYVar");
-    	component_subscribe($$self, scatterPlotYVar, $$value => $$invalidate(7, $scatterPlotYVar = $$value));
+    	component_subscribe($$self, scatterPlotYVar, $$value => $$invalidate(4, $scatterPlotYVar = $$value));
     	validate_store(scatterPlotColorVar, "scatterPlotColorVar");
-    	component_subscribe($$self, scatterPlotColorVar, $$value => $$invalidate(8, $scatterPlotColorVar = $$value));
+    	component_subscribe($$self, scatterPlotColorVar, $$value => $$invalidate(5, $scatterPlotColorVar = $$value));
     	validate_store(scatterRepType, "scatterRepType");
-    	component_subscribe($$self, scatterRepType, $$value => $$invalidate(26, $scatterRepType = $$value));
+    	component_subscribe($$self, scatterRepType, $$value => $$invalidate(27, $scatterRepType = $$value));
     	validate_store(scatterPlotSizeVar, "scatterPlotSizeVar");
-    	component_subscribe($$self, scatterPlotSizeVar, $$value => $$invalidate(9, $scatterPlotSizeVar = $$value));
+    	component_subscribe($$self, scatterPlotSizeVar, $$value => $$invalidate(6, $scatterPlotSizeVar = $$value));
     	validate_store(scatterHighlighted, "scatterHighlighted");
-    	component_subscribe($$self, scatterHighlighted, $$value => $$invalidate(35, $scatterHighlighted = $$value));
+    	component_subscribe($$self, scatterHighlighted, $$value => $$invalidate(36, $scatterHighlighted = $$value));
     	validate_store(scatterShowAnnotation, "scatterShowAnnotation");
-    	component_subscribe($$self, scatterShowAnnotation, $$value => $$invalidate(27, $scatterShowAnnotation = $$value));
+    	component_subscribe($$self, scatterShowAnnotation, $$value => $$invalidate(28, $scatterShowAnnotation = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Scatterplot2", slots, []);
     	let { data } = $$props;
@@ -36606,7 +36715,13 @@ var app = (function () {
     		$$invalidate(12, isHovered = false);
     	}
 
+    	scatterPlotYear.subscribe(() => {
+    		scatterHighlighted.set([]);
+    	});
+
     	// Search bar
+    	let formattedHighlighted = [];
+
     	function handleMessage(event) {
     		if (event.detail.text === "clear-labels") {
     			set_store_value(scatterHighlighted, $scatterHighlighted = [], $scatterHighlighted);
@@ -36615,6 +36730,10 @@ var app = (function () {
     			set_store_value(scatterHighlighted, $scatterHighlighted = [...$scatterHighlighted, event.detail.text], $scatterHighlighted);
     		}
     	}
+
+    	scatterHighlighted.subscribe(a => {
+    		$$invalidate(16, formattedHighlighted = a.map(x => congressmen.find(d => d.official_full == x)));
+    	});
 
     	// Annotations
     	let mySvg;
@@ -36657,14 +36776,14 @@ var app = (function () {
     	function g_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
     			scatter = $$value;
-    			$$invalidate(0, scatter);
+    			$$invalidate(7, scatter);
     		});
     	}
 
     	function svg_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
     			mySvg = $$value;
-    			$$invalidate(4, mySvg);
+    			$$invalidate(1, mySvg);
     		});
     	}
 
@@ -36684,7 +36803,7 @@ var app = (function () {
     	}
 
     	$$self.$$set = $$props => {
-    		if ("data" in $$props) $$invalidate(25, data = $$props.data);
+    		if ("data" in $$props) $$invalidate(26, data = $$props.data);
     	};
 
     	$$self.$capture_state = () => ({
@@ -36729,6 +36848,7 @@ var app = (function () {
     		mouseOver,
     		mouseMove,
     		mouseOut,
+    		formattedHighlighted,
     		handleMessage,
     		mySvg,
     		addAnnotation,
@@ -36745,18 +36865,19 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("data" in $$props) $$invalidate(25, data = $$props.data);
-    		if ("scatter" in $$props) $$invalidate(0, scatter = $$props.scatter);
-    		if ("congressmen" in $$props) $$invalidate(1, congressmen = $$props.congressmen);
-    		if ("xScale" in $$props) $$invalidate(2, xScale = $$props.xScale);
-    		if ("yScale" in $$props) $$invalidate(3, yScale = $$props.yScale);
+    		if ("data" in $$props) $$invalidate(26, data = $$props.data);
+    		if ("scatter" in $$props) $$invalidate(7, scatter = $$props.scatter);
+    		if ("congressmen" in $$props) $$invalidate(0, congressmen = $$props.congressmen);
+    		if ("xScale" in $$props) $$invalidate(8, xScale = $$props.xScale);
+    		if ("yScale" in $$props) $$invalidate(9, yScale = $$props.yScale);
     		if ("colorScale" in $$props) $$invalidate(10, colorScale = $$props.colorScale);
     		if ("sizeScale" in $$props) $$invalidate(11, sizeScale = $$props.sizeScale);
     		if ("isHovered" in $$props) $$invalidate(12, isHovered = $$props.isHovered);
     		if ("message" in $$props) $$invalidate(13, message = $$props.message);
     		if ("xTool" in $$props) $$invalidate(14, xTool = $$props.xTool);
     		if ("yTool" in $$props) $$invalidate(15, yTool = $$props.yTool);
-    		if ("mySvg" in $$props) $$invalidate(4, mySvg = $$props.mySvg);
+    		if ("formattedHighlighted" in $$props) $$invalidate(16, formattedHighlighted = $$props.formattedHighlighted);
+    		if ("mySvg" in $$props) $$invalidate(1, mySvg = $$props.mySvg);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -36764,17 +36885,17 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*data, $scatterPlotYear, $scatterPlotXVar, $scatterPlotYVar, $scatterPlotColorVar, $scatterRepType, congressmen, $scatterPlotSizeVar*/ 100664290) {
+    		if ($$self.$$.dirty[0] & /*data, $scatterPlotYear, $scatterPlotXVar, $scatterPlotYVar, $scatterPlotColorVar, $scatterRepType, congressmen, $scatterPlotSizeVar*/ 201326717) {
     			{
-    				$$invalidate(1, congressmen = data.congresses[$scatterPlotYear].filter(d => d[$scatterPlotXVar] != undefined).filter(d => d[$scatterPlotYVar] != undefined).filter(d => !isNaN(d[$scatterPlotXVar])).filter(d => !isNaN(d[$scatterPlotYVar])).map(d => ({
+    				$$invalidate(0, congressmen = data.congresses[$scatterPlotYear].filter(d => d[$scatterPlotXVar] != undefined).filter(d => d[$scatterPlotYVar] != undefined).filter(d => !isNaN(d[$scatterPlotXVar])).filter(d => !isNaN(d[$scatterPlotYVar])).map(d => ({
     					...d,
     					x: Number(d[$scatterPlotXVar]),
     					y: Number(d[$scatterPlotYVar])
     				})).filter(d => d[$scatterPlotColorVar] != undefined).filter(d => d.x !== -99 && d.y !== -99));
 
-    				if ($scatterRepType !== "both") $$invalidate(1, congressmen = congressmen.filter(d => d.type === $scatterRepType));
-    				$$invalidate(2, xScale = linear$2().domain(extent$1(congressmen, d => d.x)).nice().range([margin.left, width - margin.right]));
-    				$$invalidate(3, yScale = linear$2().domain(extent$1(congressmen, d => d.y)).nice().range([height - margin.bottom, margin.top]));
+    				if ($scatterRepType !== "both") $$invalidate(0, congressmen = congressmen.filter(d => d.type === $scatterRepType));
+    				$$invalidate(8, xScale = linear$2().domain(extent$1(congressmen, d => d.x)).nice().range([margin.left, width - margin.right]));
+    				$$invalidate(9, yScale = linear$2().domain(extent$1(congressmen, d => d.y)).nice().range([height - margin.bottom, margin.top]));
 
     				if ($scatterPlotColorVar === "nominate_dim1") {
     					$$invalidate(10, colorScale = linear$2().domain([-0.8, 0, 0.8]).nice().range(["blue", "white", "red"]));
@@ -36786,22 +36907,7 @@ var app = (function () {
     			}
     		}
 
-    		if ($$self.$$.dirty[0] & /*scatter, congressmen, xScale, $scatterPlotXVar, yScale, $scatterPlotYVar*/ 207) {
-    			{
-    				scatterHighlighted.subscribe(a => {
-    					select$2(scatter).selectAll("text").remove();
-
-    					if (a.length > 0) {
-    						let toPlot = a.map(x => congressmen.find(d => d.official_full == x));
-
-    						select$2(scatter).selectAll("text").data(toPlot).join("text").attr("x", d => xScale(d[$scatterPlotXVar])).attr("y", d => yScale(d[$scatterPlotYVar]) - 5).style("font-size", "12px").style("stroke", "black").style("text-anchor", "middle").// .style("stroke", "black")
-    						text(d => d.official_full); //, d => d.id)
-    					}
-    				});
-    			}
-    		}
-
-    		if ($$self.$$.dirty[0] & /*$scatterShowAnnotation, mySvg*/ 134217744) {
+    		if ($$self.$$.dirty[0] & /*$scatterShowAnnotation, mySvg*/ 268435458) {
     			{
     				//Once someone has hovered 
     				if (!$scatterShowAnnotation) {
@@ -36817,22 +36923,23 @@ var app = (function () {
     	};
 
     	return [
-    		scatter,
     		congressmen,
-    		xScale,
-    		yScale,
     		mySvg,
     		$scatterPlotYear,
     		$scatterPlotXVar,
     		$scatterPlotYVar,
     		$scatterPlotColorVar,
     		$scatterPlotSizeVar,
+    		scatter,
+    		xScale,
+    		yScale,
     		colorScale,
     		sizeScale,
     		isHovered,
     		message,
     		xTool,
     		yTool,
+    		formattedHighlighted,
     		formattedLabels,
     		formattedLabelsShort,
     		margin,
@@ -36856,7 +36963,7 @@ var app = (function () {
     class Scatterplot2 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init$1(this, options, instance$5, create_fragment$5, safe_not_equal, { data: 25 }, [-1, -1]);
+    		init$1(this, options, instance$5, create_fragment$5, safe_not_equal, { data: 26 }, [-1, -1]);
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -36868,7 +36975,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*data*/ ctx[25] === undefined && !("data" in props)) {
+    		if (/*data*/ ctx[26] === undefined && !("data" in props)) {
     			console.warn("<Scatterplot2> was created without expected prop 'data'");
     		}
     	}
@@ -36901,7 +37008,7 @@ var app = (function () {
     			div = element$3("div");
     			create_component(scatterplot2.$$.fragment);
     			attr_dev(div, "slot", "background");
-    			add_location(div, file$4, 45, 4, 1254);
+    			add_location(div, file$4, 45, 4, 1257);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -37026,38 +37133,38 @@ var app = (function () {
     			span2.textContent = "Try it yourself! Explore different variables and years of Congress.";
     			t23 = space();
     			section5 = element$3("section");
-    			add_location(br0, file$4, 54, 12, 1627);
-    			add_location(br1, file$4, 54, 16, 1631);
+    			add_location(br0, file$4, 54, 12, 1630);
+    			add_location(br1, file$4, 54, 16, 1634);
     			attr_dev(a, "href", "https://en.wikipedia.org/wiki/NOMINATE_(scaling_method)");
-    			add_location(a, file$4, 57, 12, 1862);
+    			add_location(a, file$4, 57, 12, 1865);
     			attr_dev(section0, "class", "story-part svelte-1omt4i3");
-    			add_location(section0, file$4, 51, 8, 1377);
+    			add_location(section0, file$4, 51, 8, 1380);
     			attr_dev(span0, "class", "red");
-    			add_location(span0, file$4, 63, 12, 2194);
-    			add_location(br2, file$4, 65, 12, 2302);
+    			add_location(span0, file$4, 63, 12, 2197);
+    			add_location(br2, file$4, 65, 12, 2305);
     			attr_dev(span1, "class", "blue");
-    			add_location(span1, file$4, 66, 12, 2350);
+    			add_location(span1, file$4, 66, 12, 2353);
     			attr_dev(section1, "class", "story-part svelte-1omt4i3");
-    			add_location(section1, file$4, 61, 8, 2013);
-    			add_location(i0, file$4, 70, 74, 2555);
-    			add_location(br3, file$4, 72, 12, 2634);
-    			add_location(br4, file$4, 72, 16, 2638);
+    			add_location(section1, file$4, 61, 8, 2016);
+    			add_location(i0, file$4, 70, 74, 2558);
+    			add_location(br3, file$4, 72, 12, 2637);
+    			add_location(br4, file$4, 72, 16, 2641);
     			attr_dev(section2, "class", "story-part svelte-1omt4i3");
-    			add_location(section2, file$4, 70, 8, 2489);
-    			add_location(i1, file$4, 76, 37, 2755);
-    			add_location(br5, file$4, 78, 12, 2842);
-    			add_location(br6, file$4, 78, 16, 2846);
+    			add_location(section2, file$4, 70, 8, 2492);
+    			add_location(i1, file$4, 76, 37, 2758);
+    			add_location(br5, file$4, 78, 12, 2845);
+    			add_location(br6, file$4, 78, 16, 2849);
     			attr_dev(section3, "class", "story-part svelte-1omt4i3");
-    			add_location(section3, file$4, 76, 8, 2726);
+    			add_location(section3, file$4, 76, 8, 2729);
     			attr_dev(span2, "class", "direction");
-    			add_location(span2, file$4, 85, 12, 3256);
+    			add_location(span2, file$4, 85, 12, 3259);
     			attr_dev(section4, "class", "story-part svelte-1omt4i3");
-    			add_location(section4, file$4, 82, 8, 2993);
+    			add_location(section4, file$4, 82, 8, 2996);
     			attr_dev(section5, "class", "blank-story-part svelte-1omt4i3");
-    			add_location(section5, file$4, 88, 8, 3383);
+    			add_location(section5, file$4, 88, 8, 3386);
     			attr_dev(div, "slot", "foreground");
     			attr_dev(div, "class", "svelte-1omt4i3");
-    			add_location(div, file$4, 49, 4, 1326);
+    			add_location(div, file$4, 49, 4, 1329);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -37295,7 +37402,7 @@ var app = (function () {
     						scatterHighlighted.set(Array("Maxine Waters", "Barbara Lee"));
     						break;
     					case 2:
-    						scatterHighlighted.set(Array());
+    						// scatterHighlighted.set(Array());
     						scatterPlotXVar.set("cosponsored");
     						break;
     					case 3:
@@ -37809,14 +37916,14 @@ var app = (function () {
     			t0 = text$1(t0_value);
     			t1 = space();
     			attr_dev(a, "href", "#" + /*s*/ ctx[2][0]);
-    			attr_dev(a, "class", "svelte-5ui8gw");
-    			add_location(a, file$2, 17, 12, 490);
+    			attr_dev(a, "class", "svelte-10mp4uf");
+    			add_location(a, file$2, 17, 12, 513);
 
     			attr_dev(li, "class", li_class_value = "" + (null_to_empty(/*$currentSection*/ ctx[0] === /*s*/ ctx[2][0]
     			? "current"
-    			: "inactive") + " svelte-5ui8gw"));
+    			: "inactive") + " svelte-10mp4uf"));
 
-    			add_location(li, file$2, 16, 8, 416);
+    			add_location(li, file$2, 16, 8, 439);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -37827,7 +37934,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			if (dirty & /*$currentSection*/ 1 && li_class_value !== (li_class_value = "" + (null_to_empty(/*$currentSection*/ ctx[0] === /*s*/ ctx[2][0]
     			? "current"
-    			: "inactive") + " svelte-5ui8gw"))) {
+    			: "inactive") + " svelte-10mp4uf"))) {
     				attr_dev(li, "class", li_class_value);
     			}
     		},
@@ -37872,11 +37979,11 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(h2, file$2, 13, 4, 343);
-    			attr_dev(ul, "class", "svelte-5ui8gw");
-    			add_location(ul, file$2, 14, 4, 373);
-    			attr_dev(header, "class", "svelte-5ui8gw");
-    			add_location(header, file$2, 12, 0, 330);
+    			add_location(h2, file$2, 13, 4, 366);
+    			attr_dev(ul, "class", "svelte-10mp4uf");
+    			add_location(ul, file$2, 14, 4, 396);
+    			attr_dev(header, "class", "svelte-10mp4uf");
+    			add_location(header, file$2, 12, 0, 353);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -37941,7 +38048,7 @@ var app = (function () {
     	component_subscribe($$self, currentSection, $$value => $$invalidate(0, $currentSection = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("ProgressHeader", slots, []);
-    	let sections = Array(["intro", "Introduction"], ["bubbleplot", "Distribution of Congressional Experience"], ["boxplot", "Congress over Time"], ["scatterplot", "Congress Today"], ["conclusion", "Conclusion"]);
+    	let sections = Array(["intro", "Introduction"], ["bubbleplot", "Distribution of Congressional Experience"], ["boxplot", "Congress over the Years"], ["scatterplot", "Length of Tenure vs. Performance"], ["conclusion", "Conclusion"]);
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -38319,7 +38426,7 @@ var app = (function () {
     			p.textContent = "An error occurred!";
     			t1 = space();
     			t2 = text$1(t2_value);
-    			add_location(p, file, 94, 2, 2773);
+    			add_location(p, file, 94, 2, 2810);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -38412,7 +38519,7 @@ var app = (function () {
     			t1 = space();
     			div1 = element$3("div");
     			h10 = element$3("h1");
-    			h10.textContent = "Distribution of Years in Congress";
+    			h10.textContent = "Distribution of Congressional Experience";
     			t3 = space();
     			create_component(bubblestory.$$.fragment);
     			t4 = space();
@@ -38424,7 +38531,7 @@ var app = (function () {
     			t7 = space();
     			div3 = element$3("div");
     			h12 = element$3("h1");
-    			h12.textContent = "Congress Today";
+    			h12.textContent = "Congressional Experience versus Performance";
     			t9 = space();
     			create_component(scatterstory.$$.fragment);
     			t10 = space();
@@ -38451,42 +38558,42 @@ var app = (function () {
     			a2.textContent = "Project Writeup";
     			attr_dev(div0, "class", "spacer svelte-1gv8md4");
     			attr_dev(div0, "id", "intro");
-    			add_location(div0, file, 60, 2, 1851);
+    			add_location(div0, file, 60, 2, 1852);
     			attr_dev(h10, "class", "svelte-1gv8md4");
-    			add_location(h10, file, 64, 3, 1949);
+    			add_location(h10, file, 64, 3, 1950);
     			attr_dev(div1, "class", "spacer svelte-1gv8md4");
     			attr_dev(div1, "id", "bubbleplot");
-    			add_location(div1, file, 63, 2, 1909);
+    			add_location(div1, file, 63, 2, 1910);
     			attr_dev(h11, "class", "svelte-1gv8md4");
-    			add_location(h11, file, 69, 3, 2066);
+    			add_location(h11, file, 69, 3, 2074);
     			attr_dev(div2, "class", "spacer svelte-1gv8md4");
     			attr_dev(div2, "id", "boxplot");
-    			add_location(div2, file, 68, 2, 2029);
+    			add_location(div2, file, 68, 2, 2037);
     			attr_dev(h12, "class", "svelte-1gv8md4");
-    			add_location(h12, file, 75, 3, 2180);
+    			add_location(h12, file, 75, 3, 2188);
     			attr_dev(div3, "class", "spacer svelte-1gv8md4");
     			attr_dev(div3, "id", "scatterplot");
-    			add_location(div3, file, 74, 2, 2139);
+    			add_location(div3, file, 74, 2, 2147);
     			attr_dev(h13, "class", "svelte-1gv8md4");
-    			add_location(h13, file, 80, 3, 2281);
+    			add_location(h13, file, 80, 3, 2318);
     			attr_dev(div4, "class", "spacer svelte-1gv8md4");
     			attr_dev(div4, "id", "conclusion");
-    			add_location(div4, file, 79, 2, 2241);
-    			add_location(h3, file, 84, 12, 2366);
+    			add_location(div4, file, 79, 2, 2278);
+    			add_location(h3, file, 84, 12, 2403);
     			attr_dev(a0, "href", "https://www.govtrack.us/congress/members");
-    			add_location(a0, file, 86, 20, 2426);
+    			add_location(a0, file, 86, 20, 2463);
     			attr_dev(li0, "class", "svelte-1gv8md4");
-    			add_location(li0, file, 86, 16, 2422);
+    			add_location(li0, file, 86, 16, 2459);
     			attr_dev(a1, "href", "https://voteview.com/about");
-    			add_location(a1, file, 87, 20, 2538);
+    			add_location(a1, file, 87, 20, 2575);
     			attr_dev(li1, "class", "svelte-1gv8md4");
-    			add_location(li1, file, 87, 16, 2534);
+    			add_location(li1, file, 87, 16, 2571);
     			attr_dev(ul, "class", "svelte-1gv8md4");
-    			add_location(ul, file, 85, 12, 2401);
+    			add_location(ul, file, 85, 12, 2438);
     			attr_dev(a2, "href", "https://github.com/6859-sp21/final-project-the-rise-of-the-career-politician");
-    			add_location(a2, file, 90, 12, 2628);
+    			add_location(a2, file, 90, 12, 2665);
     			attr_dev(div5, "class", "footer svelte-1gv8md4");
-    			add_location(div5, file, 83, 2, 2333);
+    			add_location(div5, file, 83, 2, 2370);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -38588,7 +38695,7 @@ var app = (function () {
     		c: function create() {
     			p = element$3("p");
     			p.textContent = "...waiting";
-    			add_location(p, file, 58, 2, 1817);
+    			add_location(p, file, 58, 2, 1818);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -38647,9 +38754,9 @@ var app = (function () {
     			t2 = space();
     			info.block.c();
     			attr_dev(h1, "class", "svelte-1gv8md4");
-    			add_location(h1, file, 56, 1, 1784);
+    			add_location(h1, file, 56, 1, 1785);
     			attr_dev(main, "class", "svelte-1gv8md4");
-    			add_location(main, file, 54, 0, 1757);
+    			add_location(main, file, 54, 0, 1758);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
