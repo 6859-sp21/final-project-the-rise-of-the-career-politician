@@ -80,7 +80,7 @@
                     After WW2, members of Congress began to serve longer terms.
                 </span>
                 <br><br>
-                Notably, some members began to serve <strong>really</strong> long terms, increasing the variance in time spent in Congress.
+                Notably, some members began to serve <strong>really</strong> long terms.
             </section>
 
             <!-- 2 --> <section class="story-part"><i>How about average age in Congress?</i>
@@ -88,7 +88,7 @@
                 While average age has gone up slightly, this trend has lagged behind gains in life expectancy. 
                 <br><br>
                 <span class="emphasize">
-                    Current Congress is the oldest Congress ever, but not by much.
+                    Current Congress is the oldest Congress ever, but Congress has always been old.
                 </span>
                        </section>
 
@@ -102,7 +102,7 @@
                 We see that term lengths for the outliers increased as life expectancy increased.
 
                 <br><br>
-                <span class="emphasize">Death is the only limit on the career politicians' tenure in Congress.</span> 
+                <span class="emphasize">Career politicians stay in Congress as long as they are alive.</span> 
             </section>
             
             <!-- 5 --> 

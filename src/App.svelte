@@ -82,14 +82,14 @@
 		</div>
 		<ConclusionStory/>
 		<div class="footer">
-            <h3>Data Sources:</h3>
+            <h3>Data and Other Links</h3>
             <ul>
                 <li><a href="https://www.govtrack.us/congress/members">Govtrack Congressional Database</a></li>
                 <li><a href="https://voteview.com/about">Voteview</a></li>
+				<li><a href="https://github.com/6859-sp21/final-project-the-rise-of-the-career-politician">Project Writeup</a></li>
+				<li><a href="./writeup.pdf">Conference Paper</a></li>    
             </ul>
-    
-            <a href="https://github.com/6859-sp21/final-project-the-rise-of-the-career-politician">Project Writeup</a>    
-        </div>
+		</div>
 
 	{:catch error}
 		<p>An error occurred!</p>

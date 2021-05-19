@@ -63,12 +63,12 @@
             This is especially true for conservatives, where
             <span class="red">time in Congress is negatively correlated with conservative ideology.</span>
 
-            <br>Some very liberal members, like
+            <br><br>Some very liberal members, like
             <span class="blue"> Rep. Maxine Waters and Rep. Barbara Lee</span>,  have had long tenures.
         </section>
 
         <!-- 2 -->
-        <section class="story-part"> Let's explore some other outcomes... <i>Do longer-tenured members sponsor more bills?</i> 
+        <section class="story-part"> Let's explore some other outcomes... <i>Do more experienced members sponsor more bills?</i> 
             
             <br><br>There is not a clear relationship.  
         </section>
@@ -81,8 +81,9 @@
 
         <!-- 4 -->
         <section class="story-part"> While these outcomes are crude and a lot of what's desired by members of Congress cannot be plotted on a graph, 
-            it is not clear that longer tenured members of Congress differ in behavior from newer members. 
+            it is not clear that more experienced members of Congress differ in behavior from newer members. 
 
+            <br><br>
             <span class="direction">Try it yourself! Explore different variables and years of Congress.</span>
         </section>
 
