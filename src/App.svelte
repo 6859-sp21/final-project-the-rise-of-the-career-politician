@@ -85,9 +85,10 @@
             <h3>Data and Other Links</h3>
             <ul>
                 <li><a href="https://www.govtrack.us/congress/members">Govtrack Congressional Database</a></li>
-                <li><a href="https://voteview.com/about">Voteview</a></li>
-				<li><a href="https://github.com/6859-sp21/final-project-the-rise-of-the-career-politician">Project Writeup</a></li>
-				<li><a href="./writeup.pdf">Conference Paper</a></li>    
+                <li><a href="https://voteview.com/about">Voteview Ideology Scores</a></li>
+				<li><a href="https://www.statista.com/statistics/1040079/life-expectancy-united-states-all-time/">Historical Life Expectancy Data</a></li>
+				<li><a href="https://github.com/6859-sp21/final-project-the-rise-of-the-career-politician">Project Page</a></li>
+				<li><a href="./writeup.pdf">Project Paper</a></li>    
             </ul>
 		</div>
 
