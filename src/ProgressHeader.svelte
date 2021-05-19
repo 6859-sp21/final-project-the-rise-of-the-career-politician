@@ -29,7 +29,7 @@ header {
 		text-align: left; 
 		margin-bottom: 1em;
 		position: fixed;
-		left: 80%;
+		left: 82%;
 		top: 0;
         font-size: 1em;
         z-index: 5;

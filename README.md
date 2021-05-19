@@ -1,16 +1,17 @@
 # The Rise of the Career Politician
 This project attempts to visualize changes in tenure lengths for members of Congress in the form of a scrolly-telly article.
 
-__todo__ image [3 images of each view in a row]
-
+<img src="./vis1.png" height="200">
+<img src="./vis2.png" height="200">
+<img src="./vis3.png" height="200">
 
 ## Team Members
 - Joe Schlessinger
 
 ## Links
-- Website: 6859-sp21.github.io/final-project-the-rise-of-the-career-politician/.
-- Paper: __todo__
-- Video: __todo__ 
+- [Project Website](https://6859-sp21.github.io/final-project-the-rise-of-the-career-politician/)
+- [Project Paper](https://github.com/6859-sp21/final-project-the-rise-of-the-career-politician/writeup.pdf)
+- [Project Video](https://drive.google.com/file/d/10ccwIwnkN9Wqwky3uB7_xVQptNgkpVMQ/view?usp=sharing)
 
 ## Work Breakdown
 I did everything.

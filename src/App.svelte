@@ -89,7 +89,8 @@
 				<li><a href="https://www.statista.com/statistics/1040079/life-expectancy-united-states-all-time/">Historical Life Expectancy Data</a></li>
 				<li><a href="https://github.com/6859-sp21/final-project-the-rise-of-the-career-politician">Project Page</a></li>
 				<li><a href="./writeup.pdf">Project Paper</a></li>    
-            </ul>
+				<li><a href="https://drive.google.com/file/d/10ccwIwnkN9Wqwky3uB7_xVQptNgkpVMQ/view?usp=sharing">Project Video</a></li>    
+			</ul>
 		</div>
 
 	{:catch error}
@@ -172,7 +173,7 @@
     .footer { 
 		text-align: left; 
 		position: fixed;
-        height: 20%;
+        height: 23%;
 		left: 85%;
 		bottom: 0%;
         z-index: 5;
