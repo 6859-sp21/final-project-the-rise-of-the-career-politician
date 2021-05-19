@@ -1,8 +1,0 @@
-{
-    "git.ignoreLimitWarning": true,
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "python.linting.pylintUseMinimalCheckers": false,
-    "python.linting.lintOnSave": true,
-    "python.pythonPath": "/home/joe/anaconda3/bin/python",    
-}
