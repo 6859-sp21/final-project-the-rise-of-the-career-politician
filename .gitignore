@@ -1,0 +1,6 @@
+/node_modules/
+/public/build/
+*-checkpoint.ipynb
+.DS_Store
+scripts/misconduct.json
+/paper/
